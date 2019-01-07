@@ -1,0 +1,4 @@
+https://www.namecheap.com  (Donde se aloja el dominio, gratis)
+https://www.namecheap.com/support/knowledgebase/article.aspx/536/51/how-do-i-set-my-domain-to-use-namecheaps-freedns-service (Tutos seguidos, pleno)
+https://www.youtube.com/watch?v=mPGi1IHQxFM&vl=es (Video seguido, acá dns)
+https://medium.com/@ggerena/configurar-github-pages-para-usar-dominios-cl-13c1a644699f (Guia seguida, acá solo pasos)
