@@ -12,6 +12,8 @@
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 </head>
+
+
 <body>
 
 <div class="super_container">
@@ -29,7 +31,7 @@
 					<li><a href="index.html">Experiencia</a></li>
 					<li><a href="index.html">Educacion</a></li>
 					<li><a href="index.html">Portafolio</a></li>
-					<li><a href="index.html">Música</a></li>
+					<li><a href="#" id="mu">Música</a></li>
 					<li><a href="index.html">Contacto</a></li>
 				</ul>
 				
@@ -46,7 +48,7 @@
 					<li><a href="index.html">Experiencia</a></li>
 					<li><a href="index.html">Educacion</a></li>
 					<li><a href="index.html">Portafolio</a></li>
-					<li><a href="index.html">Testimonios</a></li>
+					<li><a href="#" id="mu2">Música</a></li>
 					<li><a href="index.html">Contacto</a></li>
 				</ul>
 			</div>
@@ -74,52 +76,18 @@
 				
 				<div class="main_content_scroll mCustomScrollbar" data-mcs-theme="minimal-dark">
 					<div class="about_content">
-						<div class="about_title">Descripción</div>
-						<div class="about_text">
+						
+
+						<div class="about_text" id="descripcion" >
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae sapien porttitor, dignissim quam sit amet, aliquam lorem. Fusce id ligula non risus mollis consectetur. Nam lobortis, erat quis pulvinar dignissim, velit ligula ullamcorper ipsum, at sodales elit odio at velit. Sed a est a quam mattis suscipit. Proin et faucibus diam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae sapien porttitor, dignissim quam sit amet, aliquam lorem. Fusce id ligula non risus mollis consectetur. Nam lobortis, erat quis pulvinar dignissim, velit ligula ullamcorper ipsum, at sodales elit odio at velit. Sed a est a quam mattis suscipit.</p>
 						</div>
 
 						<!-- Loaders -->
-
-						<div class="loaders clearfix">
-
-							<!-- Loader -->
-							<div class="loader_container">
-								<div class="loader" data-perc="0.75"></div>
-								<div class="loader_content text-center">
-									<div class="loader_title">Intuición</div>
-									<div class="loader_subtitle">Etiam nec odio vestibulum est.</div>
-								</div>
-							</div>
-							
-							<!-- Loader -->
-							<div class="loader_container">
-								<div class="loader" data-perc="0.83"></div>
-								<div class="loader_content text-center">
-									<div class="loader_title">Creatividad</div>
-									<div class="loader_subtitle">Odio vestibulum est mattis.</div>
-								</div>
-							</div>
-
-							<!-- Loader -->
-							<div class="loader_container">
-								<div class="loader" data-perc="0.25"></div>
-								<div class="loader_content text-center">
-									<div class="loader_title">Pura suerte</div>
-									<div class="loader_subtitle">Vestibulum est mattis effic.</div>
-								</div>
-							</div>
-
-							<!-- Loader -->
-							<div class="loader_container">
-								<div class="loader" data-perc="0.95"></div>
-								<div class="loader_content text-center">
-									<div class="loader_title">Genialidad</div>
-									<div class="loader_subtitle">Vestibulum est mattis effic.</div>
-								</div>
-							</div>
-
+						<div class="about_text" id="musica" >
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL7us9dtxevSqG5rajxmc0xPQDpIQPYgM3?rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
+
+						
 					</div>
 				</div>
 
@@ -154,6 +122,23 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos
 function myFunction() {
   alert("Error");
 }
+
+$(document).ready(function(){
+	$('#musica').hide();
+
+
+    $('#mu').click(function(){
+    $('#musica').show();
+    $('#descripcion').hide();
+    });
+
+    $('#mu2').click(function(){
+    $('#musica').show();
+    $('#descripcion').hide();
+    });
+});
+
+
 </script>
 </body>
 </html>
