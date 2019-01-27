@@ -297,7 +297,7 @@ section
 }
 .logo span
 {
-	color: #8583e1;
+	color: #08631d;
 }
 .main_nav
 {
@@ -309,7 +309,7 @@ section
 }
 .main_nav ul li
 {
-	background: #100f3a;
+	background: rgb(0, 0, 0);
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -319,7 +319,7 @@ section
 .main_nav ul li:hover,
 .main_nav ul li.active
 {
-	background: #8583e1;
+	background: #08631d;
 }
 .main_nav ul li:not(:last-child)
 {
@@ -415,7 +415,7 @@ section
 {
 	width: 473px;
 	height: 100%;
-	background: #100f3a;
+	background: rgb(0, 0, 0);
 }
 .general_info_image
 {
