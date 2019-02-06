@@ -129,6 +129,37 @@ $(document).ready(function(){
     });
 });
 
+/* Ajax encode
+function devuelveButaca(posicion, callback){
+    var array = posicion.split('_');
+    var row = array[0];
+    var column = array[1];
+    var planta = $('#plantaField').val();
+    var resultado = "";
+    $.ajax({
+        type : 'GET',
+        url : 'site/numButaca',
+        data : {
+            planta : planta,
+            column : column,
+            row : row
+        },
+        success : function(data) {
+            if(data == 'undefined' || data == ''){
+                resultado = column;
+
+            }else{
+                resultado = data;
+            }
+
+            callback(resultado);
+        },
+        error : function(request, status, error) {
+
+        },
+    });
+}
+*/
 
 
 </script>
