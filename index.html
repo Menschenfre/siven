@@ -28,7 +28,7 @@
 				<ul class="d-flex flex-row align-items-center justify-content-start">
 					<li class="active"><a href="https://siven.cl">Main</a></li>
 					<li><a href="#" id="mu">Music</a></li>
-					<li><a href="#">Admin</a></li>
+					<li><a href="#" id="mn">Admin</a></li>
 				</ul>
 			</div>
 			<!-- Menu -->
@@ -73,10 +73,13 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae sapien porttitor, dignissim quam sit amet, aliquam lorem. Fusce id ligula non risus mollis consectetur. Nam lobortis, erat quis pulvinar dignissim, velit ligula ullamcorper ipsum, at sodales elit odio at velit. Sed a est a quam mattis suscipit. Proin et faucibus diam.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae sapien porttitor, dignissim quam sit amet, aliquam lorem. Fusce id ligula non risus mollis consectetur. Nam lobortis, erat quis pulvinar dignissim, velit ligula ullamcorper ipsum, at sodales elit odio at velit. Sed a est a quam mattis suscipit.</p>
 						</div>
 
-						<!-- Loaders -->
+						<!---------------------- Ajax magic time ------------------------>
 						<div class="videoWrapper" id="musica" >
-							
 						</div>
+
+						<div id="mugen">
+						</div>
+
 
 						
 					</div>
@@ -117,18 +120,27 @@ function myFunction() {
 $(document).ready(function(){
 	$('#musica').hide();
 
-
+//Lógica música web
     $('#mu').click(function(){
     $('#musica').show();
     $('#descripcion').hide();
     });
 
+//Lógica música móbile
     $('#mu2').click(function(){
     $('#musica').show();
     $('#descripcion').hide();
     });
 
+//Función música web
     $("#mu").click(function(){
+ 		$.ajax({url: "vistas/musica.html", success: function(result){
+    	$("#musica").html(result);
+  		}});
+	});
+
+//Función música mobile	
+	$("#mu2").click(function(){
  		$.ajax({url: "vistas/musica.html", success: function(result){
     	$("#musica").html(result);
   		}});
