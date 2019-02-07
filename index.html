@@ -75,7 +75,7 @@
 
 						<!-- Loaders -->
 						<div class="videoWrapper" id="musica" >
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL7us9dtxevSqG5rajxmc0xPQDpIQPYgM3" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							
 						</div>
 
 						
@@ -127,39 +127,17 @@ $(document).ready(function(){
     $('#musica').show();
     $('#descripcion').hide();
     });
+
+    $("#mu").click(function(){
+ 		$.ajax({url: "vistas/musica.html", success: function(result){
+    	$("#musica").html(result);
+  		}});
+	});
+
+
 });
 
-/* Ajax encode
-function devuelveButaca(posicion, callback){
-    var array = posicion.split('_');
-    var row = array[0];
-    var column = array[1];
-    var planta = $('#plantaField').val();
-    var resultado = "";
-    $.ajax({
-        type : 'GET',
-        url : 'site/numButaca',
-        data : {
-            planta : planta,
-            column : column,
-            row : row
-        },
-        success : function(data) {
-            if(data == 'undefined' || data == ''){
-                resultado = column;
 
-            }else{
-                resultado = data;
-            }
-
-            callback(resultado);
-        },
-        error : function(request, status, error) {
-
-        },
-    });
-}
-*/
 
 
 </script>
