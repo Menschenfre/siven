@@ -39,7 +39,7 @@
 				<ul>
 					<li><a href="https://siven.cl">Main</a></li>
 					<li><a href="#" id="mu2">Music</a></li>
-					<li><a href="#">Admin</a></li>
+					<li><a href="#" id="mn2">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -119,18 +119,35 @@ function myFunction() {
 
 $(document).ready(function(){
 	$('#musica').hide();
+	$('#mugen').hide();
 
 //Lógica música web
     $('#mu').click(function(){
     $('#musica').show();
     $('#descripcion').hide();
+    $('#mugen').hide();
     });
 
 //Lógica música móbile
     $('#mu2').click(function(){
     $('#musica').show();
     $('#descripcion').hide();
+    $('#mugen').hide();
     });
+
+//Lógica mugen web
+    $('#mn').click(function(){
+    $('#mugen').show();
+    $('#descripcion').hide();
+    $('#musica').hide();
+    });
+
+//Lógica mugen mobile
+    $('#mn2').click(function(){
+    $('#mugen').show();
+    $('#descripcion').hide();
+    $('#musica').hide();
+    });    
 
 //Función música web
     $("#mu").click(function(){
@@ -145,6 +162,20 @@ $(document).ready(function(){
     	$("#musica").html(result);
   		}});
 	});
+
+//Función mugen web	
+	$("#mn").click(function(){
+ 		$.ajax({url: "vistas/mugen.html", success: function(result){
+    	$("#musica").html(result);
+  		}});
+	});	
+
+//Función mugen mobile	
+	$("#mn2").click(function(){
+ 		$.ajax({url: "vistas/mugen.html", success: function(result){
+    	$("#musica").html(result);
+  		}});
+	});	
 
 
 });
