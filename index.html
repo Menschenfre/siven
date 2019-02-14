@@ -141,7 +141,17 @@ $(document).ready(function(){
 	$("#random").click(function(){
  		$.ajax({url: "vistas/random.html", success: function(result){
     	$("#contenido").html(result);
-    	var videos_collection = ["https://www.youtube.com/embed/9bZkp7q19f0", "https://www.youtube.com/embed/dQw4w9WgXcQ"];
+    	var videos_collection = [
+    	"https://www.youtube.com/watch?v=ioOzsi9aHQQ",
+    	"https://www.youtube.com/embed/9bZkp7q19f0", 
+    	"https://www.youtube.com/embed/dQw4w9WgXcQ",
+    	"https://www.youtube.com/watch?v=bOsKJpCR9Fo",
+    	"https://www.youtube.com/watch?v=71Gt46aX9Z4",
+    	"https://www.youtube.com/watch?v=UiHmeHZAc0s",
+    	"https://www.youtube.com/watch?v=HzTlB-TjAzM",
+    	"https://www.youtube.com/watch?v=ASO_zypdnsQ",
+    	"https://www.youtube.com/watch?v=FrG4TEcSuRg"
+    	];
   		var playerDiv = document.getElementById("random_player");
         var player = document.createElement("IFRAME");
         var randomVideoUrl = videos_collection[Math.floor(Math.random() * videos_collection.length)];
