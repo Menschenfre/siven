@@ -142,10 +142,18 @@ $(document).ready(function(){
  		$.ajax({url: "vistas/random.html", success: function(result){
     	$("#contenido").html(result);
   		}});
+  		var videos_collection = ["https://www.youtube.com/embed/9bZkp7q19f0", "https://www.youtube.com/embed/dQw4w9WgXcQ"];
+  		var playerDiv = document.getElementById("random_player");
+        var player = document.createElement("IFRAME");
+        var randomVideoUrl = videos_collection[Math.floor(Math.random() * videos_collection.length)];
+        player.setAttribute('class', 'embed-responsive-item');
+        player.setAttribute('src', randomVideoUrl);
+        playerDiv.appendChild(player);
+
 	});
 
 
-//Llena videos random colección
+/*Llena videos random colección
 	var videos_collection = ["https://www.youtube.com/embed/9bZkp7q19f0", "https://www.youtube.com/embed/dQw4w9WgXcQ"];
     window.onload = function () {
         var playerDiv = document.getElementById("random_player");
@@ -155,6 +163,7 @@ $(document).ready(function(){
         player.setAttribute('src', randomVideoUrl);
         playerDiv.appendChild(player);
     };
+    */
 
 
 });
