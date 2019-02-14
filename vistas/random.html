@@ -20,4 +20,20 @@
     <div id="random_player" />
 </body>
 
+
+<script>
+$(document).ready(function() {
+
+var videos = [
+'pRpvdcjkT3k',
+'Te4wx4jtiEA',
+'efTj6UYzvk4'
+];
+
+var index=Math.floor(Math.random() * videos.length);
+var html='<div id="video"><h3>Random Video</h3><iframe width="720" height="480"   src="http://www.youtube.com/embed/' + videos[index] + '?autoplay=1" frameborder="0" allowfullscreen></iframe></div>';
+document.write(html);
+
+});
+</script>
 </html>
