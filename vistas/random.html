@@ -3,13 +3,12 @@
 
 <head>
     <script>
-        var videos = ["https://www.youtube.com/embed/9bZkp7q19f0", "https://www.youtube.com/embed/dQw4w9WgXcQ"];
+        var videos_collection = ["https://www.youtube.com/embed/9bZkp7q19f0", "https://www.youtube.com/embed/dQw4w9WgXcQ"];
         window.onload = function () {
             var playerDiv = document.getElementById("random_player");
             var player = document.createElement("IFRAME");
-            var randomVideoUrl = videos[Math.floor(Math.random() * videos.length)];
-            player.setAttribute('width', '640');
-            player.setAttribute('height', '390');
+            var randomVideoUrl = videos_collection[Math.floor(Math.random() * videos_collection.length)];
+            player.setAttribute('class', 'embed-responsive-item');
             player.setAttribute('src', randomVideoUrl);
             playerDiv.appendChild(player);
         };
@@ -17,23 +16,9 @@
 </head>
 
 <body>
-    <div id="random_player" />
+    <div class="embed-responsive embed-responsive-16by9" id="random_player" />
 </body>
 
 
-<script>
-$(document).ready(function() {
 
-var videos = [
-'pRpvdcjkT3k',
-'Te4wx4jtiEA',
-'efTj6UYzvk4'
-];
-
-var index=Math.floor(Math.random() * videos.length);
-var html='<div id="video"><h3>Random Video</h3><iframe width="720" height="480"   src="http://www.youtube.com/embed/' + videos[index] + '?autoplay=1" frameborder="0" allowfullscreen></iframe></div>';
-document.write(html);
-
-});
-</script>
 </html>
