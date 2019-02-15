@@ -9,9 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Siven</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FreeHTML5.co" />
+	<meta name="author" content="Siven" />
 
   	
 
@@ -42,6 +40,13 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+
+<!--login testo -->
+	<link rel="stylesheet" href="login-style.css">
+	<!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -61,7 +66,7 @@
 					<li class="fh5co-active"><a href="index.html">Main</a></li>
 					<li><a href="#" id="music">Musicc</a></li>
 					<li><a href="#" id="random">IsMagic</a></li>
-					<li><a href="#">Admin</a></li>
+					<li><a href="#" id="login">Admin</a></li>
 				</ul>
 			</nav>
 
@@ -78,7 +83,7 @@
 			<div class="fh5co-narrow-content">
 				<div class="row row-bottom-padded-md" id="contenido">
 					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft" id= "index2">
-						<img class="img-responsive" src="images/wanted.png" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+						<img class="img-responsive" src="images/wanted.png">
 					</div>
 					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft" id="index">
 						<h2 class="fh5co-heading">About "Siven"</h2>
@@ -130,6 +135,11 @@ $(document).ready(function(){
     	$('#index').hide();
     	$('#index2').hide();
     });
+//Lógica login
+    $('#login').click(function(){
+    	$('#index').hide();
+    	$('#index2').hide();
+    });    
 
 //Función música aparición mágica
     $("#music").click(function(){
@@ -161,18 +171,12 @@ $(document).ready(function(){
 	});
 
 
-/*Llena videos random colección
-	var videos_collection = ["https://www.youtube.com/embed/9bZkp7q19f0", "https://www.youtube.com/embed/dQw4w9WgXcQ"];
-    window.onload = function () {
-        var playerDiv = document.getElementById("random_player");
-        var player = document.createElement("IFRAME");
-        var randomVideoUrl = videos_collection[Math.floor(Math.random() * videos_collection.length)];
-        player.setAttribute('class', 'embed-responsive-item');
-        player.setAttribute('src', randomVideoUrl);
-        playerDiv.appendChild(player);
-    };
-    */
-
+//Función 
+    $("#login").click(function(){
+ 		$.ajax({url: "vistas/login.html", success: function(result){
+    	$("#contenido").html(result);
+  		}});
+	});
 
 });
 
