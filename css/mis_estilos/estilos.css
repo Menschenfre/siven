@@ -9,6 +9,7 @@
 	font-size: 18px;
 	font-weight: 300;
 	width: 100%;
+	border-radius: 5px !important;
 	
 }
 
@@ -20,4 +21,12 @@
   padding-bottom: 20px;
   padding-left: 20px;
   margin-top: 10px;
+}
+
+.siven-btn {
+    background: #777777a8;
+    color: #fff;
+    font-size: 14px !important;
+    text-transform: none !important;
+    border-radius: 5px !important;
 }

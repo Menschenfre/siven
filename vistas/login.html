@@ -7,22 +7,24 @@
                     <div class="siven-login-content">
                         <form action="" method="">
                             <div class="form-group row">
-                                <label for="email_address" class="col-md-2 col-form-label text-md-right">Contraseña</label>
+                                <label for="email_address" class="col-md-1 col-form-label text-md-right">Pass</label>
                                 <div class="col-md-6">
                                     <input type="text" id="email_address" class="siven-login" name="email-address" required autofocus>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-2 col-form-label text-md-right">Usuario</label>
+                                <label for="password" class="col-md-1 col-form-label text-md-right">User</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="siven-login" name="password" required>
+                                    <input type="password" id="password" class="siven-login" name="password" required oninvalid="this.setCustomValidity('Witinnovation')"
+       onvalid="this.setCustomValidity('')">
                                 </div>
                          </div>
+                         <input type="submit" name="submit" class="btn siven-btn btn-md" value="Access">
                     </div>
                     </form>
-                </div>
-            </div>
+                </div> 
+            </div> 
         </div>
     </div>
     </div>
