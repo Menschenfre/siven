@@ -14,5 +14,10 @@
 
 
 .siven-login-content {
-  width: 80%;
+  background-color: #EAEAEA;
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin-top: 10px;
 }
