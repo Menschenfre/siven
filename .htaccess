@@ -2,4 +2,8 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html
-ErrorDocument 404 /http://www.cooperativa.cl
+
+<FilesMatch ".(htaccess|htpasswd|sql)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
