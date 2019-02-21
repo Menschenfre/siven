@@ -103,10 +103,16 @@
 	<script>
 		$("#boton").click(function(){
 		var data;
+		var especifico;
  		$.getJSON("data/termonuclear.json", function(respuesta){
  			data = respuesta;
- 			alert(data);
+ 			$.each(data.usuarios, function(index, data) {
+ 		  	if(data.id == "1"){
+ 		  	alert(data.id);
+ 		  }
+			});
 		});
+		
 		
 	});
 		

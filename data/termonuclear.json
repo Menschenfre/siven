@@ -1,9 +1,15 @@
 {
 	"usuarios" : [
-		{
+		{	"id" : "1",
 			"user" : "sivenatic",
 			"pass" : "vacio",
 			"activo" : true
+		},
+		{
+			"id" : "2",
+			"user" : "free",
+			"pass" : "free",
+			"activo" : false
 		}
 	]
 }
