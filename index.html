@@ -73,6 +73,7 @@
 
 
 			</div>
+			<button type="button" id="boton" class="btn">Basic</button>
 		</div>
 
 
@@ -95,6 +96,20 @@
 	</body>
 
 <!-- Cortas Funciones -->
-	<script src="js/mis_funciones/logicas.js"></script>	
+	<script src="js/mis_funciones/logicas.js"></script>
+
+<!-- Json test -->
+	
+	<script>
+		$("#boton").click(function(){
+		var data;
+ 		$.getJSON("data/termonuclear.json", function(respuesta){
+ 			data = respuesta;
+ 			alert(data);
+		});
+		
+	});
+		
+	</script>	
 </html>
 

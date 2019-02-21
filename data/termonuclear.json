@@ -1,0 +1,9 @@
+{
+	"usuarios" : [
+		{
+			"user" : "sivenatic",
+			"pass" : "vacio",
+			"activo" : true
+		}
+	]
+}
