@@ -16,3 +16,8 @@ https://www.alvarolara.com/2015/06/23/como-crear-objetos-json-en-javascript/
 
 Api rest tuto
 https://ikerlandajuela.wordpress.com/2017/10/27/github-pages-api-rest-json-estatica/
+
+
+JQUERY, JAVASCRIPT, AJAX VARIABLES ETC:
+
+https://www.codigonexo.com/blog/programacion/javascript/formulario-con-ajax-y-jquery/

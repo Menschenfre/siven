@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="siven-login-content">
-                        <form action="" method="">
+                        <form id="contactForm" action="" onsubmit="return validaForm()" method="post">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-1 col-form-label text-md-right">User</label>
                                 <div class="col-md-6">
@@ -19,7 +19,7 @@
                                     <input type="password" id="password" class="siven-login" name="password">
                                 </div>
                          </div>
-                         <input type="submit" name="submit" class="btn siven-btn btn-md" value="Access">
+                         <input type="submit" name="submit" id="submit-login" class="btn siven-btn btn-md" value="Access">
                     </div>
                     </form>
                 </div> 

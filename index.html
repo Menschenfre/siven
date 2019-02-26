@@ -115,6 +115,22 @@
 		
 		
 	});
+
+	function validaForm(){	
+
+		var username = $("#user").val();
+		$.getJSON("data/termonuclear.json", function(respuesta){
+ 			data = respuesta;
+ 			$.each(data.usuarios, function(index, data) {
+ 		  	if(data.id == username){
+ 		  		alert(username);
+ 		    }
+		  });
+		});
+    };	
+
+
+
 		
 	</script>	
 </html>
