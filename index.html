@@ -124,6 +124,9 @@
  			$.each(data.usuarios, function(index, data) {
  		  	if(data.id == username){
  		  		alert(username);
+ 		  		document.cookie = "mycookiename=value; expires=some gmt date time; path=thepath; domain=the domain";
+ 		    }else{
+
  		    }
 		  });
 		});
