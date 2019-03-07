@@ -34,7 +34,7 @@ $(document).ready(function(){
     	"https://www.youtube.com/embed/UiHmeHZAc0s",
     	"https://www.youtube.com/embed/HzTlB-TjAzM",
         "https://www.youtube.com/embed/eAVl2cpFKyQ",
-        "https://www.youtube.com/watch?v=H1KBHFXm2Bg"
+        "https://www.youtube.com/embed/H1KBHFXm2Bg"
     	];
   		var playerDiv = document.getElementById("random_player");
         var player = document.createElement("IFRAME");
