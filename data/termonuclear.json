@@ -10,6 +10,13 @@
 			"user" : "free",
 			"pass" : "free",
 			"activo" : false
+		},
+		{
+			"id" : "hola",
+			"user" : "cayeze yui poser :v",
+			"pass" : "free",
+			"activo" : true
 		}
+
 	]
 }

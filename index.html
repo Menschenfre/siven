@@ -73,7 +73,7 @@
 
 
 			</div>
-			<button type="button" id="boton" class="btn">Basic</button>
+			<!--<button type="button" id="boton" class="btn">Basic</button>-->
 		</div>
 
 
@@ -101,6 +101,7 @@
 <!-- Json test -->
 	
 	<script>
+		/*
 		$("#boton").click(function(){
 		var data;
 		var especifico;
@@ -114,7 +115,7 @@
 		});
 		
 		
-	});
+	});*/
 
 	function validaForm(){	
 
@@ -123,8 +124,7 @@
  			data = respuesta;
  			$.each(data.usuarios, function(index, data) {
  		  	if(data.id == username){
- 		  		alert(username);
- 		  		document.cookie = "mycookiename=value; expires=some gmt date time; path=thepath; domain=the domain";
+ 		  		alert(data.user);
  		    }else{
 
  		    }
