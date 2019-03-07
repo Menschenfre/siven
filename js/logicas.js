@@ -27,13 +27,13 @@ $(document).ready(function(){
  		$.ajax({url: "vistas/random.html", success: function(result){
     	$("#contenido").html(result);
     	var videos_collection = [
+        "https://www.youtube.com/embed/eAVl2cpFKyQ",
     	"https://www.youtube.com/embed/ioOzsi9aHQQ", 
     	"https://www.youtube.com/embed/dQw4w9WgXcQ",
     	"https://www.youtube.com/embed/bOsKJpCR9Fo",
     	"https://www.youtube.com/embed/71Gt46aX9Z4",
     	"https://www.youtube.com/embed/UiHmeHZAc0s",
     	"https://www.youtube.com/embed/HzTlB-TjAzM",
-        "https://www.youtube.com/embed/eAVl2cpFKyQ",
         "https://www.youtube.com/embed/H1KBHFXm2Bg"
     	];
   		var playerDiv = document.getElementById("random_player");
