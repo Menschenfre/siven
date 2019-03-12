@@ -71,10 +71,10 @@
 					</div>
 				</div>
 			</div>
+
+			<input type="button" value="Go" onClick="setcookie(7)">
+
 		</div>
-
-
-
 	</div>
 
 	<!-- jQuery -->
@@ -117,12 +117,15 @@
 	function validaForm(){	
 
 		var username = $("#user").val();
+		var password = $("#pass").val();
 		$.getJSON("data/termonuclear.json", function(respuesta){
  			data = respuesta;
  			$.each(data.usuarios, function(index, data) {
- 		  	if(data.id == username){
- 		  		alert(data.user);
+ 		  	if(data.user == username && data.pass == password) {
+ 		  		alert("USUARIO Y PASS COINCIDEN CTM JOLAPERRA MALPERIDO");
+ 		  		document.cookie="cookie="+data.user+data.id
  		    }else{
+ 		    	alert("Mala tu wea");
 
  		    }
 		  });
@@ -131,7 +134,7 @@
 
 /* Se obtiene la cookie */
     function get_cookie(cookieSession) {
-    	var search = Name + "="
+    	var search = cookieSession + "="
     	var returnvalue = "";
     	if (document.cookie.length > 0) {
         	offset = document.cookie.indexOf(search)
@@ -149,14 +152,14 @@
     return returnvalue;
     }
 
-//Se Establece en nombre de la cookie con los valores
+//Se Establece en nombre de la cookie con los valores otorgados
     function setcookie(session){
     	document.cookie="cookie="+session
 	}
 
 //IF que inicia lo guardado en la cookie en la sesión actual
 	if (get_cookie("cookie")!="")
-    alert("cookie");
+    alert(get_cookie("cookie"));
 
 
 
