@@ -43,7 +43,7 @@
 					<li class="fh5co-active"><a href="https://siven.cl">Main</a></li>
 					<li><a href="#" id="music">Musicc</a></li>
 					<li><a href="#" id="random">IsMagic</a></li>
-					<li><a href="#" id="login">Admin</a></li>
+					<li><a href="#" onclick="loginAparicion()" id="login">Admin</a></li>
 				</ul>
 			</nav>
 <!-- Footer -->
@@ -72,7 +72,7 @@
 				</div>
 			</div>
 
-			<input type="button" value="Go" onClick="setcookie(7)">
+			<!--<input type="button" value="Go" onClick="setcookie(7)">-->
 
 		</div>
 	</div>
@@ -122,14 +122,20 @@
  			data = respuesta;
  			$.each(data.usuarios, function(index, data) {
  		  	if(data.user == username && data.pass == password) {
- 		  		alert("USUARIO Y PASS COINCIDEN CTM JOLAPERRA MALPERIDO");
+ 		  		alert("Bienvenido");
+ 		  		//Se inicializa la cookie con user+id
  		  		document.cookie="cookie="+data.user+data.id
+ 		  		//Se redirige
+
+
  		    }else{
- 		    	alert("Mala tu wea");
+ 		    	//loginAparicion();
 
  		    }
+
 		  });
 		});
+
     };
 
 /* Se obtiene la cookie */
@@ -158,8 +164,11 @@
 	}
 
 //IF que inicia lo guardado en la cookie en la sesión actual
-	if (get_cookie("cookie")!="")
-    alert(get_cookie("cookie"));
+	//if (get_cookie("cookie")!="")
+    //alert(get_cookie("cookie"));
+
+    nadaAparicion();
+
 
 
 

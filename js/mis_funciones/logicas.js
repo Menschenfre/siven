@@ -47,9 +47,23 @@ $(document).ready(function(){
 	});
 
 //Función login aparición mágica
+
     $("#login").click(function(){
  		$.ajax({url: "vistas/login.html", success: function(result){
     	$("#contenido").html(result);
   		}});
 	});
+
+    /*function loginAparicion(){
+        $.ajax({url: "vistas/login.html", success: function(result){
+        $("#contenido").html(result);
+        }});
+    };*/
+
+    function nadaAparicion(){
+        $.ajax({url: "vistas/nada.html", success: function(result){
+        $("#contenido").html(result);
+        }});
+    };
+
 });
