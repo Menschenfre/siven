@@ -43,7 +43,8 @@
 					<li class="fh5co-active"><a href="https://siven.cl">Main</a></li>
 					<li><a href="#" id="music">Musicc</a></li>
 					<li><a href="#" id="random">IsMagic</a></li>
-					<li><a href="#" onclick="loginAparicion()" id="login">Admin</a></li>
+					<li><a href="#" onclick="loginAparicion()" id="login">Acsceso</a></li>
+					<li><a href="#" onclick="nadaAparicion()" id="nada">Nada</a></li>
 				</ul>
 			</nav>
 <!-- Footer -->
@@ -56,9 +57,7 @@
 
 <!-- Contenedor -->
 		<div id="fh5co-main">
-
 			<div class="fh5co-narrow-content">
-
 <!-- Contenido cambiante -->				
 				<div class="row row-bottom-padded-md" id="contenido">
 					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft" id= "index2">
@@ -71,9 +70,7 @@
 					</div>
 				</div>
 			</div>
-
 			<!--<input type="button" value="Go" onClick="setcookie(7)">-->
-
 		</div>
 	</div>
 
@@ -134,6 +131,14 @@
  		    }
 
 		  });
+ 			if (get_cookie("cookie")==""){
+
+ 				alert("Usuario terrible inválido");
+
+ 			}else{
+ 				//window.location.href = "vistas/login";
+ 				nadaAparicion();
+ 			}
 		});
 
     };
@@ -167,7 +172,7 @@
 	//if (get_cookie("cookie")!="")
     //alert(get_cookie("cookie"));
 
-    nadaAparicion();
+   
 
 
 
