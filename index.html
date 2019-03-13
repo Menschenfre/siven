@@ -12,7 +12,8 @@
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-	
+
+<!-- Estilos template -->	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -23,13 +24,12 @@
 	<link rel="stylesheet" href="css/flexslider.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/mis_estilos/estilos.css">
-
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 
-
+<!-- Estilos propios  -->
+	<link rel="stylesheet" href="css/mis_estilos/estilos.css">
+	
 	</head>
 	<body>
 	<div id="fh5co-page">
@@ -41,8 +41,8 @@
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
 					<li class="fh5co-active"><a href="https://siven.cl">Main</a></li>
-					<li><a href="#" id="music">Musicc</a></li>
-					<li><a href="#" id="random">IsMagic</a></li>
+					<li><a href="#" onclick="musicaAparicion()" id="music">Musicc</a></li>
+					<li><a href="#" onclick="randomVideosAparicion()" id="random">IsMagic</a></li>
 					<li><a href="#" onclick="loginAparicion()" id="login">Acsceso</a></li>
 					<li><a href="#" onclick="nadaAparicion()" id="nada">Nada</a></li>
 				</ul>
@@ -74,6 +74,7 @@
 		</div>
 	</div>
 
+<!-- Imports funciones template -->
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -89,11 +90,11 @@
 
 	</body>
 
-<!-- Cortas Funciones -->
+<!-- Imports funciones propias -->
 	<script src="js/mis_funciones/logicas.js"></script>
+	<script src="js/mis_funciones/login.js"></script>
+	<script src="js/mis_funciones/cookie.js"></script>
 
-<!-- Json test -->
-	
 	<script>
 		/*
 		$("#boton").click(function(){
@@ -107,77 +108,7 @@
  		  }
 			});
 		});
-		
-		
-	});*/
-
-	function validaForm(){	
-
-		var username = $("#user").val();
-		var password = $("#pass").val();
-		$.getJSON("data/termonuclear.json", function(respuesta){
- 			data = respuesta;
- 			$.each(data.usuarios, function(index, data) {
- 		  	if(data.user == username && data.pass == password) {
- 		  		alert("Bienvenido");
- 		  		//Se inicializa la cookie con user+id
- 		  		document.cookie="cookie="+data.user+data.id
- 		  		//Se redirige
-
-
- 		    }else{
- 		    	//loginAparicion();
-
- 		    }
-
-		  });
- 			if (get_cookie("cookie")==""){
-
- 				alert("Usuario terrible inválido");
-
- 			}else{
- 				//window.location.href = "vistas/login";
- 				nadaAparicion();
- 			}
-		});
-
-    };
-
-/* Se obtiene la cookie */
-    function get_cookie(cookieSession) {
-    	var search = cookieSession + "="
-    	var returnvalue = "";
-    	if (document.cookie.length > 0) {
-        	offset = document.cookie.indexOf(search)
-        	// Si la cookie existe
-        	if (offset != -1) { 
-           	 offset += search.length
-            // set index of beginning of value
-            // Setea el index al inicio del valor
-             end = document.cookie.indexOf(";", offset);
-            // set index of end of cookie value
-            if (end == -1) end = document.cookie.length;
-            returnvalue=unescape(document.cookie.substring(offset, end))
-        }
-    }
-    return returnvalue;
-    }
-
-//Se Establece en nombre de la cookie con los valores otorgados
-    function setcookie(session){
-    	document.cookie="cookie="+session
-	}
-
-//IF que inicia lo guardado en la cookie en la sesión actual
-	//if (get_cookie("cookie")!="")
-    //alert(get_cookie("cookie"));
-
-   
-
-
-
-
-		
+	});*/	
 	</script>
 
 

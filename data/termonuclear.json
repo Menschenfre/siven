@@ -12,6 +12,12 @@
 			"activo": false
 		},
 		{
+			"id": "3",
+			"user": "exjalar",
+			"pass": "exjalar",
+			"activo": false
+		},
+		{
 			"id": "hola",
 			"user": "cayeze yui poser :v",
 			"pass": "free",
