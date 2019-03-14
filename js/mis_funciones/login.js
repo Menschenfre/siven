@@ -17,12 +17,12 @@ function validaForm(){
 	    	//loginAparicion();
 	    }
  	 	});
- 	 	alert(get_cookie("nick"));
+ 	 	alert(nick);
  	 	//Se compara sesión y valores rescatados del formulario login
-		if (get_cookie("nick")!=username && get_cookie("pass")!=password){
+		if (user!=username && pass!=password){
 			alert("Usuario terrible inválido");
 		}else{
-			if (!get_cookie("cookie"))
+			if (!nick)
 			{ 
 				alert("Usuario terrible inválido");
 			}else{
