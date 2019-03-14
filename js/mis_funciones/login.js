@@ -22,7 +22,7 @@ function validaForm(){
 		if (get_cookie("nick")!=username && get_cookie("pass")!=password){
 			alert("Usuario terrible inválido");
 		}else{
-			if (get_cookie("cookie")=="")
+			if (!get_cookie("cookie"))
 			{ 
 				alert("Usuario terrible inválido");
 			}else{
