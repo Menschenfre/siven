@@ -19,11 +19,18 @@ function validaForm(){
  	 	});
  	 	alert(get_cookie("nick"));
  	 	//Se compara sesión y valores rescatados del formulario login
-		if ((get_cookie("nick")!=username && get_cookie("pass")!=password) || get_cookie("cookie")==""){
+		if (get_cookie("nick")!=username && get_cookie("pass")!=password){
 			alert("Usuario terrible inválido");
 		}else{
-			//Se refresca para activar la cookie
-	  		location.reload();
+			if (get_cookie("cookie")=="")
+			{ 
+				alert("Usuario terrible inválido");
+			}else{
+				//Se refresca para activar la cookie
+	  			location.reload();
+
+			}
+			
 		}
 	});
 };
