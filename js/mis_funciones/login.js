@@ -17,20 +17,13 @@ function validaForm(){
 	    	//loginAparicion();
 	    }
  	 	});
- 	 	alert(nick);
+ 	 	
  	 	//Se compara sesión y valores rescatados del formulario login
-		if (user!=username && pass!=password){
+		if ((user!=username && pass!=password) || !nick ){
 			alert("Usuario terrible inválido");
 		}else{
-			if (!nick)
-			{ 
-				alert("Usuario terrible inválido");
-			}else{
-				//Se refresca para activar la cookie
-	  			location.reload();
-
-			}
-			
+			  //Se refresca para activar la cookie
+	  		  location.reload();
 		}
 	});
 };
