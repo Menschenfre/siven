@@ -1,7 +1,7 @@
 
 /*Rescatando variables sesión*/
 var nick= get_cookie("nick");
-var user= get_cookie("pass");
+var pass= get_cookie("pass");
 var code= get_cookie("cookie");
 
 
