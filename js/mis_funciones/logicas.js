@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 //Lógica música web
     $('#music').click(function(){
     	$('#index').hide();
@@ -13,7 +14,18 @@ $(document).ready(function(){
     $('#login').click(function(){
     	$('#index').hide();
     	$('#index2').hide();
-    });    
+    });  
+
+//Lógica Sesión activa login
+    //IF que indica el guardado de la cookie
+
+/*Sesión activa cambio de nick menú*/
+    if (nick!=""){
+        $('#nickChange').text(nick);
+    }else{
+        $('#nickChange').text("Siven.CL");
+    }
+      
 });
 
 

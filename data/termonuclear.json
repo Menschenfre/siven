@@ -18,34 +18,10 @@
 			"activo": false
 		},
 		{
-			"id": "hola",
-			"user": "cayeze yui poser :v",
-			"pass": "free",
-			"activo": true
-		},
-		{
-			"id": "siven",
-			"user": "nada de carne, mucho de boca arto de feel toma, toma, no tomo mira miro no miro giro y rino pepino y pelino",
-			"pass": "free",
-			"activo": true
-		},
-		{
-			"id": "cuento",
-			"user": "El avión despegaba lenta y suavemente, no había motivo alguno para preocuparse, el tiempo era favorable para volar,todo parecía estar en orden y nadie del pasaje ni de la tripulación se veía especialmente preocupado.Sin embargo Ricardo estaba inquieto, había volado docenas de veces, y nunca había sentido esa sensación de pánico que le estaba desbordando, se dijo a si mismo que no tenía motivo para sentir miedo, intentó serenarse con el whisky que pidió a la azafata y con el tranquilizante que ingirió con él, en ocasiones normales habría bastado para relajarse e incluso dormir un poco.Pero no consiguió el efecto deseado, al contrario, el corazón le latía a mil por hora. Sin saber muy bien porque empezó a rezar, nunca había sido muy creyente, pero en ese momento sintió la necesidad de creer en Dios o en lo que fuese. En mitad de una oración sintió una fortísima explosión, la gente gritaba y el avión se sacudía bruscamente, vio una intensa llamarada a su espalda, justo en la bodega de carga, y entonces comprendió el motivo de su miedo. Estaba tan abotargado por las drogas que había tomado antes de embarcar, que no recordaba que hacía un mes que estaba planeando hacer explotar el avión con él dentro.",
-			"pass": "free",
-			"activo": true
-		},
-		{
-			"id": "admin",
-			"user": "Bienvenido admin, acceda a toda la info que usted requiera",
-			"pass": "free",
-			"activo": true
-		},
-		{
-			"id": "yue",
-			"user": "poser registrada",
-			"pass": "free",
-			"activo": true
+			"id": "7",
+			"user": "Mugen",
+			"pass": "release",
+			"activo": false
 		}
 
 	]
