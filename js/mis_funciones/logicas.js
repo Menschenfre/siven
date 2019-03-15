@@ -16,14 +16,17 @@ $(document).ready(function(){
     	$('#index2').hide();
     });  
 
-//Lógica Sesión activa login
-    //IF que indica el guardado de la cookie
 
-/*Sesión activa cambio de nick menú*/
-    if (nick!=""){
-        $('#nickChange').text(nick);
+/*Rescatando variables sesión*/
+var nickview= get_cookie("nick");
+
+/*Sesión activa Lógica con cookie*/
+    if (nickview!=""){
+        $('#nickChange').text(nickview);
+        $('#login').hide();
     }else{
         $('#nickChange').text("Siven.CL");
+        $('#logout').hide();
     }
       
 });
