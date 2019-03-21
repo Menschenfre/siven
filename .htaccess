@@ -1,5 +1,10 @@
 RewriteEngine on
+
+#Eliminando extensión html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html
-RewriteRule ^(.*)$ https://sivenatic.com/$1 [R=301,L]
+
+#Obligando conexión por https
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.sivenatic.com/$1 [R=301,L] 
