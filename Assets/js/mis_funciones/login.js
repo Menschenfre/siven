@@ -1,7 +1,7 @@
 function validaForm(){	
 	var username = $("#user").val();
 	var password = $("#pass").val();
-	$.getJSON("data/termonuclear.json", function(respuesta){
+	$.getJSON("Assets/data/termonuclear.json", function(respuesta){
 		data = respuesta;
 		$.each(data.usuarios, function(index, data) {
 	  	if(data.user == username && data.pass == password) {
