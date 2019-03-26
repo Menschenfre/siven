@@ -46,3 +46,11 @@
 .color-rojito {
   color: #b50606 !important;  
 }
+
+
+/*Imagen Inicio*/
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
