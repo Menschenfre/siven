@@ -2,3 +2,5 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://www.sivenatic.com/$1 [R,L]
