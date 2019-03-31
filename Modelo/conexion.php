@@ -22,6 +22,6 @@ $query = "SELECT * FROM usuarios";
 $resultado = mysqli_query($conexion, $query) or die ( "Algo ha ido mal en la consulta a la base de datos");
 
 // Cerramos la conexión posterior a la consulta
-mysqli_close($conexion);
+//mysqli_close($conexion);
 
 ?>
