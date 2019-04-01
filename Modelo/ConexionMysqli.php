@@ -19,14 +19,14 @@
 			$this->con->set_charset($dbcharset);
 
 		}
-		public function connect_db(){
+		/*public function connect_db(){
 			$this->con = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 			if($this->con->connect_errno){
 				echo "fallo al conectar la bd".$this->con->connect_errno;
 				return;
 			}
 			$this->con->set_charset($dbcharset);
-		}
+		}*/
 
 }
 

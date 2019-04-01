@@ -1,8 +1,8 @@
 <?php
-require_once ('ConexionMysqli.php');
+require_once ('Crud.php');
 
 
-class Usuario extends ConexionMysqli{
+class Usuario extends Crud{
 
 	private $id;
 	private $nombre;
