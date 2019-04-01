@@ -21,3 +21,7 @@ https://ikerlandajuela.wordpress.com/2017/10/27/github-pages-api-rest-json-estat
 JQUERY, JAVASCRIPT, AJAX VARIABLES ETC:
 
 https://www.codigonexo.com/blog/programacion/javascript/formulario-con-ajax-y-jquery/
+
+POO PHP BÁSICO + CRUD:
+
+https://omarmontoyaventocilla.wordpress.com/php-poo/
