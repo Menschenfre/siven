@@ -19,35 +19,14 @@ class Story extends Crud{
 	 * @param    $created   
 	 * @param    $modified   
 	 */
-	public function __construct($id, $title, $content, $state, $created, $modified){
+	public function __construct($title, $content, $state, $created, $modified){
 
-		$this->id = $id;
 		$this->title = $title;
 		$this->content = $content;
 		$this->state = $state;
 		$this->created = $created;
 		$this->modified = $modified;
 	}
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * @return mixed
@@ -147,6 +126,14 @@ class Story extends Crud{
         $this->modified = $modified;
 
         return $this;
+    }
+
+
+    public function save(){
+
+        $sql="INSERT INTO stories(title,content,state,created) VALUES('test3','test',1,'31-03-2019')";
+        $resultado=$this->con->prepare($sql);
+        $re=$resultado->execute();
     }
 
   

@@ -21,5 +21,9 @@
 <form action="../Controller/UserController.php" method="post">
 <button type="submit">Grabar</button>
 </form>
+
+<form action="../Controller/StoryController.php" method="post">
+<button type="submit">Grabar</button>
+</form>
 </body>
 </html>
