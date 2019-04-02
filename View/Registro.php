@@ -18,7 +18,7 @@
 </style>
 </head>
 <body>
-<form action="../Controlador/UsuarioControl.php" method="post">
+<form action="../Controller/UserController.php" method="post">
 <button type="submit">Grabar</button>
 </form>
 </body>

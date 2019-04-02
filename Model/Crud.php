@@ -1,9 +1,9 @@
 <?php
-require_once ('ConexionMysqli.php');
+require_once ('Conn.php');
 /**
  * 
  */
-class Crud extends ConexionMysqli{
+class Crud extends Conn{
 	
 	function __construct(){
 		parent::__construct();

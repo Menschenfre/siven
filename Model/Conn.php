@@ -1,13 +1,12 @@
 <?php
 //Conexión Mysqli POO
-	class ConexionMysqli{
+	class Conn{
 		protected $con;
 		private $dbhost="localhost";
 		private $dbuser="sivenati_sickven";
 		private $dbpass="1342993nonoaccessbbbrbrbbb29";
 		private $dbname="sivenati_siven";
 		private $dbcharset ="utf8";
-		//protected $con;
 
 		public function __construct(){
 			//$this->connect_db();

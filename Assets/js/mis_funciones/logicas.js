@@ -38,21 +38,21 @@ var nickview= get_cookie("nick");
 
 // "nada" carga en contenido index
 function nadaAparicion(){
-    $.ajax({url: "Vista/nada.html", success: function(result){
+    $.ajax({url: "View/nada.html", success: function(result){
         $("#contenido").html(result);
     }});
 };
 
 // "login" carga en contenido index
 function loginAparicion(){
-    $.ajax({url: "Vista/login.html", success: function(result){
+    $.ajax({url: "View/login.html", success: function(result){
         $("#contenido").html(result);
     }});
 };
 
 // random videos carga en contenido index
 function randomVideosAparicion(){
-    $.ajax({url: "Vista/random.html", success: function(result){
+    $.ajax({url: "View/random.html", success: function(result){
         $("#contenido").html(result);
         var videos_collection = [
         "https://www.youtube.com/embed/ioOzsi9aHQQ", 
@@ -77,7 +77,7 @@ function randomVideosAparicion(){
 
 // musica video carga en contenido index
 function musicaAparicion(){
-    $.ajax({url: "Vista/music.html", success: function(result){
+    $.ajax({url: "View/music.html", success: function(result){
         $("#contenido").html(result);
         }});
 }

@@ -1,8 +1,8 @@
 <?php
-
-require_once('../Modelo/Usuario.php');
+ 
+require_once('../Model/User.php');
 $nombre = 'caca';
-$usuario=new Usuario($nombre);
+$usuario=new User($nombre);
 $reg=$usuario->guardar($nombre);
 if ($reg) {
 	echo "bien";

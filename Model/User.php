@@ -2,7 +2,7 @@
 require_once ('Crud.php');
 
 
-class Usuario extends Crud{
+class User extends Crud{
 
 	private $id;
 	private $nombre;
@@ -184,7 +184,7 @@ class Usuario extends Crud{
 
     public function guardar($nombre){
 
-		$sql="INSERT INTO usuarios(nombre,nick,pass,creado) VALUES('test2','test','test','31-03-2019')";
+		$sql="INSERT INTO usuarios(nombre,nick,pass,creado) VALUES('test3','test','test','31-03-2019')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
 	}
