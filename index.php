@@ -1,5 +1,3 @@
-<?php include 'Modelo/conexion.php';?>
-
 <!DOCTYPE html>
     <html class="no-js">
 	<head>
@@ -63,12 +61,12 @@
 						<h2 class="fh5co-heading">About "Siven"</h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Quisque sit amet efficitur nih. Interdum et malesuada fames ac ante ipsum primis in faucibus interda et malesuada parturient.</p>
 						<p>Quisque sit amet efficitur nih. Ut oblivioni tradita est bonum modo, sed difficile.</p>
-					<?php
+					<!--<?php
 					while ($columna = mysqli_fetch_array($resultado))
 						{
  							echo $columna['nombre'] . $columna['nick'];
 						}
-					?>	
+					?>	-->
 					</div>
 				</div>
 			</div>
