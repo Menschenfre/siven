@@ -1,7 +1,11 @@
 <?php
 require_once('../Model/Story.php');
-
-$story=new Story($title,$content,$state,$created,$modified);
+$a="jamaica";
+$b="localeconv";
+$c=1;
+$d="";
+$e="";
+$story=new Story($a,$b,$c,$d,$e);
 $reg=$story->save();
 if ($reg) {
 	echo "bien";

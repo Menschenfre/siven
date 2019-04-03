@@ -20,8 +20,11 @@ class Story extends Crud{
 	 * @param    $modified   
 	 */
 	public function __construct($title, $content, $state, $created, $modified){
+        //Herencia de contructor padre
+        parent::__construct();
 
-		$this->title = $title;
+        //Contructor de atributos
+		$this->setTitle($title);
 		$this->content = $content;
 		$this->state = $state;
 		$this->created = $created;
@@ -43,7 +46,7 @@ class Story extends Crud{
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->title = 'caca';
 
         return $this;
     }
@@ -130,8 +133,8 @@ class Story extends Crud{
 
 
     public function save(){
-
-        $sql="INSERT INTO stories(title,content,state,created) VALUES('test3','test',1,'31-03-2019')";
+        var_dump($this->getTitle());
+        $sql="INSERT INTO stories(title,content,state,created) VALUES('$this->title','test',1,'31-03-2019')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
     }
