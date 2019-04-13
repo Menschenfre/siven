@@ -20,10 +20,10 @@ class Story extends Crud{
 	 * @param    $modified   
 	 */
 	public function __construct($title, $content, $state, $created, $modified){
-        //Herencia de contructor padre
+        //Herencia de constructor padre
         parent::__construct();
 
-        //Contructor de atributos
+        //Constructor de atributos
 		$this->setTitle($title);
 		$this->content = $content;
 		$this->state = $state;

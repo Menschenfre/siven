@@ -1,63 +1,35 @@
 <?php
 require_once ('Crud.php');
 
-
 class User extends Crud{
 
 	private $id;
-	private $nombre;
-	private $nick;
-	private $pass;
-	private $estado;
-	private $creado;
-	private $modificado;
-	private $eliminado;
+    private $nick;
+    private $pass;
+    private $status;
+    private $created;
+    private $modified;
 
 
-	function __construct($nombre){
+    /**
+     * Class Constructor 
+     * @param    $nick   
+     * @param    $pass   
+     * @param    $status   
+     * @param    $created   
+     * @param    $modified   
+     */
+    public function __construct($nick, $pass, $status, $created, $modified){
+
+        //Herencia de constructor padre
         parent::__construct();
-        $this->nombre=$nombre;
-	}
 
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-
-    /**
-     * @param mixed $nombre
-     *
-     * @return self
-     */
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-
-        return $this;
+        //Constructor de atributos
+        $this->nick = $nick;
+        $this->pass = $pass;
+        $this->setStatus($status);
+        $this->setCreated($created);
+        $this->modified = $modified;
     }
 
     /**
@@ -103,19 +75,19 @@ class User extends Crud{
     /**
      * @return mixed
      */
-    public function getEstado()
+    public function getStatus()
     {
-        return $this->estado;
+        return $this->status;
     }
 
     /**
-     * @param mixed $estado
+     * @param mixed $status
      *
      * @return self
      */
-    public function setEstado($estado)
+    public function setStatus($status)
     {
-        $this->estado = $estado;
+        $this->status = 0;
 
         return $this;
     }
@@ -123,19 +95,19 @@ class User extends Crud{
     /**
      * @return mixed
      */
-    public function getCreado()
+    public function getCreated()
     {
-        return $this->creado;
+        return $this->created;
     }
 
     /**
-     * @param mixed $creado
+     * @param mixed $created
      *
      * @return self
      */
-    public function setCreado($creado)
+    public function setCreated($created)
     {
-        $this->creado = $creado;
+        $this->created = $this->dateTimeNow->format('Y-m-d H:i:s');
 
         return $this;
     }
@@ -143,54 +115,31 @@ class User extends Crud{
     /**
      * @return mixed
      */
-    public function getModificado()
+    public function getModified()
     {
-        return $this->modificado;
+        return $this->modified;
     }
 
     /**
-     * @param mixed $modificado
+     * @param mixed $modified
      *
      * @return self
      */
-    public function setModificado($modificado)
+    public function setModified($modified)
     {
-        $this->modificado = $modificado;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEliminado()
-    {
-        return $this->eliminado;
-    }
-
-    /**
-     * @param mixed $eliminado
-     *
-     * @return self
-     */
-    public function setEliminado($eliminado)
-    {
-        $this->eliminado = $eliminado;
+        $this->modified = $modified;
 
         return $this;
     }
 
 
+    //Función guardar 
 
-    public function guardar($nombre){
-
-		$sql="INSERT INTO usuarios(nombre,nick,pass,creado) VALUES('test3','test','test','31-03-2019')";
+    public function save(){
+        $sql="INSERT INTO users(nick,pass,status,created) VALUES('$this->nick','$this->pass','$this->status','$this->created')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
-	}
-
-
-
+    }
 
 }
 
