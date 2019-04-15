@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+$page = 'index';
+?>
     <html class="no-js">
 	<head>
 	<meta charset="utf-8">
@@ -13,15 +16,8 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-<!-- Estilos template -->	
-	<!-- Animate.css, animaciones simples -->
-	<link rel="stylesheet" href="Assets/css/animate/animate.css">
-	<!-- Bootstrap 4.3.1  -->
-	<link rel="stylesheet" href="Assets/css/bootstrap/bootstrap.min.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="Assets/css/template_style/style.css">
-<!-- Estilos propios  -->
-	<link rel="stylesheet" href="Assets/css/mis_estilos/estilos.css">
+<!--=======================================Estilos CSS==============================================-->
+<?php include 'View/Includes/css.php' ?>
 	
 	</head>
 	<body>
