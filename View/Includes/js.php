@@ -9,18 +9,26 @@ $main_index ='<script src="Assets/js/template_js/main.js"></script>';
 //Sweet alert(alertas custome)
 $sweet_alert ='<script src="Assets/js/sweetalert2/sweetalert2.all.min.js"></script>';
 //Jquery waypoints (afecta el menu lateral del index)
-$waypoints = '<script src="Assets/js/jwaypoints/jquery.waypoints.min.js"></script>';
+$waypoints ='<script src="Assets/js/jwaypoints/jquery.waypoints.min.js"></script>';
 //Popper
-$popper = '<script src="Assets/js/popper/popper.min.js"></script>';
+$popper ='<script src="Assets/js/popper/popper.min.js"></script>';
+//Select2
+$select2 ='<script src="Assets/js/select2/select2.min.js"></script>';
+//Tilt Jquery
+$tilt_jquery ='<script src="Assets/js/tilt_jquery/tilt_jquery.min.js"></script>';
+//Js de la página login
+$login_js ='<script src="Assets/js/login_js/main.js"></script>';
+
+
 switch ($page){
 	case "index":
 	echo $jquery.''.$bootstrap.''.$main_index.''.$sweet_alert.''.$waypoints;
 	break;
 	case "login":
-	echo $jquery.''.$bootstrap.''.$popper;
+	echo $jquery.''.$popper.''.$bootstrap.''.$select2.''.$tilt_jquery.''.$login_js;
 	break;
 	default:
-	echo "//No se carga ningún css";
+	echo "//No se carga ningún js";
 }
 
 
