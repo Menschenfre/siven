@@ -16,7 +16,7 @@ $page = 'index';
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-<!--=======================================Estilos CSS==============================================-->
+<!--======================================= Estilos CSS ==============================================-->
 <?php include 'View/Includes/css.php' ?>
 	
 	</head>
@@ -70,17 +70,8 @@ $page = 'index';
 		</div>
 	</div>
 
-<!-- Imports funciones template -->
-	<!-- jQuery 3.3.1 (Cargarlo antes que bootstrap) -->
-	<script src="Assets/js/jquery/jquery-3.3.1.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="Assets/js/bootstrap/bootstrap.min.js"></script>
-	<!-- Template js -->
-	<script src="Assets/js/template_js/main.js"></script>
-	<!-- Template js -->
-	<script src="Assets/js/sweetalert2/sweetalert2.all.min.js"></script>
-	<!-- jquery waypoints (afecta el menu lateral) -->
-	<script src="Assets/js/jwaypoints/jquery.waypoints.min.js"></script>
+<!--======================================= Funciones JS ==============================================-->
+	<?php include 'View/Includes/js.php' ?>
 
 	
 
