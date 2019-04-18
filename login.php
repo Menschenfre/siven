@@ -22,12 +22,12 @@ $page = 'login';
 					<img src="Assets/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action="Controller/LoginController.php">
 					<span class="login100-form-title">
 						Login
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Se requiere un usuario o correo válido">
+					<div class="wrap-input100">
 						<input class="input100" type="text" name="email" placeholder="Usuario o email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -35,7 +35,7 @@ $page = 'login';
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Contraseña es requerida">
+					<div class="wrap-input100">
 						<input class="input100" type="password" name="pass" placeholder="Contraseña">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -44,7 +44,7 @@ $page = 'login';
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" id="loginbtn">
 							Ingresar
 						</button>
 					</div>
@@ -69,6 +69,20 @@ $page = 'login';
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
+	</script>
+	<script>/*
+		$("#loginbtn").click(function(){
+		var data;
+		var especifico;
+ 		$.getJSON("data/termonuclear.json", function(respuesta){
+ 			data = respuesta;
+ 			$.each(data.usuarios, function(index, data) {
+ 		  	if(data.id == "1"){
+ 		  	alert(data.id);
+ 		  }
+			});
+		});
+	});*/
 	</script>
 
 
