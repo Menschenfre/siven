@@ -19,7 +19,9 @@ class User extends Crud{
      * @param    $created   
      * @param    $modified   
      */
-    public function __construct($nick, $pass, $status, $created, $modified){
+
+    //Inicializamos los atributos nulos para simular un constructor vacío
+    public function __construct($nick = null, $pass= null, $status= null, $created= null, $modified= null){
 
         //Herencia de constructor padre
         parent::__construct();
@@ -134,12 +136,54 @@ class User extends Crud{
 
 
     //Función guardar 
-
     public function save(){
         $sql="INSERT INTO users(nick,pass,status,created) VALUES('$this->nick','$this->pass','$this->status','$this->created')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
+
+        //Cerramos la consulta y la conexión 
+        $this->con->close();
     }
+
+    //Función buscar por nick, recibe 2 parámetros de comparación
+    public function validateUser($nick, $pass){
+
+        //Generamos la consulta en una variable reutilizable
+        $sql="SELECT * FROM users WHERE nick='$nick' AND pass='$pass'";
+ 
+        //Preparamos la consulta ejecutando la query palabra reservada "query"
+        $result=$this->con->query($sql);
+    
+        //Inicializamos un array
+        //$userList = array();
+
+        //Por cada row del resultado en la query se guarda dentro de la variable array $userList
+        //while ($row_user = mysqli_fetch_array($resultado))
+        //$userList[] = $row_user;
+        
+        //Variable booleana 0 = no,  1 = si.
+        $flag= 0;
+
+        //Si el numero de filas es mayor a 0 se retorna un verdadero
+        if($result->num_rows>0){
+            //Cerramos la consulta
+            $result->close();
+            //Cerramos la conexión
+            $this->con->close();
+            //Retornamos 1
+            return $flag = 1;
+        }else{
+            //Cerramos la consulta
+            $result->close();
+            //Cerramos la conexión
+            $this->con->close();
+            //Retornamos 0
+            return $flag = 0;
+        }
+        
+
+    }
+
 
 }
 
