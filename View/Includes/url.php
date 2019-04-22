@@ -17,6 +17,20 @@ $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $por
 
 // put em all together to get the complete base URL
 $url = "${protocol}://${domain}${disp_port}${base_url}";
-$includes_url = "${url}/css.php";
-echo $includes_url; // = http://example.com/path/directory
+
+// Includes base URL
+
+$includes_url = "${url}/View/Includes/css.php";
+
+echo $base_dir."<br>"; // = http://example.com/path/directory
+echo $protocol."<br>";
+echo $domain."<br>";
+echo $base_url."<br>";
+echo $port."<br>";
+echo $disp_port."<br>";
+echo $url."<br>";
+
+
+
+$domain
 ?>

@@ -1,7 +1,8 @@
+<?php include '../url.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,9 +15,10 @@
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../Assets/css/admin_style/style.css">
+  <?php include 'https://www.sivenatic.com/View/Includes/css.php'?>
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <link rel="shortcut icon" href="../favicon.ico" />
 </head>
 
 <body>

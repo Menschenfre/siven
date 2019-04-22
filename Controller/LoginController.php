@@ -7,6 +7,12 @@ $nick = $_POST['username'];
 $pass = $_POST['password'];
 $result=$user->validateUser($nick,$pass);
 
+//Si se encuentra el usuario, se guardan las variables de sesión 
+if($result==1){
+	session_start();
+	$_SESSION["user"] = $nick;
+}
+
 //Retornamos positivo o negativo desde la clase
 echo $result;
 //Validamos ambos caminos

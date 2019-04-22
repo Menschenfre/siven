@@ -1,3 +1,9 @@
+<?php
+// Start the session
+session_start();
+var_dump($_SESSION["user"]);
+?>
+
 <!DOCTYPE html>
 <?php
 $page = 'login';
@@ -22,7 +28,7 @@ $page = 'login';
 					<img src="Assets/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-title">
 						Login
 					</span>
