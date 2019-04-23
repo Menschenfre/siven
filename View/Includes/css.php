@@ -1,5 +1,4 @@
 <?php
-
 //Animate.css, animaciones simples
 $animate = '<link rel="stylesheet" href="Assets/css/animate/animate.css">';
 
@@ -26,13 +25,19 @@ $login_util='<link rel="stylesheet" href="Assets/css/login_style/util.css">';
 $fontawesome='<link rel="stylesheet" type="text/css" href="Fonts/Fontawesome-5.8.1/css/all.min.css">
 ';
 
+//Estilos del panel de admin
+$admin_style= '<link rel="stylesheet" href="../Assets/css/admin_style/style.css">';
 
+/*Switch por cada página vista*/
 switch ($page){
 	case "index":
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
 	case "login":
 	echo $bootstrap.''.$animate.''.$hamburgers.''.$select2.''.$login_util.''.$login_main.''.$fontawesome;
+	break;
+	case "admin":
+	echo $admin_style;
 	break;
 	default:
 	echo "//No se carga ningún css";

@@ -1,5 +1,8 @@
-<?php include '../url.php' ?>
+<?php include '../Includes/url.php' ?>
 <!DOCTYPE html>
+<?php
+$page = 'admin';
+?>
 <html lang="en">
 
 <head> 
@@ -15,8 +18,7 @@
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../Assets/css/admin_style/style.css">
-  <?php include 'https://www.sivenatic.com/View/Includes/css.php'?>
+  <?php include $css ?>
   <!-- endinject -->
   <link rel="shortcut icon" href="../favicon.ico" />
 </head>

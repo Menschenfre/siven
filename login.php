@@ -3,6 +3,7 @@
 session_start();
 var_dump($_SESSION["user"]);
 ?>
+<?php include 'View/Includes/url.php' ?>
 
 <!DOCTYPE html>
 <?php
@@ -17,7 +18,7 @@ $page = 'login';
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="favicon.ico"/>
 <!--=======================================Estilos CSS==============================================-->
-<?php include 'View/Includes/css.php' ?>
+<?php include $css ?>
 </head>
 <body>
 	
