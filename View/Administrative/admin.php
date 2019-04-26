@@ -1,5 +1,5 @@
 <?php include '../Includes/url.php' ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <?php
 $page = 'admin';
 ?>
@@ -12,8 +12,7 @@ $page = 'admin';
   <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
+  
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -890,6 +889,9 @@ $page = 'admin';
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+
+
+  <?php include $js ?>
 
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>

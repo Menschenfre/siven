@@ -1,4 +1,6 @@
 <?php 
+$script_init = '<script src="';
+$script_end = '"></script>';
 
 //jQuery 3.3.1 (Cargarlo antes que bootstrap)
 $jquery ='<script src="Assets/js/jquery/jquery-3.3.1.min.js"></script>';
@@ -27,6 +29,9 @@ $tilt_jquery ='<script src="Assets/js/tilt_jquery/tilt.jquery.min.js"></script>'
 //Js de la página login
 $login_js ='<script src="Assets/js/login_js/main.js"></script>';
 
+//Admin js
+$admin_dashboard = "{$script_init}{$assets_js_admin}dashboard.js{$script_end}";
+
 
 switch ($page){
 	case "index":
@@ -34,6 +39,9 @@ switch ($page){
 	break;
 	case "login":
 	echo $jquery.''.$popper.''.$bootstrap.''.$select2.''.$tilt_jquery.''.$login_js;
+	break;
+	case "admin":
+	echo $admin_dashboard;
 	break;
 	default:
 	echo "//No se carga ningún js";
