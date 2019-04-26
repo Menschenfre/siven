@@ -1,0 +1,5 @@
+FROM nginx:1.13.3
+ADD {{ OUTPUT_PATH }} /usr/share/nginx/html{{ PATH_FINAL }}
+COPY nginx.conf /etc/nginx/nginx.conf
+# docker build -t bcipoc_branch .
+# docker run --name bcipoc1 -p 8080:80 -d bcipoc_branch

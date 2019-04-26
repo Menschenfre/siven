@@ -1,0 +1,61 @@
+
+user  nginx;
+worker_processes  1;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    ##
+    # Gzip Settings
+    ##
+    gzip on;
+    gzip_http_version 1.1;
+    gzip_disable      "MSIE [1-6]\.";
+    gzip_min_length   1100;
+    gzip_vary         on;
+    gzip_proxied      expired no-cache no-store private auth;
+    gzip_types        text/plain text/css application/json application/javascript application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+    gzip_comp_level   9;
+
+    server {
+        listen 80;
+        root /usr/share/nginx/html;
+        add_header Referrer-Policy origin;
+        add_header X-XSS-Protection "1; mode=block";
+        add_header X-Content-Type-Options nosniff;
+        {%- if SPACE in ['PROD', 'PROD_LOCAL'] %}
+        add_header Content-Security-Policy "frame-ancestors 'self' data: https://*.bci.cl https://*.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com; default-src 'self' 'unsafe-eval' 'unsafe-inline' data: *.bci.cl *.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com";
+        {%- elif SPACE == 'INT' %}
+        add_header Content-Security-Policy "frame-ancestors 'self' data: *.bci.cl *.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org http://bci-front-int01.us-south.containers.mybluemix.net https://api.us.apiconnect.ibmcloud.com http://bci-api-int01.us-south.containers.mybluemix.net https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com; default-src 'self' 'unsafe-eval' 'unsafe-inline' data: *.bci.cl *.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org http://bci-front-int01.us-south.containers.mybluemix.net http://bci-api-int01.us-south.containers.mybluemix.net https://api.us.apiconnect.ibmcloud.com https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com";
+        {%- elif SPACE == 'CERT' %}
+        add_header Content-Security-Policy "frame-ancestors 'self' data: *.bci.cl *.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org http://bci-front-cert01.us-south.containers.mybluemix.net https://api.us.apiconnect.ibmcloud.com http://bci-api-cert01.us-south.containers.mybluemix.net https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com; default-src 'self' 'unsafe-eval' 'unsafe-inline' data: *.bci.cl *.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org http://bci-front-cert01.us-south.containers.mybluemix.net http://bci-api-cert01.us-south.containers.mybluemix.net https://api.us.apiconnect.ibmcloud.com https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com";
+        {%- elif SPACE == 'IC' %}
+        add_header Content-Security-Policy "frame-ancestors 'self' data: *.bci.cl *.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org http://bci-front-ic01.us-south.containers.mybluemix.net https://api.us.apiconnect.ibmcloud.com http://bci-api-ic01.us-south.containers.mybluemix.net https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com; default-src 'self' 'unsafe-eval' 'unsafe-inline' data: *.bci.cl *.google.com https://*.googletagmanager.com https://*.dynatrace.com https://*.googleapis.com https://*.gstatic.com https://*.google-analytics.com https://bci.modyocdn.com http://www.w3.org http://bci-front-ic01.us-south.containers.mybluemix.net http://bci-api-ic01.us-south.containers.mybluemix.net https://api.us.apiconnect.ibmcloud.com https://stats.g.doubleclick.net https://*.google.cl https://bancobci.typeform.com";
+        {%- endif %}
+        location {{ BASEHREF }} {
+            index index.html index.htm;
+            try_files $uri $uri/ {{ BASEHREF }}index.html;
+        }
+    }
+}

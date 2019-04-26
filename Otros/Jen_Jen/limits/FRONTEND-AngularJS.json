@@ -1,0 +1,10 @@
+{
+  "sizes": {
+    "M": {
+      "memory": {
+        "request": "128M",
+        "limit": "785M"
+      }
+    }
+  }
+}

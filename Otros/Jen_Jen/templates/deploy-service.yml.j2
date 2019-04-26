@@ -1,0 +1,184 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+  {%- if OC_VALUE != '' %}
+    oc: "{{OC_VALUE}}"
+  {%- endif %}
+  {%- if AFFECTED_CHANNEL != '' %}
+    affectedChannel: {{AFFECTED_CHANNEL}}
+  {%- endif %}
+  {%- if OWNER != '' %}
+    owner: {{OWNER}}
+  {%- endif %}
+  {%- if PRODUCT != '' %}
+    product: {{PRODUCT}}
+  {%- endif %}
+  {%- if TIERAPP != '' %}
+    tierApp: {{TIERAPP}}
+  {%- endif %}
+    app: {{ NAME }}-app
+    tier: backend
+    type: service
+  name: {{ NAME }}
+  namespace: {{ NAMESPACE_DEPLOY }}
+spec:
+  replicas: {{ REPLICAS }}
+{%- if NAMESPACE not in ['reg_prod', 'reg_prod_local'] %}
+  revisionHistoryLimit: 1
+{%- else %}
+  revisionHistoryLimit: 3
+{%- endif %}
+  selector:
+    matchLabels:
+      app: {{ NAME }}-app
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 30%
+    type: RollingUpdate
+  {#- minReadySeconds: 300 #}
+  template:
+    metadata:
+      labels:
+        app: {{ NAME }}-app
+      {%- if OC_VALUE != '' %}
+        oc: "{{OC_VALUE}}"
+      {%- endif %}
+      {%- if AFFECTED_CHANNEL != '' %}
+        affectedChannel: {{AFFECTED_CHANNEL}}
+      {%- endif %}
+      {%- if OWNER != '' %}
+        owner: {{OWNER}}
+      {%- endif %}
+      {%- if PRODUCT != '' %}
+        product: {{PRODUCT}}
+      {%- endif %}
+      {%- if TIERAPP != '' %}
+        tierApp: {{TIERAPP}}
+      {%- endif %}
+      {%- if FLAG_EUREKA == 'false' %}
+        noEureka: "true"
+      {%- endif %}
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            -
+              labelSelector:
+                matchExpressions:
+                  -
+                    key: app
+                    operator: In
+                    values:
+                      - {{ NAME }}-app
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - env:
+        - name: PORT
+          value: "8080"
+        - name: SPRING_PROFILES_ACTIVE
+          value: "{{ SPRING_PROFILE }}"
+        - name: SPRING_CLOUD_CONFIG_URI
+          value: "http://config-server-service.bci-infra:8888"
+        - name: EUREKA_SERVICE_URL
+          value: "http://eureka1-server-service.bci-infra:8762/eureka/,http://eureka2-server-service.bci-infra:8763/eureka/"
+        - name: VAULT_SCHEME
+          value: https
+        - name: VAULT_HOST
+          value: "vault-server-service.bci-infra"
+        - name: VAULT_PORT
+          value: "8200"
+        - name: VAULT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: tokensecret
+              key: token
+        - name: VAULT_AUTHENTICATION
+          value: "TOKEN"
+        - name: VAULT_TRUST_STORE
+          value: "file:/vol-ms/pubcerts.ts"
+        - name: VAULT_TRUST_STORE_PWD
+          value: "changeit"
+        - name: MS_VERSION
+          value: "{{ VERSION_COMPONENTE }}"
+        - name: FOR_GODS_SAKE_PLEASE_REDEPLOY
+          value: "{{ DATETIME }}"
+        - name: TZ
+          valueFrom:
+            configMapKeyRef:
+              key: TZ
+              name: tz-data
+        - name: JAVA_OPTS
+          value: "{{ JAVA_OPTS }}"
+        {%- if FLAG_EUREKA == 'false' %}
+        - name: CONTEXT_PATH
+          value: "{{ CONTEXT_PATH }}"
+          {%- if HEALTHCHECK == 'true' %}
+        livenessProbe:
+          httpGet:
+            path: {{ CONTEXT_PATH }}{{ PATH_LIVENESS }}
+            port: {{ PORT_LIVENESS }}
+            scheme: HTTP
+          initialDelaySeconds: {{ INITIAL_DELAY_LIVENESS }}
+          periodSeconds: {{ PERIOD_LIVENESS }}
+          timeoutSeconds: {{ TIMEOUT_LIVENESS }}
+          failureThreshold: {{ FAILURE_LIVENESS }}
+          successThreshold: {{ SUCCESS_LIVENESS }}
+        readinessProbe:
+          httpGet:
+            path: {{ CONTEXT_PATH }}{{ PATH_READINESS }}
+            port: {{ PORT_READINESS }}
+            scheme: HTTP
+          initialDelaySeconds: {{ INITIAL_DELAY_READINESS }}
+          periodSeconds: {{ PERIOD_READINESS }}
+          timeoutSeconds: {{ TIMEOUT_READINESS }}
+          failureThreshold: {{ FAILURE_READINESS }}
+          successThreshold: {{ SUCCESS_READINESS }}
+          {%- endif %}
+        {%- endif %}
+        image: {{ REGISTRY }}/{{ PROJECT_NAME }}:{{ VERSION_DESPLIEGUE }}
+        imagePullPolicy: Always
+        name: {{ NAME }}-node
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+          {#- 100m for Prod, 10m for every other environment #}
+          {%- if NAMESPACE not in ['reg_prod', 'reg_prod_local'] %}
+            cpu: 10m
+          {%- else %}
+            cpu: 100m
+          {%- endif %}
+            memory: {{ sizes.get(POD_SIZE).memory.request }}
+          limits:
+            memory: {{ sizes.get(POD_SIZE).memory.limit }}
+        volumeMounts:
+        - mountPath: /vol-ms
+          name: ms-secret-vol
+          readOnly: true
+      imagePullSecrets:
+      - name: bluemix-{{ NAMESPACE_DEPLOY }}-secret
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: ms-secret-vol
+        secret:
+          secretName: ms-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ NAME }}-svc
+  namespace: {{ NAMESPACE_DEPLOY }}
+spec:
+  ports:
+  - name: {{ NAME }}-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: {{ NAME }}-app
+  type: ClusterIP

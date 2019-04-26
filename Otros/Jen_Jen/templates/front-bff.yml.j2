@@ -1,0 +1,132 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+  {%- if OC_VALUE != '' %}
+    oc: "{{OC_VALUE}}"
+  {%- endif %}
+  {%- if AFFECTED_CHANNEL != '' %}
+    affectedChannel: {{AFFECTED_CHANNEL}}
+  {%- endif %}
+  {%- if OWNER != '' %}
+    owner: {{OWNER}}
+  {%- endif %}
+  {%- if PRODUCT != '' %}
+    product: {{PRODUCT}}
+  {%- endif %}
+  {%- if TIERAPP != '' %}
+    tierApp: {{TIERAPP}}
+  {%- endif %}
+    app: {{ NAME }}-app{{ '-priv' if VISIBILITY == 'False' else '' }}
+  {%- if 'bff-' in PROJECT_NAME %}
+    tier: backend
+  {%- else %}
+    tier: frontend
+  {%- endif %}
+    type: web
+  name: {{ NAME }}{{ '-priv' if VISIBILITY == 'False' else '' }}
+  namespace: {{ NAMESPACE_DEPLOY }}
+spec:
+{#- Non productive environments always use 1 replica #}
+{%- if NAMESPACE not in ['reg_prod', 'reg_prod_local'] %}
+  replicas: 1
+{%- else %}
+  replicas: {{ REPLICAS }}
+{%- endif %}
+{%- if NAMESPACE not in ['reg_prod', 'reg_prod_local'] %}
+  revisionHistoryLimit: 1
+{%- else %}
+  revisionHistoryLimit: 3
+{%- endif %}
+  selector:
+    matchLabels:
+      app: {{ NAME }}-app{{ '-priv' if VISIBILITY == 'False' else '' }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 50%
+    type: RollingUpdate
+  minReadySeconds: 300
+  template:
+    metadata:
+      labels:
+        app: {{ NAME }}-app{{ '-priv' if VISIBILITY == 'False' else '' }}
+      {%- if OC_VALUE != '' %}
+        oc: "{{OC_VALUE}}"
+      {%- endif %}
+      {%- if AFFECTED_CHANNEL != '' %}
+        affectedChannel: {{AFFECTED_CHANNEL}}
+      {%- endif %}
+      {%- if OWNER != '' %}
+        owner: {{OWNER}}
+      {%- endif %}
+      {%- if PRODUCT != '' %}
+        product: {{PRODUCT}}
+      {%- endif %}
+      {%- if TIERAPP != '' %}
+        tierApp: {{TIERAPP}}
+      {%- endif %}
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            -
+              labelSelector:
+                matchExpressions:
+                  -
+                    key: app
+                    operator: In
+                    values:
+                      - {{ NAME }}-app
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - env:
+        - name: PORT
+          value: "{{ PORT_NUMBER }}"
+        - name: BCI_HOST_AMBIENTE
+          value: "http://zuul-server-service.bci-api:8080"
+        - name: AMBIENTE_BLUEMIX
+          value: "{{ BLUEMIX_SPACE }}"
+        - name: FOR_GODS_SAKE_PLEASE_REDEPLOY
+          value: "{{ DATETIME }}"
+      {%- if NAMESPACE == 'reg_prod_local' %}
+        image: repository.bci.cl:8089/reg_prod/{{OC_VALUE}}/{{ PROJECT_NAME }}:{{ VERSION_DESPLIEGUE }}{{ '-priv' if VISIBILITY == 'False' else '' }}
+      {%- else %}
+        image: registry.ng.bluemix.net/{{ NAMESPACE }}/{{ PROJECT_NAME }}:{{ VERSION_DESPLIEGUE }}{{ '-priv' if VISIBILITY == 'False' else '' }}
+      {%- endif %}
+        imagePullPolicy: Always
+        name: {{ NAME }}-node{{ '-priv' if VISIBILITY == 'False' else '' }}
+        ports:
+        - containerPort: {{ PORT_NUMBER }}
+          protocol: TCP
+        resources:
+          requests:
+          {#- 100m for Prod, 10m for every other environment #}
+          {%- if NAMESPACE not in ['reg_prod', 'reg_prod_local'] %}
+            cpu: 10m
+          {%- else %}
+            cpu: 100m
+          {%- endif %}
+            memory: {{ sizes.get(POD_SIZE).memory.request }}
+          limits:
+            memory: {{ sizes.get(POD_SIZE).memory.limit }}
+      imagePullSecrets:
+      - name: bluemix-{{ NAMESPACE_DEPLOY }}-secret
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ NAME }}-svc{{ '-priv' if VISIBILITY == 'False' else '' }}
+  namespace: {{ NAMESPACE_DEPLOY }}
+spec:
+  ports:
+  - name: {{ NAME }}-port
+    port: {{ PORT_NUMBER }}
+    protocol: TCP
+    targetPort: {{ PORT_NUMBER }}
+  selector:
+    app: {{ NAME }}-app{{ '-priv' if VISIBILITY == 'False' else '' }}
+  type: ClusterIP
