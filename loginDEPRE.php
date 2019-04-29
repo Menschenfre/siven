@@ -3,7 +3,7 @@
 session_start();
 var_dump($_SESSION["user"]);
 ?>
-<?php include 'View/Includes/url.php' ?>
+<?php include '/home2/sivenati/public_html/View/Includes/url.php' ?>
 
 <!DOCTYPE html>
 <?php
@@ -110,8 +110,8 @@ $page = 'login';
 
     					//Si el controlador retorna un positivo se devuelve mensaje exitoso	
                 		if(response==1){
-                		//$("#resultado").html(response);
                         alert("Sesión activa");
+                        window.location = "/admin";
 
                 		}else{
                 			alert("No existe usuario, sesión fallida");
