@@ -154,7 +154,7 @@ $page = 'admin';
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
+              <span class="profile-text">Hello, Sickven !</span>
               <img class="img-xs rounded-circle" src="<?php echo $assets_images ?>face9.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
@@ -245,9 +245,9 @@ $page = 'admin';
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="#" onclick="billsAppears()">
               <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Charts</span>
+              <span class="menu-title">Cuentas</span>
             </a>
           </li>
           <li class="nav-item">
@@ -292,9 +292,11 @@ $page = 'admin';
       </nav>
       <!-- partial -->
       <div class="main-panel">
-        <div class="content-wrapper">
+
+
+        <div class="content-wrapper" id= "admin_content">
           
-          <div class="row">
+          <div class="row" id="dashboard_content">
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
               <div class="card card-statistics">
                 <div class="card-body">
@@ -403,6 +405,19 @@ $page = 'admin';
 
   <!-- plugins:js -->
   <?php include $js ?>
+<script type="text/javascript">
+
+function billsAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de bills y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/bills.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
+};
+
+</script>
+
   
   
 
