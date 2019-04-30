@@ -31,10 +31,10 @@ switch ($page){
 	case "index":
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
-	case "admin":
+	case "Admin":
 	echo $admin_style.''.$materialdesign_css;
 	break;
-	case "login":
+	case "Login":
 	echo $admin_style.''.$materialdesign_css;
 	break;
 	default:

@@ -1,21 +1,4 @@
-<?php include '/home2/sivenati/public_html/View/Includes/url.php' ?>
-<!DOCTYPE html> 
-<?php
-$page = 'admin';
-?>
-<html lang="en">
-
-<head> 
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin</title>
-  <!-- plugins:css -->
-
-  <?php include $css ?>
-  <!-- endinject -->
-  <link rel="shortcut icon" href="../favicon.ico" />
-</head>
+<?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
 
 <body>
   <div class="container-scroller">
@@ -385,9 +368,9 @@ $page = 'admin';
 
         <footer class="footer">
           <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
+              <a href="http://www.bootstrapdash.com/" target="_blank">Sickven</a>. Derechos reservados.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hecho con
               <i class="mdi mdi-heart text-danger"></i>
             </span>
           </div>

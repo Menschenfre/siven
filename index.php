@@ -32,7 +32,7 @@ $page = 'index';
 					<li class="fh5co-active"><a href="https://www.sivenatic.com">Main</a></li>
 					<li><a href="#" onclick="musicaAparicion()" id="music">Musicc</a></li>
 					<li><a href="#" onclick="randomVideosAparicion()" id="random">IsMagic</a></li>
-					<li><a href="#" onclick="loginAparicion()" id="login">AcscesON</a></li>
+					<li><a href="/login" onclick="" id="login">AcscesON</a></li>
 					<li><a href="#" onclick="kill_cookie()" id="logout">AcscesOFF</a></li>
 					<li><a href="#" onclick="nadaAparicion()" id="nada">Nada</a></li>
 				</ul>
