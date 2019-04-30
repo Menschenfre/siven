@@ -163,7 +163,7 @@
               <a class="dropdown-item">
                 Check Inbox
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" onclick="/Controller/LoginController.php/">
                 Sign Out
               </a>
             </div>
@@ -398,6 +398,8 @@ function billsAppears(){
       $("#admin_content").html(result);
   }});
 };
+
+
 
 </script>
 
