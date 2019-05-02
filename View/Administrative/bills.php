@@ -1,3 +1,11 @@
+<?php  
+require_once('/home2/sivenati/public_html/Controller/BillController.php');
+
+$bill=new BillController();
+
+
+?>
+
 <div class="col-lg-12 stretch-card">
               <div class="card">
                 <div class="card-body">

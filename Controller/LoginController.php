@@ -24,9 +24,4 @@ echo $result;
     echo "Se debe retornar al login mostrando el mensaje pertinente"; 
 }  */
 
-public function logout(){
-	session_destroy();
-	header('Location: /login');
-
-}
 ?>
