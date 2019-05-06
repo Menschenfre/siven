@@ -10,7 +10,7 @@
 
 		public function __construct(){
 			//$this->connect_db();
-			$this->con = new mysqli('localhost', $this->dbuser, '1342993nonoaccessbbbrbrbbb29', 'sivenati_siven');
+			$this->con = new mysqli('localhost', $this->dbuser, $this->dbpass, $this->dbname);
 			if($this->con->connect_errno){
 				echo "fallo al conectar la bd".$this->con->connect_errno;
 				return;

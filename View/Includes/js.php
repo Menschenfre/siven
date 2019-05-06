@@ -23,6 +23,7 @@ $admin_dashboard_js = "{$script_init}{$assets_js_admin}dashboard.js{$script_end}
 $admin_base_js = "{$script_init}{$assets_js_admin}base.js{$script_end}";
 $admin_offcanvas_js = "{$script_init}{$assets_js_admin}off-canvas.js{$script_end}";
 $admin_misc_js = "{$script_init}{$assets_js_admin}misc.js{$script_end}";
+$data_tables_js = "{$script_init}{$assets_js_data_tables}datatables.min.js{$script_end}";
 
 
 switch ($page){
@@ -30,7 +31,7 @@ switch ($page){
 	echo $jquery.''.$bootstrap.''.$main_index.''.$sweet_alert.''.$waypoints;
 	break;
 	case "Admin":
-	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js;
+	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js;
 	break;
 	case "Login":
 	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js;

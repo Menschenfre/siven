@@ -22,10 +22,12 @@ $js = "${Includes_url}/js.php";
 // Assets css
 $assets_css = "{$Assets_origen}/css/";
 $assets_css_admin = "{$assets_css}admin_style/";
+$assets_css_data_tables = "{$assets_css}data_tables/";
 /*----------------------------------------------------------*/
 // Assets js
 $assets_js = "{$Assets_origen}/js/";
 $assets_js_admin = "{$assets_js}admin_js/";
+$assets_js_data_tables = "{$assets_js}data_tables/";
 /*----------------------------------------------------------*/
 // Assets images
 $assets_images = "{$Assets_origen}/images/";

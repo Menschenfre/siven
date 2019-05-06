@@ -24,6 +24,9 @@ $admin_style= "{$link_init}{$assets_css_admin}style.css{$link_end}";
 //MaterialDesignIcons 3.6.95
 $materialdesign_css= "{$link_init}{$Materialdesign_url}{$link_end}";
 
+//Data tables
+$data_tables_css= "{$link_init}{$assets_css_data_tables}datatables.min.css{$link_end}";
+
 
 
 /*Switch por cada página vista*/
@@ -32,7 +35,7 @@ switch ($page){
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
 	case "Admin":
-	echo $admin_style.''.$materialdesign_css;
+	echo $admin_style.''.$materialdesign_css.''.$data_tables_css;
 	break;
 	case "Login":
 	echo $admin_style.''.$materialdesign_css;
