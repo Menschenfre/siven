@@ -14,21 +14,23 @@ $bill=new BillController();
     <thead>
         <tr>
             <th>ID #</th>
-            <th>Categoría</th>
             <th>Producto</th>
+            <th>Valor</th>
+            <th>Fecha gasto</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>1</td>
-            <td>Comida</td>
-            <td>Pollo Asado</td>
-
+            <td>Pollo con papas</td>
+            <td>$4300</td>
+            <td>11/04/2019</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>Virtual</td>
             <td>Internet</td>
+            <td>$24000</td>
+            <td>07/05/2019</td>
         </tr>
     </tbody>
 </table>

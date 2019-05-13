@@ -174,8 +174,14 @@
         </button>
       </div>
     </nav>
+
+
+
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
+
+      <!--MENU Y PARTE IZQUIERDA -->
+
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
@@ -204,6 +210,7 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
@@ -213,66 +220,60 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+                  <a class="nav-link" href="#" onclick="playlistAppears(1)">Lista 1</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                  <a class="nav-link" href="#" onclick="playlistAppears(2)">Lista 2</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="playlistAppears(3)">Lista 3</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="playlistAppears(4)">Lista 4</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="playlistAppears(5)">Lista 5</a>
                 </li>
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
-              <span class="menu-title">Form elements</span>
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="#" onclick="billsAppears()">
               <i class="menu-icon mdi mdi-chart-line"></i>
               <span class="menu-title">Cuentas</span>
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <i class="menu-icon mdi mdi-table"></i>
-              <span class="menu-title">Tables</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/icons/font-awesome.html">
-              <i class="menu-icon mdi mdi-sticker"></i>
-              <span class="menu-title">Icons</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="menu-icon mdi mdi-restart"></i>
-              <span class="menu-title">User Pages</span>
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Cuentas</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="auth">
+            <div class="collapse" id="ui-basic2">
               <ul class="nav flex-column sub-menu">
+
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                  <a class="nav-link" href="#" onclick="addProductAppears()">
+                  Resumen  
+                  </a>
                 </li>
+
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/login.html"> Login </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/register.html"> Register </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
                 </li>
               </ul>
             </div>
           </li>
+
+
+
+
+
         </ul>
       </nav>
+
       <!-- partial -->
       <div class="main-panel">
 
@@ -390,11 +391,29 @@
   <?php include $js ?>
 <script type="text/javascript">
 
+function playlistAppears(lista){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de bills y se muestra dentro del contenido 
+  $.ajax({type: "POST", url: "/View/Administrative/Music/playlist.php", data:{"lista":lista}, success: function(result){
+      $("#admin_content").html(result);
+  }});
+};  
+
 function billsAppears(){
   //Ocultamos el contenido actual
   $('#dashboard_content').hide();
   //Se trae el contenido de bills y se muestra dentro del contenido 
   $.ajax({url: "/View/Administrative/bills.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
+};
+
+function addProductAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de agregar producto y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/Bills/add_product.php", success: function(result){
       $("#admin_content").html(result);
   }});
 };
