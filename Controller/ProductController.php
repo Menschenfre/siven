@@ -10,7 +10,7 @@ class ProductController{
 	 */
 	public function __construct(){
 
-		
+		 
 		 
 	}
 
