@@ -13,6 +13,9 @@ class ProductController{
 		 
 		 
 	}
+	function Works(){
+		return 1;
+	}
 
 	function save(){
 		if (!isset($_POST['estado'])) {

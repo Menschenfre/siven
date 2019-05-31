@@ -30,6 +30,7 @@
         <label>Precio</label>
         <input type="text" id="prod_price" class="form-control " placeholder="Precio" aria-label="Precio">
       </div>
+      <button onclick="prod_reg()"></button>
       
     </div>
   </div>
@@ -37,7 +38,7 @@
 
 <script type="text/javascript">
   
-function login(){
+function prod_reg(){
 
   //Capturamos las id de los input
       var prod_name = $("#prod_name").val();
@@ -49,10 +50,10 @@ function login(){
       $.ajax({
           //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
               data:  {"prod_name":prod_name,"prod_category":prod_category,"prod_total":prod_total,"prod_price":prod_price}, 
-              url:   '/View/Bills/index.php', //archivo que recibe la peticion
+              url:   '/View/Administrative/Bills/index.php', //archivo que recibe la peticion
               type:  'post', //método de envio
               beforeSend: function () {
-                  alert("Logeando...");
+                  alert("Enviando data...");
                       //$("#resultado").html("Procesando, espere por favor...");
               },
               //response es lo primero que se retorna en el controller
@@ -60,11 +61,11 @@ function login(){
 
             //Si el controlador retorna un positivo se devuelve mensaje exitoso 
                   if(response==1){
-                      alert("Sesión activa");
-                      window.location = "/admin";
+                      alert("Llega la data");
+                      //window.location = "/admin";
 
                   }else{
-                    alert("No existe usuario, sesión fallida");
+                    alert("No llega la data, fail");
                   }
                       
               }

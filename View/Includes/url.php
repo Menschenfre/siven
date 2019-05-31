@@ -4,6 +4,7 @@ $Base_url="/home2/sivenati/public_html";
 $Assets_origen= "/Assets";
 $View_origen= "/View";
 $Model_origen= "/Model";
+$Controller_origen= "/Controller";
 //Obtiene el nombre del archivo actual.
 //$page= basename( __FILE__ );
 // Includes base URL
@@ -14,9 +15,11 @@ $Materialdesign_url= "/Fonts/Materialdesignicons-3.6.95/css/materialdesignicons.
 
 
 /*----------------------------------------------------------*/
-$model_product= "{$Model_origen}/Product.php";
-
+// Includes Models
+$model_product= "{$Base_url}{$Model_origen}/Product.php";
 /*----------------------------------------------------------*/
+//Includes Controllers
+$controller_product= "{$Base_url}{$Controller_origen}/ProductController.php";
 
 
 /*----------------------------------------------------------*/
