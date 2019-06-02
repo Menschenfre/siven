@@ -10,14 +10,18 @@
         <label>Nombre</label>
         <input type="text" id="prod_name" class="form-control form-control-lg" placeholder="Nombre" aria-label="Nombre">
       </div>
+      <?php include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
+      <?php require_once($controller_product); ?>
+      <?php  $prod_control=new ProductController(); 
+             $result = $prod_control->list_category();
+      ?>
       <div class="form-group">
         <label for="exampleFormControlSelect1">Categoría</label>
         <select class="form-control form-control-lg" id="prod_category">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <?php foreach ($result as $key) {?>
+            <option><?php echo $key["name"] ?></option>
+          <?php }  ?>
+          
         </select>
       </div>
 

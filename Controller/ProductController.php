@@ -2,6 +2,7 @@
 include '/home2/sivenati/public_html/View/Includes/url.php'; 
 
 require_once($model_product);
+require_once($model_products_category);
 
 class ProductController{
 
@@ -15,6 +16,12 @@ class ProductController{
 	}
 	function Works(){
 		return 1;
+	}
+	//Listado de categorías, estas son reflejadas en la vista "add_product.php"
+	function list_category(){
+		$model=new Products_category();
+		$result= $model->read();
+		return $result;
 	}
 
 	function save(){
@@ -42,6 +49,6 @@ class ProductController{
 	}
 
 */
-
+ 
 }
 ?>

@@ -17,6 +17,7 @@ $Materialdesign_url= "/Fonts/Materialdesignicons-3.6.95/css/materialdesignicons.
 /*----------------------------------------------------------*/
 // Includes Models
 $model_product= "{$Base_url}{$Model_origen}/Product.php";
+$model_products_category= "{$Base_url}{$Model_origen}/Products_category.php";
 /*----------------------------------------------------------*/
 //Includes Controllers
 $controller_product= "{$Base_url}{$Controller_origen}/ProductController.php";

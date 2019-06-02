@@ -225,6 +225,66 @@ class Product extends Crud{
 
         return $this;
     }
+
+
+
+    //CRUD
+
+    public static function all(){
+        $db=Db::getConnect();
+        $listaAlumnos=[];
+
+        $select=$db->query('SELECT * FROM alumno order by id');
+
+        foreach($select->fetchAll() as $alumno){
+            $listaAlumnos[]=new Alumno($alumno['id'],$alumno['nombres'],$alumno['apellidos'],$alumno['estado']);
+        }
+        return $listaAlumnos;
+    }
+
+
+    //Función buscar por nick, recibe 2 parámetros de comparación
+    public function validateUser($nick, $pass){
+
+        //Generamos la consulta en una variable reutilizable
+        $sql="SELECT * FROM users WHERE nick='$nick' AND pass='$pass'";
+ 
+        //Preparamos la consulta ejecutando la query palabra reservada "query"
+        $result=$this->con->query($sql);
+    
+        //Inicializamos un array
+        //$userList = array();
+
+        //Por cada row del resultado en la query se guarda dentro de la variable array $userList
+        //while ($row_user = mysqli_fetch_array($resultado))
+        //$userList[] = $row_user;
+        
+        //Variable booleana 0 = no,  1 = si.
+        $flag= 0;
+
+        //Si el numero de filas es mayor a 0 se retorna un verdadero
+        if($result->num_rows>0){
+            //Cerramos la consulta
+            $result->close();
+            //Cerramos la conexión
+            $this->con->close();
+            //Retornamos 1
+            return $flag = 1;
+        }else{
+            //Cerramos la consulta
+            $result->close();
+            //Cerramos la conexión
+            $this->con->close();
+            //Retornamos 0
+            return $flag = 0;
+        }
+        
+
+    }
+
+    public function read(){
+        $sql="SELECT * FROM ";
+    }
 }
 
 ?>
