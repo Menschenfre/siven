@@ -285,6 +285,13 @@ class Product extends Crud{
     public function read(){
         $sql="SELECT * FROM ";
     }
+
+    public function create(){
+
+        $sql="INSERT INTO products(id_category,name,total,price) VALUES('$this->id_category','$this->name','$this->total','$this->price')";
+        $resultado=$this->con->prepare($sql);
+        $re=$resultado->execute();
+    }
 }
 
 ?>

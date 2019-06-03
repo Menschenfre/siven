@@ -25,6 +25,12 @@ class ProductController{
 	}
 
 	function save(){
+		$model=new Product();
+		$result= $model->create();
+		return $result;
+	}
+
+	function save2(){
 		if (!isset($_POST['estado'])) {
 			$estado="of";
 		}else{
