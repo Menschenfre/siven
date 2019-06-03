@@ -1,32 +1,29 @@
 <?php
-//Conexión Mysqli POO
-	class Conn{
-		protected $con;
-		private $dbhost="localhost";
-		private $dbuser="sivenati_sickven";
-		private $dbpass="1342993nonoaccessbbbrbrbbb29";
-		private $dbname="sivenati_siven";
-		private $dbcharset ="utf8";
+/*Conexión Mysqli POO--------------------------------------------------------------------------------------
+Versión: 1.0
+Fecha última modificación: 02-06-2019
+Comentario: Clase de conexión a la base de datos, se crearon los atributos y constructor que son heredados
+por la clase "Crud.php".
+-----------------------------------------------------------------------------------------------------------*/
+class Conn{
+	//Atributos con sus valores estatáticos.
+	protected $con;
+	private $dbhost="localhost";
+	private $dbuser="sivenati_sickven";
+	private $dbpass="1342993nonoaccessbbbrbrbbb29";
+	private $dbname="sivenati_siven";
+	private $dbcharset ="utf8";
 
-		public function __construct(){
-			//$this->connect_db();
-			$this->con = new mysqli('localhost', $this->dbuser, $this->dbpass, $this->dbname);
-			if($this->con->connect_errno){
-				echo "fallo al conectar la bd".$this->con->connect_errno;
-				return;
-			}
-			$this->con->set_charset($dbcharset);
-
+	//Constructor que se heredará a otras clases con la conexión a la bd
+	public function __construct(){
+		$this->con = new mysqli('localhost', $this->dbuser, $this->dbpass, $this->dbname);
+		if($this->con->connect_errno){
+			echo "falla al conectar la bd".$this->con->connect_errno;
+			return;
 		}
-		/*public function connect_db(){
-			$this->con = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-			if($this->con->connect_errno){
-				echo "fallo al conectar la bd".$this->con->connect_errno;
-				return;
-			}
-			$this->con->set_charset($dbcharset);
-		}*/
-
+		//Cambiamos a utf8 para tildes
+		$this->con->set_charset($this->dbcharset);
+	}
 }
 
 ?>

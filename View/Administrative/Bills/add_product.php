@@ -19,7 +19,7 @@
         <label for="exampleFormControlSelect1">Categoría</label>
         <select class="form-control form-control-lg" id="prod_category">
           <?php foreach ($result as $key) {?>
-            <option><?php echo $key["name"] ?></option>
+            <option value=<?php echo $key["id"]?>><?php echo $key["name"] ?></option>
           <?php }  ?>
           
         </select>
