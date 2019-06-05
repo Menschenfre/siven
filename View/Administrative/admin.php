@@ -253,15 +253,13 @@
             </a>
             <div class="collapse" id="ui-basic2">
               <ul class="nav flex-column sub-menu">
-
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="billsAppears()">Resumen</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#" onclick="addProductAppears()">
-                  Resumen  
+                  Registro 
                   </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
                 </li>
               </ul>
             </div>

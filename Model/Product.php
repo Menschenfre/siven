@@ -266,7 +266,7 @@ class Product extends Crud{
 
     public function create(){
 
-        $sql="INSERT INTO products(id_category,name,total,price,status,deleted) VALUES('$this->id_category','$this->name','$this->total','$this->price', 0,0)";
+        $sql="INSERT INTO products(id_category,name,total,price,status,created) VALUES('$this->id_category','$this->name','$this->total','$this->price', 1, '$this->created')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
         

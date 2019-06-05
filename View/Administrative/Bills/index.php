@@ -13,6 +13,7 @@ $product_name = $_POST['product_name'];
 $product_category = $_POST['product_category'];
 $product_total = $_POST['product_total'];
 $product_price = $_POST['product_price'];
+$producto_date = $_POST['product_date'];
 
 /*
 $product_name = "nameTest1";
@@ -20,7 +21,7 @@ $product_category = 1;
 $product_total = 10;
 $product_price = 100;*/
 
-$result = $product_control->save($product_category,$product_name,$product_total,$product_price);
+$result = $product_control->save($product_category,$product_name,$product_total,$product_price,$producto_date);
 echo $result;
 
 

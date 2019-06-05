@@ -43,7 +43,7 @@ $result = $prod_control->list_category();
 
       <div class="form-group">
         <label>Fecha</label>
-        <input type="text" id="product_date" class="form-control " placeholder="Fecha" aria-label="Fecha">
+        <input type="date" id="product_date" class="form-control " placeholder="Fecha" aria-label="Fecha">
       </div>
 
       <button class="btn btn-outline-primary" onclick="prod_reg()">Enviar</button>
