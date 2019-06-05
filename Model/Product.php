@@ -28,13 +28,12 @@ class Product extends Crud{
 	 */
 
 	//Inicializamos los atributos nulos para simular un constructor vacío
-	public function __construct($id = null, $id_category = null, $name = null, $total = null, $price = null, $status = null, $created = null, $modified = null, $deleted = null){
+	public function __construct($id_category = null, $name = null, $total = null, $price = null, $status = null, $created = null, $modified = null, $deleted = null){
 
 		//Herencia de constructor padre
         parent::__construct();
 
         //Constructor de atributos
-		$this->id = $id;
 		$this->id_category = $id_category;
 		$this->name = $name;
 		$this->total = $total;
@@ -44,27 +43,6 @@ class Product extends Crud{
 		$this->modified = $modified;
 		$this->deleted = $deleted;
 	}
-
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * @return mixed
@@ -288,9 +266,11 @@ class Product extends Crud{
 
     public function create(){
 
-        $sql="INSERT INTO products(id_category,name,total,price) VALUES('$this->id_category','$this->name','$this->total','$this->price')";
+        $sql="INSERT INTO products(id_category,name,total,price,status,deleted) VALUES('$this->id_category','$this->name','$this->total','$this->price', 0,0)";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
+        
+        return 1;
     }
 }
 

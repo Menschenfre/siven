@@ -40,8 +40,13 @@ $result = $prod_control->list_category();
         <label>Precio</label>
         <input type="text" id="product_price" class="form-control " placeholder="Precio" aria-label="Precio">
       </div>
-      <button onclick="prod_reg()"></button>
-      
+
+      <div class="form-group">
+        <label>Fecha</label>
+        <input type="text" id="product_date" class="form-control " placeholder="Fecha" aria-label="Fecha">
+      </div>
+
+      <button class="btn btn-outline-primary" onclick="prod_reg()">Enviar</button>
     </div>
   </div>
 </div>
@@ -55,16 +60,11 @@ function prod_reg(){
   var product_category = $("#product_category").val();
   var product_total = $("#product_total").val();
   var product_price = $("#product_price").val();
-
-  alert(product_name);
-  alert(product_category);
-  alert(product_total);
-  alert(product_price);
-
+  var product_date = $("#product_date").val();
 
   $.ajax({
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
-          data:  {"product_name":product_name,"product_category":product_category,"product_total":product_total,"product_price":product_price}, 
+          data:  {"product_name":product_name,"product_category":product_category,"product_total":product_total,"product_price":product_price,"product_date":product_date}, 
           url:   '/View/Administrative/Bills/index.php', //archivo que recibe la peticion
           type:  'post', //método de envio
           beforeSend: function () {

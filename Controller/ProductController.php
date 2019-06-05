@@ -24,9 +24,10 @@ class ProductController{
 		return $result;
 	}
 
-	function save(){
-		$model=new Product();
+	function save($id_category,$name,$total,$price){
+		$model=new Product($id_category,$name,$total,$price);
 		$result= $model->create();
+		
 		return $result;
 	}
 
