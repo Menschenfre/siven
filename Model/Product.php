@@ -261,7 +261,17 @@ class Product extends Crud{
     }
 
     public function read(){
-        $sql="SELECT * FROM ";
+        $sql="SELECT * FROM products";
+        $result=$this->con->query($sql);
+        //Inicializamos un array
+        $productList = array();
+
+        //Por cada row del resultado en la query se guarda dentro de la variable array $XList
+        while ($row_product = mysqli_fetch_array($result))
+        $productList[] = $row_product;
+
+        //Retornamos la lista
+        return $productList;
     }
 
     public function create(){

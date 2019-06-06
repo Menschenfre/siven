@@ -183,10 +183,6 @@ class Products_category extends Crud{
 
 
     //CRUD
-
-
-    
-
     public function read(){
         $sql="SELECT * FROM products_category";
         $result=$this->con->query($sql);

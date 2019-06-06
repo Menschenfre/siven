@@ -9,15 +9,20 @@ class ProductController{
 	/**
 	 * Class Constructor
 	 */
-	public function __construct(){
-
-		 
-		 
+	public function __construct(){ 
 	}
+	
 	function Works(){
 		return 1;
 	}
-	//Listado de categorías, estas son reflejadas en la vista "add_product.php"
+	//Listado de productos, este es reflejado en el listado  "add_product.php"
+	function list_product(){
+		$model=new Product();
+		$result= $model->read();
+		return $result;
+	}
+
+	//Listado de productos, estas son reflejadas en la vista "add_product.php"
 	function list_category(){
 		$model=new Products_category();
 		$result= $model->read();
@@ -30,32 +35,5 @@ class ProductController{
 		
 		return $result;
 	}
-
-	function save2(){
-		if (!isset($_POST['estado'])) {
-			$estado="of";
-		}else{
-			$estado="on";
-		}
-		$alumno= new Alumno(null, $_POST['nombres'],$_POST['apellidos'],$estado);
-
-		Alumno::save($alumno);
-		$this->show();
-	}
-/*
-	function save(){
-		if (!isset($_POST['estado'])) {
-			$estado="of";
-		}else{
-			$estado="on";
-		}
-		$alumno= new Alumno(null, $_POST['nombres'],$_POST['apellidos'],$estado);
-
-		Alumno::save($alumno);
-		$this->show();
-	}
-
-*/
- 
 }
 ?>
