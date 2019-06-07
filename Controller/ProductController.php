@@ -15,7 +15,7 @@ class ProductController{
 	function Works(){
 		return 1;
 	}
-	//Listado de productos, este es reflejado en el listado  "add_product.php"
+	//Listado de productos, este es reflejado en el listado  "list_product.php"
 	function list_product(){
 		$model=new Product();
 		$result= $model->read();

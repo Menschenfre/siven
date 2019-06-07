@@ -1,10 +1,12 @@
-<?php  
-require_once('/home2/sivenati/public_html/Controller/BillController.php');
-
-$bill=new BillController();
-
-
+<?php //Obtenemos las url estáticas
+include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
+<?php //Llamamos el controlador de producto
+require_once($controller_product); ?>
+<?php $prod_control=new ProductController();
+//Invocamos la funcion que lista las categorías
+$result = $prod_control->list_product();
 ?>
+
 <script type="text/javascript">
   $(document).ready( function () {
     $('#table_id').DataTable();
@@ -15,22 +17,21 @@ $bill=new BillController();
         <tr>
             <th>ID #</th>
             <th>Producto</th>
+            <th>Cantidad</th>
             <th>Valor</th>
             <th>Fecha gasto</th>
         </tr>
     </thead>
     <tbody>
+        <?php foreach ($result as $key ) {?>
         <tr>
-            <td>1</td>
-            <td>Pollo con papas</td>
-            <td>$4300</td>
-            <td>11/04/2019</td>
+            <td><?php echo $key["id"]?></td>
+            <td><?php echo $key["name"]?></td>
+            <td><?php echo $key["total"]?></td>
+            <td><?php echo $key["price"]?></td>
+            <td><?php echo $key["created"]?></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Internet</td>
-            <td>$24000</td>
-            <td>07/05/2019</td>
-        </tr>
+        <?php }  ?>
+        
     </tbody>
 </table>

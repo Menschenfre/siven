@@ -1,5 +1,11 @@
 <?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
 
+<?php  
+if($_SESSION["user"] == NULL){
+  exit();
+}
+?>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -239,7 +245,7 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="billsAppears()">
+            <a class="nav-link" href="#" onclick="list_productAppears()">
               <i class="menu-icon mdi mdi-chart-line"></i>
               <span class="menu-title">Cuentas</span>
             </a>
@@ -254,7 +260,7 @@
             <div class="collapse" id="ui-basic2">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="billsAppears()">Resumen</a>
+                  <a class="nav-link" href="#" onclick="list_productAppears()">Resumen</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#" onclick="addProductAppears()">
@@ -398,11 +404,11 @@ function playlistAppears(lista){
   }});
 };  
 
-function billsAppears(){
+function list_productAppears(){
   //Ocultamos el contenido actual
   $('#dashboard_content').hide();
   //Se trae el contenido de bills y se muestra dentro del contenido 
-  $.ajax({url: "/View/Administrative/bills.php", success: function(result){
+  $.ajax({url: "/View/Administrative/Bills/list_product.php", success: function(result){
       $("#admin_content").html(result);
   }});
 };
