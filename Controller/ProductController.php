@@ -11,6 +11,12 @@ class ProductController{
 	 */
 	public function __construct(){ 
 	}
+
+	function Test(){
+		$model=new Product();
+		$result= $model->test();
+		return $result;
+	}
 	
 	function Works(){
 		return 1;

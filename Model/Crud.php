@@ -14,7 +14,13 @@ class Crud extends Conn{
 		parent::__construct();
 		// MySQL datetime format
 		$this->dateTimeNow = new DateTime();    
-	}	
+	}
+
+	public function test(){
+
+		return "Estoy retornando una funcion heredada del CRUD CTM";
+	} 
+
 }
 
 ?>

@@ -1,8 +1,11 @@
 <?php  
-require_once('Controller/BillController.php');
+require_once('Controller/ProductController.php');
 
-$bill=new BillController();
-$bill->index();
+$bill=new ProductController();
+$Muestro= $bill->Test();
+
+echo "hello, muestro";
+echo $Muestro;
 
 
 ?>
