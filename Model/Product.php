@@ -267,12 +267,90 @@ class Product extends Crud{
 
         //Consulta obteniendo la suma del precio
         $sql="SELECT SUM(price) FROM $this->table";
-        $result=$this->con->query($sql);
+        $total=$this->con->query($sql);
         //obtenemos la fila afectada
-        $result=$result->fetch_row();
-        //retornamos la fila, en este caso la posición 0 del array
-        return $result[0];
+        $total=$total->fetch_row();
+  
+
+        //Consulta obteniendo la suma del precio de categoría comida
+        $sql="SELECT SUM(price) FROM $this->table WHERE id_category=1";
+        $total_food=$this->con->query($sql);
+        $total_food=$total_food->fetch_row();
+
+        //Consulta obteniendo la suma del precio de categoría virtual
+        $sql="SELECT SUM(price) FROM $this->table WHERE id_category=2";
+        $total_virtual=$this->con->query($sql);
+        $total_virtual=$total_virtual->fetch_row();
+
+        //Consulta obteniendo la suma del precio de categoría tecnología
+        $sql="SELECT SUM(price) FROM $this->table WHERE id_category=3";
+        $total_technology=$this->con->query($sql);
+        $total_technology=$total_technology->fetch_row();
+
+        //Consulta obteniendo la suma del precio de categoría salud
+        $sql="SELECT SUM(price) FROM $this->table WHERE id_category=4";
+        $total_health=$this->con->query($sql);
+        $total_health=$total_health->fetch_row();
+
+        //Consulta obteniendo la suma del precio de categoría fijos
+        $sql="SELECT SUM(price) FROM $this->table WHERE id_category=5";
+        $total_immovable=$this->con->query($sql);
+        $total_immovable=$total_immovable->fetch_row();
+
+        //Consulta obteniendo la suma del precio de categoría otros
+        $sql="SELECT SUM(price) FROM $this->table WHERE id_category=6";
+        $total_others=$this->con->query($sql);
+        $total_others=$total_others->fetch_row();
+
+       
+        /*Creamos un array con las variables de totales obtenidas $keys guarda las cabeceras
+        Results guarda las posiciones unicas de las consultas, $array combina entre posiciones
+        y resultados.*/
+        $keys = ['total','total_food','total_virtual','total_technology','total_health','total_immovable','total_others'];
+        $results = [$total[0],$total_food[0],$total_virtual[0],$total_technology[0],$total_health[0],$total_immovable[0],$total_others[0]];
+        $array = array_combine($keys, $results);
+
+        //retornamos el array armado.
+        return $array;
     }
+
+
+    public function testTotal(){
+        $sql="SELECT * FROM products_category";
+        $result=$this->con->query($sql);
+        //Inicializamos un array
+        $list = array();
+
+        while ($row = mysqli_fetch_array($result)){
+            $count++;
+
+            $sql="SELECT SUM(price) FROM $this->table WHERE id_category='$count'";
+            $total=$this->con->query($sql);
+            $total=$total->fetch_row();
+            $list[] = $total;
+        }
+        return $list;
+    }
+
+
+
+    /*array(8) { 
+[0]=> array(1) { [0]=> string(5) "45623" } 
+[1]=> array(1) { [0]=> NULL } 
+[2]=> array(1) { [0]=> NULL } 
+[3]=> array(1) { [0]=> NULL } 
+[4]=> array(1) { [0]=> string(6) "241630" } 
+[5]=> array(1) { [0]=> string(5) "10000" } 
+[6]=> array(1) { [0]=> string(5) "10000" } 
+[7]=> array(1) { [0]=> NULL } }
+
+
+SELECT SUM(price) FROM products 
+INNER JOIN products_category
+ON products.id_category = products_category.id
+WHERE id_category=1
+GROUP BY products.id 
+ORDER BY products.id DESC;*/
 }
 
 ?>

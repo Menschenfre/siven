@@ -42,5 +42,11 @@ class ProductController{
 		
 		return $result;
 	}
+
+	function testo(){
+		$model=new Product();
+		$result= $model->testTotal();
+		return $result;
+	}
 }
 ?>
