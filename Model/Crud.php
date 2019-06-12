@@ -18,8 +18,23 @@ class Crud extends Conn{
 
 	public function test(){
 
-		return "Estoy retornando una funcion heredada del CRUD CTM";
+		return $this->table;
 	} 
+
+	public function read(){
+		//El nombre de la tabla se obtiene de la clase modelo, atributos
+        $sql="SELECT * FROM $this->table";
+        $result=$this->con->query($sql);
+        //Inicializamos un array
+        $list = array();
+
+        //Por cada fila del resultado en la query se guarda dentro de la variable array $list
+        while ($row = mysqli_fetch_array($result))
+        $list[] = $row;
+
+    	//Se retorna un arreglo con cada fila en la base de datos
+        return $list;
+    }
 
 }
 

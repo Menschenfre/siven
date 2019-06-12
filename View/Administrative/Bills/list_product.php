@@ -5,6 +5,7 @@ require_once($controller_product); ?>
 <?php $prod_control=new ProductController();
 //Invocamos la funcion que lista las categorías
 $result = $prod_control->list_product();
+$total = $prod_control->total_product();
 ?>
 
 <script type="text/javascript">
@@ -32,6 +33,7 @@ $result = $prod_control->list_product();
             <td><?php echo $key["created"]?></td>
         </tr>
         <?php }  ?>
-        
     </tbody>
 </table>
+
+<label>Total: <?php echo $total ?></label>

@@ -3,6 +3,9 @@ require_once ('Crud.php');
 
 class Products_category extends Crud{
 
+//Nombre de la tabla
+    public $table="products_category";
+//Atributos del modelo    
 	private $id;
 	private $name;
 	private $description;
@@ -36,10 +39,6 @@ class Products_category extends Crud{
 		$this->modified = $modified;
 		$this->deleted = $deleted;
 	}
-
-
-
-
 
     /**
      * @return mixed
@@ -180,22 +179,6 @@ class Products_category extends Crud{
 
         return $this;
     }
-
-
-    //CRUD
-    public function read(){
-        $sql="SELECT * FROM products_category";
-        $result=$this->con->query($sql);
-        //Inicializamos un array
-        $categoryList = array();
-
-        //Por cada row del resultado en la query se guarda dentro de la variable array $XList
-        while ($row_category = mysqli_fetch_array($result))
-        $categoryList[] = $row_category;
-
-        return $categoryList;
-    }
-
 }
 
 ?>

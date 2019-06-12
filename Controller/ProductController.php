@@ -11,12 +11,6 @@ class ProductController{
 	 */
 	public function __construct(){ 
 	}
-
-	function Test(){
-		$model=new Product();
-		$result= $model->test();
-		return $result;
-	}
 	
 	function Works(){
 		return 1;
@@ -25,6 +19,13 @@ class ProductController{
 	function list_product(){
 		$model=new Product();
 		$result= $model->read();
+		return $result;
+	}
+
+	//Suma del total, este es reflejado en el listado  "list_product.php"
+	function total_product(){
+		$model=new Product();
+		$result= $model->total();
 		return $result;
 	}
 

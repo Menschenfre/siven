@@ -1,8 +1,17 @@
 <?php
+/*Modelo de producto---------------------------------------------------------------------------------------
+Versión: 1.0
+Fecha última modificación: 11-06-2019
+Comentario: Clase Product.php se hace la modificación agregando el atributo $table con un valor estático para 
+el pase a Crud.php
+-----------------------------------------------------------------------------------------------------------*/
 require_once ('Crud.php');
 
 class Product extends Crud{
 
+//Nombre de la tabla
+    public $table= "products";
+//Atributos
 	private $id;
 	private $id_category;
 	private $name;
@@ -12,6 +21,7 @@ class Product extends Crud{
 	private $created;
 	private $modified;
 	private $deleted;
+
 
 
 	/**
@@ -205,22 +215,6 @@ class Product extends Crud{
     }
 
 
-
-    //CRUD
-
-    public static function all(){
-        $db=Db::getConnect();
-        $listaAlumnos=[];
-
-        $select=$db->query('SELECT * FROM alumno order by id');
-
-        foreach($select->fetchAll() as $alumno){
-            $listaAlumnos[]=new Alumno($alumno['id'],$alumno['nombres'],$alumno['apellidos'],$alumno['estado']);
-        }
-        return $listaAlumnos;
-    }
-
-
     //Función buscar por nick, recibe 2 parámetros de comparación
     public function validateUser($nick, $pass){
 
@@ -260,20 +254,6 @@ class Product extends Crud{
 
     }
 
-    public function read(){
-        $sql="SELECT * FROM products";
-        $result=$this->con->query($sql);
-        //Inicializamos un array
-        $productList = array();
-
-        //Por cada row del resultado en la query se guarda dentro de la variable array $XList
-        while ($row_product = mysqli_fetch_array($result))
-        $productList[] = $row_product;
-
-        //Retornamos la lista
-        return $productList;
-    }
-
     public function create(){
 
         $sql="INSERT INTO products(id_category,name,total,price,status,created) VALUES('$this->id_category','$this->name','$this->total','$this->price', 1, '$this->created')";
@@ -281,6 +261,17 @@ class Product extends Crud{
         $re=$resultado->execute();
         
         return 1;
+    }
+
+    public function total(){
+
+        //Consulta obteniendo la suma del precio
+        $sql="SELECT SUM(price) FROM $this->table";
+        $result=$this->con->query($sql);
+        //obtenemos la fila afectada
+        $result=$result->fetch_row();
+        //retornamos la fila, en este caso la posición 0 del array
+        return $result[0];
     }
 }
 
