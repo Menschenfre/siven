@@ -328,6 +328,15 @@ class Product extends Crud{
             $total=$this->con->query($sql);
             $total=$total->fetch_row();
             $list[] = $total;
+
+            /*$sql="SELECT SUM(products.price), products_category.name FROM products_category INNER JOIN $this->table ON products.id_category = products_category.id WHERE products_category.id=1";*/
+            /*
+SELECT SUM(products.price), products_category.name FROM products_category
+INNER JOIN products
+ON products.id_category = products_category.id
+WHERE products_category.id=1*/
+
+
         }
         return $list;
     }
