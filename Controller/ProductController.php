@@ -45,7 +45,7 @@ class ProductController{
 	//Suma del total, este es reflejado en el listado  "list_product.php"
 	function total_product(){
 		$model=new Product();
-		$result= $model->total();
+		$result= $model->generalTotal();
 		return $result;
 	}
 

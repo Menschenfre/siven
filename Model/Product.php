@@ -263,7 +263,7 @@ class Product extends Crud{
         return 1;
     }
 
-    public function total(){
+    public function generalTotal(){
 
         //Consulta obteniendo la suma del precio
         $sql="SELECT SUM(price) FROM $this->table";
