@@ -4,11 +4,11 @@ include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
 require_once($controller_product); ?>
 <?php $prod_control=new ProductController();
 //Invocamos la funcion que lista las categorías
-$result = $prod_control->list_product();
-$select_totals = $prod_control->total_product();
+$list_product = $prod_control->list_product();
+$total_product = $prod_control->total_product();
 
-$test = $prod_control->testo();
-var_dump($test);
+$total_category_product = $prod_control->total_category_product();
+//var_dump($test);
 ?>
 
 <script type="text/javascript">
@@ -27,26 +27,21 @@ var_dump($test);
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($result as $key ) {?>
+        <?php foreach ($list_product as $key ) {?>
         <tr>
             <td><?php echo $key["id"]?></td>
             <td><?php echo $key["name"]?></td>
             <td><?php echo $key["total"]?></td>
-            <td><?php echo $key["price"]?></td>
+            <td><?php echo number_format($key["price"],'0', ',','.')?></td>
             <td><?php echo $key["created"]?></td>
         </tr>
         <?php }  ?>
     </tbody>
 </table>
 
-<label>Total General : <?php echo $select_totals["total"]?></label><br>
-<label>Total Comida : <?php echo $select_totals["total_food"]?></label><br>
-<label>Total Virtual : <?php echo $select_totals["total_virtual"]?></label><br>
-<label>Total Tecnología : <?php echo $select_totals["total_technology"]?></label><br>
-<label>Total Salud : <?php echo $select_totals["total_health"]?></label><br>
-<label>Total Fijos : <?php echo $select_totals["total_immovable"]?></label><br>
-<label>Total Otros : <?php echo $select_totals["total_others"]?></label><br>
+<label>General : <?php echo number_format($total_product[0],'0', ',','.')?></label><br>
 
-<?php foreach ($test as $key) {?>
-<label><?php echo $key[0] ?> : <?php  echo $key[0]?></label><br>
+
+<?php foreach ($total_category_product as $key) {?>
+<label><?php echo $key[0] ?> : <?php  echo number_format($key[1],'0', ',','.')?></label><br>
 <?php }  ?>

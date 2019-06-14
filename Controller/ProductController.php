@@ -22,13 +22,6 @@ class ProductController{
 		return $result;
 	}
 
-	//Suma del total, este es reflejado en el listado  "list_product.php"
-	function total_product(){
-		$model=new Product();
-		$result= $model->total();
-		return $result;
-	}
-
 	//Listado de productos, estas son reflejadas en la vista "add_product.php"
 	function list_category(){
 		$model=new Products_category();
@@ -42,11 +35,19 @@ class ProductController{
 		
 		return $result;
 	}
-
-	function testo(){
+	//Suma de totales por categoría
+	function total_category_product(){
 		$model=new Product();
-		$result= $model->testTotal();
+		$result= $model->categoryTotal();
 		return $result;
 	}
+
+	//Suma del total, este es reflejado en el listado  "list_product.php"
+	function total_product(){
+		$model=new Product();
+		$result= $model->total();
+		return $result;
+	}
+
 }
 ?>
