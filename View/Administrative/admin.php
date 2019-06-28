@@ -1,5 +1,10 @@
 <?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
 
+<?php //Llamamos el controlador de login
+require_once($controller_login); ?>
+<?php $login_control=new LoginController2();
+?>
+
 <?php  
 if($_SESSION["user"] == NULL){
   exit();
@@ -169,8 +174,9 @@ if($_SESSION["user"] == NULL){
               <a class="dropdown-item">
                 Check Inbox
               </a>
+              
               <a class="dropdown-item" onclick="/Controller/LoginController.php/">
-                Sign Out
+                Salir
               </a>
             </div>
           </li>

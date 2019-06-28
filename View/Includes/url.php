@@ -21,6 +21,7 @@ $model_products_category= "{$Base_url}{$Model_origen}/Products_category.php";
 /*----------------------------------------------------------*/
 //Includes Controllers
 $controller_product= "{$Base_url}{$Controller_origen}/ProductController.php";
+$controller_login= "{$Base_url}{$Controller_origen}/LoginController2.php";
 
 
 /*----------------------------------------------------------*/

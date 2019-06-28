@@ -1,5 +1,10 @@
 <?php $page = "Login";?>
 <?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
+<?php include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
+<?php //Llamamos el controlador de login
+require_once($controller_login); ?>
+<?php $prod_control=new ProductController();
+?>
 
 <body>
   <div class="container-scroller">
