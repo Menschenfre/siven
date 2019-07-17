@@ -3,6 +3,7 @@
 <?php //Llamamos el controlador de login
 require_once($controller_login); ?>
 <?php $login_control=new LoginController2();
+echo $login_control->works();
 ?>
 
 <?php  
@@ -175,8 +176,8 @@ if($_SESSION["user"] == NULL){
                 Check Inbox
               </a>
               
-              <a class="dropdown-item" onclick="/Controller/LoginController.php/">
-                Salir
+              <a class="dropdown-item" href="#" onclick="">
+                Salir 
               </a>
             </div>
           </li>

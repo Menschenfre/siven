@@ -1,5 +1,5 @@
 <?php 
-// Base URL
+// Base URL 
 $Base_url="/home2/sivenati/public_html";
 $Assets_origen= "/Assets";
 $View_origen= "/View";
@@ -45,6 +45,5 @@ $assets_js_data_tables = "{$assets_js}data_tables/";
 $assets_images = "{$Assets_origen}/images/";
 
 /*----------------------------------------------------------*/
-
 
 ?>
