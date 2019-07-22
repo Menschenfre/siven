@@ -4,7 +4,7 @@
 require_once($controller_login); ?>
 <?php $login_control=new LoginController2();
 echo $login_control->works();
-?>
+?> 
 
 <?php  
 if($_SESSION["user"] == NULL){
