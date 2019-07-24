@@ -125,41 +125,7 @@
         });
 }
 
-function logout(identifier){
 
-    //Capturamos las id de los input
-        var username = $("#user").val();
-        var password = $("#pass").val();
-        alert(identifier);
-
-        $.ajax({
-            /*datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente; en este caso se entregan 3 valores como data, nombre de usuario
-            contraseña de usuario y el valor identificador para llamado de funciones
-            */
-                data:  {"username":username,"password":password,"identifier":identifier}, 
-                url:   '/View/Access/index.php', //archivo que recibe la peticion
-                type:  'post', //método de envio
-                beforeSend: function () {
-                    alert("Logeando...");
-                        //$("#resultado").html("Procesando, espere por favor...");
-                },
-                //response es lo primero que se retorna en el controller
-                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-
-              //Si el controlador retorna un positivo se devuelve mensaje exitoso 
-                    if(response==1){
-                        //alert("Sesión activa");
-                        //alert("prueba de guardadooo"); 
-                        window.location = "/admin";
-                        
-                    }else{
-                      alert(response);
-                      alert("No existe usuario, sesión fallida");
-                    }
-                        
-                }
-        });
-}
   </script>
 
   <script type="text/javascript">

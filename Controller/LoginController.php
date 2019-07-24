@@ -6,10 +6,10 @@ class LoginController{
 	}
 
 	function logout(){
-		session_start();
-		session_destroy();
-		header("location:/login");
-		exit();
+		//session_start();
+		//session_destroy();
+		//header("location:/login");
+		//exit();
 		return 1;
 	}
 

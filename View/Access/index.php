@@ -1,17 +1,14 @@
 <?php include '/home2/sivenati/public_html/View/Includes/url.php'; 
 
-require_once($model_user);
-require_once($controller_login);
-
 //Recibimos el valor del identificador
 $identifier = $_POST['identifier'];
 
-
 /*Switch por cada llave identificadora*/
 switch ($identifier){
-
+	
 	/*Respuesta Ajax al logear*/
 	case "login":
+	require_once($model_user);
 	$user=new User();
 	//$nick = "siven";
 	//$pass = "siveng";
@@ -21,7 +18,7 @@ switch ($identifier){
 
 	//Si se encuentra el usuario, se guardan las variables de sesión 
 	if($result==1){
-	//session_start();
+	session_start();
 	$_SESSION["user"] = $nick;
 	}
 
@@ -39,8 +36,17 @@ switch ($identifier){
 
 	/*Respuesta Ajax al deslogear*/
 	case "logout":
-	$login_control=new LoginController2();
+	require_once($controller_login);
+	$login_control=new LoginController();
 	$result=$login_control->logout();
+
+	if($result==1){
+	session_start();
+	$_SESSION["user"] = NULL;
+	session_destroy();
+	}
+
+
 	echo $result;
 
 	break;

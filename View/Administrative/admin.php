@@ -1,11 +1,13 @@
 <?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
 
-<?php  
+<?php 
+var_dump($_SESSION["user"]); 
 if($_SESSION["user"] == NULL){
+
   exit();
 }
 ?>
-
+ 
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -170,7 +172,7 @@ if($_SESSION["user"] == NULL){
                 Check Inbox
               </a>
               
-              <a class="dropdown-item" href="#" onclick="">
+              <a class="dropdown-item" href="#" onclick="logout('logout')">
                 Salir 
               </a>
             </div>
@@ -423,8 +425,37 @@ function addProductAppears(){
   }});
 };
 
-function logout(){
+function logout(identifier){
 
+        alert(identifier);
+
+        $.ajax({
+            /*datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente; en este caso se entregan 3 valores como data, nombre de usuario
+            contraseña de usuario y el valor identificador para llamado de funciones
+            */
+                data:  {"identifier":identifier}, 
+                url:   '/View/Access/index.php', //archivo que recibe la peticion
+                type:  'post', //método de envio
+                beforeSend: function () {
+                    alert("Saliendo...");
+                        //$("#resultado").html("Procesando, espere por favor...");
+                },
+                //response es lo primero que se retorna en el controller
+                success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+
+              //Si el controlador retorna un positivo se devuelve mensaje exitoso 
+                    if(response==1){
+                        //alert("Sesión activa");
+                        //alert("prueba de guardadooo"); 
+                        window.location = "/login";
+                        
+                    }else{
+                      alert(response);
+                      alert("No salida");
+                    }
+                        
+                }
+        });
 }
 
 
