@@ -1,8 +1,6 @@
 <?php $page = "Login";?>
 <?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
-<?php echo "Login 2 test"; ?>
 
- 
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
@@ -94,7 +92,7 @@
     //Capturamos las id de los input
         var username = $("#user").val();
         var password = $("#pass").val();
-        alert(identifier);
+        //alert(identifier);
 
         $.ajax({
             /*datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente; en este caso se entregan 3 valores como data, nombre de usuario
@@ -103,10 +101,10 @@
                 data:  {"username":username,"password":password,"identifier":identifier}, 
                 url:   '/View/Access/index.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
-                beforeSend: function () {
+                /*beforeSend: function () {
                     alert("Logeando...");
                         //$("#resultado").html("Procesando, espere por favor...");
-                },
+                },*/
                 //response es lo primero que se retorna en el controller
                 success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
 
@@ -117,7 +115,7 @@
                         window.location = "/admin";
                         
                     }else{
-                      alert(response);
+                      //alert(response);
                       alert("No existe usuario, sesión fallida");
                     }
                         

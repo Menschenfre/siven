@@ -1,10 +1,11 @@
+<?php session_start(); ?>
 <?php include '/home2/sivenati/public_html/View/Includes/url.php'; 
 
 //Recibimos el valor del identificador
 $identifier = $_POST['identifier'];
 
 /*Switch por cada llave identificadora*/
-switch ($identifier){
+switch ($identifier){ 
 	
 	/*Respuesta Ajax al logear*/
 	case "login":
@@ -18,20 +19,12 @@ switch ($identifier){
 
 	//Si se encuentra el usuario, se guardan las variables de sesión 
 	if($result==1){
-	session_start();
+	//session_start();
 	$_SESSION["user"] = $nick;
 	}
 
 	//Retornamos positivo o negativo desde la clase
 	echo $result;
-	//Validamos ambos caminos
-	/*if ($result==1) {
-	echo $result;
-	//echo "Se debe abrir la sesión y permitir el acceso";
-	}else{
-	echo $result;
-	echo "Se debe retornar al login mostrando el mensaje pertinente"; 
-	}  */
 	break;
 
 	/*Respuesta Ajax al deslogear*/
@@ -41,12 +34,11 @@ switch ($identifier){
 	$result=$login_control->logout();
 
 	if($result==1){
-	session_start();
-	$_SESSION["user"] = NULL;
-	session_destroy();
+	unset($_SESSION["user"]);
+	session_destroy(); 
 	}
 
-
+	//Retornamos positivo o negativo desde la clase
 	echo $result;
 
 	break;

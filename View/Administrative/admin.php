@@ -1,13 +1,16 @@
 <?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
 
 <?php 
-var_dump($_SESSION["user"]); 
+//var_dump($_SESSION["user"]); 
 if($_SESSION["user"] == NULL){
 
+  //header('Location: /login');
   exit();
 }
 ?>
- 
+
+
+  
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -273,6 +276,12 @@ if($_SESSION["user"] == NULL){
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="logout('logout')">
+              <i class="menu-icon mdi mdi-chart-line"></i>
+              <span class="menu-title">Cerrar sesión</span>
+            </a> 
+          </li>
 
 
 
@@ -289,14 +298,14 @@ if($_SESSION["user"] == NULL){
           
           <div class="row" id="dashboard_content">
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+              <div class="card card-statistics" onclick="list_productAppears()">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
                       <i class="mdi mdi-cube text-danger icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Total Revenue</p>
+                      <p class="mb-0 text-right" onclick="list_productAppears()">Resumen</p>
                       <div class="fluid-container">
                         <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
                       </div>
@@ -309,14 +318,14 @@ if($_SESSION["user"] == NULL){
               </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+              <div class="card card-statistics" onclick="addProductAppears()">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
                       <i class="mdi mdi-receipt text-warning icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Notas</p>
+                      <p class="mb-0 text-right">Registro</p>
                       <div class="fluid-container">
                         <h3 class="font-weight-medium text-right mb-0">3455</h3>
                       </div>
@@ -426,9 +435,6 @@ function addProductAppears(){
 };
 
 function logout(identifier){
-
-        alert(identifier);
-
         $.ajax({
             /*datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente; en este caso se entregan 3 valores como data, nombre de usuario
             contraseña de usuario y el valor identificador para llamado de funciones
@@ -436,10 +442,10 @@ function logout(identifier){
                 data:  {"identifier":identifier}, 
                 url:   '/View/Access/index.php', //archivo que recibe la peticion
                 type:  'post', //método de envio
-                beforeSend: function () {
+                /*beforeSend: function () {
                     alert("Saliendo...");
-                        //$("#resultado").html("Procesando, espere por favor...");
-                },
+                        
+                },*/
                 //response es lo primero que se retorna en el controller
                 success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
 
@@ -450,7 +456,7 @@ function logout(identifier){
                         window.location = "/login";
                         
                     }else{
-                      alert(response);
+                      //alert(response);
                       alert("No salida");
                     }
                         

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); ?> 
 <?php //Include URL PATH ORIGEN
 include '/home2/sivenati/public_html/View/Includes/url.php' 
 ?>
