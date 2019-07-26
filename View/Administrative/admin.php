@@ -206,7 +206,7 @@ if($_SESSION["user"] == NULL){
                 <div class="text-wrapper">
                   <p class="profile-name">Richard V.Welsh</p>
                   <div>
-                    <small class="designation text-muted">Manager</small>
+                    <small class="designation text-muted">Noob</small>
                     <span class="status-indicator online"></span>
                   </div>
                 </div>

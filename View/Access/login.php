@@ -1,6 +1,6 @@
 <?php $page = "Login";?>
 <?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
-
+ 
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="text-block text-center my-3">
                   <span class="text-small font-weight-semibold">¿No registrado?</span>
-                  <a href="register.html" class="text-black text-small">Crear un usuario</a>
+                  <a href="/registro" class="text-black text-small">Crear un usuario</a>
                 </div>
               </form>
             </div>
