@@ -33,6 +33,7 @@ switch ($page){
 	case "Admin":
 	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js;
 	break;
+	case "Register":
 	case "Login":
 	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js;
 	break;

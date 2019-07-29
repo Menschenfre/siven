@@ -38,6 +38,7 @@ switch ($page){
 	echo $admin_style.''.$materialdesign_css.''.$data_tables_css;
 	break;
 	case "Login":
+	case "Register":
 	echo $admin_style.''.$materialdesign_css;
 	break;
 	default:

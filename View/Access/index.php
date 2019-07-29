@@ -43,9 +43,28 @@ switch ($identifier){
 
 	break;
 
+	//*Respuesta Ajax al registrar un usuario
+	case "register":
+	require_once($controller_user);
+	$user_control=new UserController2();
+	$user = $_POST['user'];
+	//$result=$login_control->logout();
+/*
+	if($result==1){
+	unset($_SESSION["user"]);
+	session_destroy(); 
+	}*/
+
+	//Retornamos positivo o negativo desde la clase
+	//echo var_dump($user);
+	echo $user["user_name"];
+	//echo $user;
+
+	break;
+
 	/*Respuesta default*/
 	default:
-	echo "//El valor no llega";
+	echo "//No se ha seteado ningun valor atravéz del botón";
 }
 
 

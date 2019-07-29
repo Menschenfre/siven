@@ -23,7 +23,7 @@ $model_user= "{$Base_url}{$Model_origen}/User.php";
 //Includes Controllers
 $controller_product= "{$Base_url}{$Controller_origen}/ProductController.php";
 $controller_login= "{$Base_url}{$Controller_origen}/LoginController.php";
-
+$controller_user= "{$Base_url}{$Controller_origen}/UserController2.php";
 
 /*----------------------------------------------------------*/
 // Includes css
