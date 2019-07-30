@@ -49,5 +49,12 @@ class ProductController{
 		return $result;
 	}
 
+	//Suma de totales por mes
+	function total_month(){
+		$model=new Product();
+		$result= $model->monthTotal(2019,6);
+		return $result;
+	}
+
 }
 ?>

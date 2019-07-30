@@ -9,6 +9,10 @@ $total_product = $prod_control->total_product();
 
 $total_category_product = $prod_control->total_category_product();
 //var_dump($test);
+
+//Invocamos la función que lista el total por mes
+$total_month = $prod_control->total_month();
+
 ?>
 
 <script type="text/javascript">
@@ -45,3 +49,5 @@ $total_category_product = $prod_control->total_category_product();
 <?php foreach ($total_category_product as $key) {?>
 <label><?php echo $key[0] ?> : <?php  echo number_format($key[1],'0', ',','.')?></label><br>
 <?php }  ?>
+
+<label>Total por mes : <?php echo number_format($total_month[0],'0', ',','.')?></label><br> 

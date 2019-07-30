@@ -297,6 +297,24 @@ class Product extends Crud{
         return $list;
     }
 
+    
+    public function monthTotal($year, $month){
+
+        $month_later= $month+1;
+        if ($month_later==13){
+            $month_later= 1;
+        }
+        $year=2019;
+        $sql="SELECT SUM(price) FROM $this->table WHERE created BETWEEN '$year-$month-31' AND '$year-$month_later-31'";
+
+        $total= $this->con->query($sql);
+        //obtenemos la fila afectada
+        $total=$total->fetch_row();
+  
+        //retornamos el array armado.
+        return $total;
+    }
+ 
 }
 
 ?>
