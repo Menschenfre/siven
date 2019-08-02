@@ -50,4 +50,6 @@ $total_month = $prod_control->total_month();
 <label><?php echo $key[0] ?> : <?php  echo number_format($key[1],'0', ',','.')?></label><br>
 <?php }  ?>
 
-<label>Total por mes : <?php echo number_format($total_month[0],'0', ',','.')?></label><br> 
+<label>Total por mes : <?php echo number_format($total_month[5],'0', ',','.')?></label><br> 
+<?php 
+echo var_dump($total_month); ?>

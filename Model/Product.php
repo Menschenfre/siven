@@ -299,15 +299,33 @@ class Product extends Crud{
 
     
     public function monthTotal($year, $month){
-
+        
         $month_later= $month+1;
         if ($month_later==13){
             $month_later= 1;
         }
-        //$year=2019;
-        $sql="SELECT SUM(price) FROM $this->table WHERE created BETWEEN '$year-$month-31' AND '$year-$month_later-31'";
+        $count= 1;
+        $mes= 9;
+        $acumulated[] = "SELECT SUM(price) FROM products WHERE created BETWEEN '2019-12-01' AND '2019-12-31'
+    ) AS DICIEMBRE,";
 
-        /*SELECT(
+        while ($count <= $mes) {
+            $count++;
+            $acumulated[] = "(SELECT SUM(price) FROM products WHERE created BETWEEN '$year-$count-01' AND '$year-$count-31'
+    ) AS ENERO,";
+
+        }
+        $acumulated[] = "(SELECT SUM(price) FROM products WHERE created BETWEEN '2019-12-01' AND '2019-12-31'
+    ) AS DICIEMBRE";
+        $implodeado= implode($acumulated);
+        //$year=2019;
+        //$sql="SELECT SUM(price) FROM $this->table WHERE created BETWEEN '$year-$month-31' AND '$year-$month_later-31'";
+
+        $sql="SELECT( $implodeado";
+
+
+
+       /* $sql="SELECT(
     SELECT SUM(price) FROM products WHERE created BETWEEN '2019-01-01' AND '2019-01-31'
     ) AS ENERO,
     (SELECT SUM(price) FROM products WHERE created BETWEEN '2019-02-01' AND '2019-02-31'
@@ -331,16 +349,17 @@ class Product extends Crud{
     (SELECT SUM(price) FROM products WHERE created BETWEEN '2019-11-01' AND '2019-11-31'
     ) AS NOVIEBRE,
     (SELECT SUM(price) FROM products WHERE created BETWEEN '2019-12-01' AND '2019-12-31'
-    ) AS DICIEMBRE*/
+    ) AS DICIEMBRE";*/
 
         $total= $this->con->query($sql);
         //obtenemos la fila afectada
-        $total=$total->fetch_row();
+        $total=$total->fetch_array();
   
         //retornamos el array armado.
         return $total;
+        //return $sql;
     } 
  
 }
 
-?>
+?> 
