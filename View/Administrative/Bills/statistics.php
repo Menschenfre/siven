@@ -1,6 +1,6 @@
- 
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
 <script>
-window.onload = function () {
+
 	
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
@@ -45,7 +45,6 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 
-}
-</script>
 
+</script>
 
