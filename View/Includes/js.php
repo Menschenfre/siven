@@ -25,13 +25,16 @@ $admin_offcanvas_js = "{$script_init}{$assets_js_admin}off-canvas.js{$script_end
 $admin_misc_js = "{$script_init}{$assets_js_admin}misc.js{$script_end}";
 $data_tables_js = "{$script_init}{$assets_js_data_tables}datatables.min.js{$script_end}";
 
+//Gráficos canvasjs 2.3.2
+$canvasjs = "{$script_init}{$assets_js_canvasjs}canvasjs.min.js{$script_end}";
+
 
 switch ($page){
 	case "index":
 	echo $jquery.''.$bootstrap.''.$main_index.''.$sweet_alert.''.$waypoints;
 	break;
 	case "Admin":
-	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js;
+	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js.''.$canvasjs;
 	break;
 	case "Register":
 	case "Login":

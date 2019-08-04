@@ -10,8 +10,11 @@ if($_SESSION["user"] == NULL){
 ?>
 
 
+
+
   
 <body>
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -266,11 +269,16 @@ if($_SESSION["user"] == NULL){
             <div class="collapse" id="ui-basic2">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="list_productAppears()">Resumen</a>
+                  <a class="nav-link" href="#" onclick="addProductAppears()">
+                  Registrar 
+                  </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="addProductAppears()">
-                  Registro 
+                  <a class="nav-link" href="#" onclick="list_productAppears()">Tabla de registros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="statisticsAppears()">
+                  Estadísticas 
                   </a>
                 </li>
               </ul>
@@ -378,7 +386,8 @@ if($_SESSION["user"] == NULL){
               </div>
             </div>
           </div>
-          
+
+          <div id="chartContainer" style="height: 370px; width: 100%; display: none"></div>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
@@ -434,6 +443,13 @@ function addProductAppears(){
   }});
 };
 
+function statisticsAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de agregar producto y se muestra dentro del contenido 
+  $("#chartContainer").show();
+};
+
 function logout(identifier){
         $.ajax({
             /*datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente; en este caso se entregan 3 valores como data, nombre de usuario
@@ -465,8 +481,58 @@ function logout(identifier){
 }
 
 
+window.onload = function () {
+  
+var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  
+  title:{
+    text:"Fortune 500 Companies by Country"
+  },
+  axisX:{
+    interval: 1
+  },
+  axisY2:{
+    interlacedColor: "rgba(1,77,101,.2)",
+    gridColor: "rgba(1,77,101,.1)",
+    title: "Number of Companies"
+  },
+  data: [{
+    type: "bar",
+    name: "companies",
+    axisYType: "secondary",
+    color: "#014D65",
+    dataPoints: [
+      { y: 3, label: "Sweden" },
+      { y: 7, label: "Taiwan" },
+      { y: 5, label: "Russia" },
+      { y: 9, label: "Spain" },
+      { y: 7, label: "Brazil" },
+      { y: 7, label: "India" },
+      { y: 9, label: "Italy" },
+      { y: 8, label: "Australia" },
+      { y: 11, label: "Canada" },
+      { y: 15, label: "South Korea" },
+      { y: 12, label: "Netherlands" },
+      { y: 15, label: "Switzerland" },
+      { y: 25, label: "Britain" },
+      { y: 28, label: "Germany" },
+      { y: 29, label: "France" },
+      { y: 52, label: "Japan" },
+      { y: 103, label: "China" },
+      { y: 134, label: "US" }
+    ]
+  }]
+});
+chart.render();
+
+}
+
+
 
 </script>
+
+
 
   
   
