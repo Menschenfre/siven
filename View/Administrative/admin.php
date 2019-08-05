@@ -2,7 +2,7 @@
 
 <?php 
 //var_dump($_SESSION["user"]); 
-if($_SESSION["user"] == NULL){
+if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
 
   //header('Location: /login');
   exit();

@@ -47,16 +47,24 @@ switch ($identifier){
 	case "register":
 	require_once($controller_user);
 	$user = $_POST['user'];
-	$user_control=new UserController2();
-	$result=$user_control->save($user);
+	if($user["nick_name"]=='siven'){
+		echo 0;
+
+	}else{
+		$user_control=new UserController2();
+		$result=$user_control->save($user);
+		echo $result;
+
+	}
+	
 	
 	//$result=$login_control->logout();
-/*
+/* 
 	if($result==1){
 	unset($_SESSION["user"]);
 	session_destroy(); 
 	}*/
-	echo $result;
+	
 	//Retornamos positivo o negativo desde la clase
 	//echo var_dump($user);
 	//echo $user["user_name"];

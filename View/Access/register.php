@@ -100,14 +100,14 @@ function user_reg(identifier){
           success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
 
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
-              if(response){
+              if(response==1){
               	  //alert(JSON.stringify(response));
                   alert("Llega la data");
                   alert(response);
                   //window.location = "/admin";
 
               }else{
-                alert("No llega la data, fail");
+                alert("No llega la data, fail o usuario inválido");
               }
                   
           }
