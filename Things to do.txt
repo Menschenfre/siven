@@ -1,5 +1,5 @@
--Gastos por mes
--Gastos por semana
+-Gastos por mes 
+-Gastos por semana (https://www.plus2net.com/sql_tutorial/date-lastweek.php)
 -Subcategorias a las cosas
 -Dejar gastos fijos como fijos (Evitar agregarlos de manera manual)
 -Agregar esta misma lista de cosas a hacer como un agregable

@@ -225,6 +225,13 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="#" onclick="addNoteAppears()">
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Notas</span>
+            </a>
+          </li> 
+
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
               <span class="menu-title">Musick</span>
@@ -251,13 +258,6 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
             </div>
           </li>
           
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="list_productAppears()">
-              <i class="menu-icon mdi mdi-chart-line"></i>
-              <span class="menu-title">Cuentas</span>
-            </a>
-          </li>
-
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
@@ -343,26 +343,28 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                 </div>
               </div>
             </div>
+
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics">
+              <div class="card card-statistics" onclick="addProductAppears()">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
-                      <i class="mdi mdi-poll-box text-success icon-lg"></i>
+                      <i class="mdi mdi-receipt text-warning icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Sales</p>
+                      <p class="mb-0 text-right">Pendientes</p>
                       <div class="fluid-container">
-                        <h3 class="font-weight-medium text-right mb-0">5693</h3>
+                        <h3 class="font-weight-medium text-right mb-0">3455</h3>
                       </div>
                     </div>
                   </div>
                   <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Weekly Sales
+                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Notas, recordatorios
                   </p>
                 </div>
               </div>
-            </div>
+            </div> 
+            
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
               <div class="card card-statistics">
                 <div class="card-body">
@@ -454,6 +456,15 @@ function statisticsAppears(){
       $("#admin_content").html(result); 
   }})
 
+};
+
+function addNoteAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de agregar producto y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/Notes/add_note.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
 };
 
 function logout(identifier){
