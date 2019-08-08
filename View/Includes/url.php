@@ -27,6 +27,7 @@ $controller_product= "{$Base_url}{$Controller_origen}/ProductController.php";
 $controller_login= "{$Base_url}{$Controller_origen}/LoginController.php";
 $controller_user= "{$Base_url}{$Controller_origen}/UserController2.php";
 $controller_note= "{$Base_url}{$Controller_origen}/NoteController.php";
+$controller_master= "{$Base_url}{$Controller_origen}/MasterController.php";
 
 /*----------------------------------------------------------*/
 // Includes css

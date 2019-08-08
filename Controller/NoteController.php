@@ -1,13 +1,14 @@
 <?php 
 include '/home2/sivenati/public_html/View/Includes/url.php'; 
 
+require_once($controller_master);
 require_once($model_note);
 
 class NoteController extends MasterController{
 
 
 	//Nombre del modelo
-    public $model_name= "Note";
+    public $model_name= "Notes";
 
 	/**
 	 * Class Constructor

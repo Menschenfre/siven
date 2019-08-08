@@ -31,9 +31,8 @@ class Notes extends Crud{
         parent::__construct();
 
         //Constructor de atributos
-		$this->title = $title["title"];
-		$this->content = $content["content"];
-		$this->status = $status["status"];
+		$this->title = $note["title"];
+		$this->content = $note["content"];
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;
@@ -124,6 +123,26 @@ class Notes extends Crud{
     /**
      * @return mixed
      */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->status = 0;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getCreated()
     {
         return $this->created;
@@ -136,7 +155,7 @@ class Notes extends Crud{
      */
     public function setCreated($created)
     {
-        $this->created = $created;
+        $this->created = $this->dateTimeNow->format('Y-m-d H:i:s');
 
         return $this;
     }
@@ -161,7 +180,8 @@ class Notes extends Crud{
         return $this;
     }
 
-    //Función guardar 
+
+     //Función guardar 
     public function create(){
         $sql="INSERT INTO notes(title,content,status,created) VALUES('$this->title','$this->content','$this->status','$this->created')";
         $resultado=$this->con->prepare($sql);
