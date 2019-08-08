@@ -6,7 +6,7 @@
 <body>
 	<h1>ALL IS A STORY</h1>
 
-<br />
+<br /> 
 
 <div id="sample">
 <br /><br />

@@ -1,7 +1,7 @@
 <?php 
 $script_init = '<script src="';
 $script_end = '"></script>';
-
+ 
 //jQuery 3.3.1 (Cargarlo antes que bootstrap)
 $jquery ='<script src="/Assets/js/jquery/jquery-3.3.1.min.js"></script>';
 
@@ -28,13 +28,16 @@ $data_tables_js = "{$script_init}{$assets_js_data_tables}datatables.min.js{$scri
 //Gráficos canvasjs 2.3.2
 $canvasjs = "{$script_init}{$assets_js_canvasjs}canvasjs.min.js{$script_end}";
 
+//NicEdit 
+$nickedit = "{$script_init}{$assets_js_nicEdit}nicEdit.js{$script_end}";
+
 
 switch ($page){
 	case "index":
 	echo $jquery.''.$bootstrap.''.$main_index.''.$sweet_alert.''.$waypoints;
 	break;
 	case "Admin":
-	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js.''.$canvasjs;
+	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js.''.$canvasjs.''.$nickedit;
 	break;
 	case "Register":
 	case "Login":

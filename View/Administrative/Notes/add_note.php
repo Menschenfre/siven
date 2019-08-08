@@ -5,7 +5,7 @@
       <p class="card-description">
         Acá se registran notas ideas etc.
       </p>
-      
+       
       <div class="form-group">
         <label>Título</label>
         <input type="text" id="title" class="form-control form-control-lg" placeholder="Título" aria-label="Nombre">

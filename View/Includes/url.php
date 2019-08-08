@@ -46,6 +46,7 @@ $assets_js = "{$Assets_origen}/js/";
 $assets_js_admin = "{$assets_js}admin_js/";
 $assets_js_data_tables = "{$assets_js}data_tables/";
 $assets_js_canvasjs = "{$assets_js}canvasjs/";
+$assets_js_nicEdit = "{$assets_js}/nicEdit/";
 /*----------------------------------------------------------*/
 // Assets images
 $assets_images = "{$Assets_origen}/images/";

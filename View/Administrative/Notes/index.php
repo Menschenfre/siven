@@ -11,8 +11,10 @@ switch ($identifier){
 	require_once($controller_note);
 	$control_note=new NoteController();
 
+	//Se recibe el array con la data de la vista
 	$note = $_POST['note'];
 	
+	//Pasamos la variable al método save del controlador(master)
 	$result=$control_note->save($note);
 
 	echo $result;

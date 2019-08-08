@@ -30,7 +30,7 @@ class Notes extends Crud{
 		//Herencia de constructor padre
         parent::__construct();
 
-        //Constructor de atributos
+        //Constructor de atributos, recibimos valores de array declarado en el constructor
 		$this->title = $note["title"];
 		$this->content = $note["content"];
 		$this->setStatus($status);
@@ -133,9 +133,11 @@ class Notes extends Crud{
      *
      * @return self
      */
+
+    //Seteamos el status en 1 = desponible
     public function setStatus($status)
     {
-        $this->status = 0;
+        $this->status = 1;
 
         return $this;
     }
@@ -153,6 +155,8 @@ class Notes extends Crud{
      *
      * @return self
      */
+
+    //Seteamos el formato de la fecha
     public function setCreated($created)
     {
         $this->created = $this->dateTimeNow->format('Y-m-d H:i:s');
