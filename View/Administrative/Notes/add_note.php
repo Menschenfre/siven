@@ -15,6 +15,15 @@
         <label>Contenido</label>
         <input type="text" id="content" class="form-control form-control-lg" placeholder="contenido" aria-label="Nombre">
       </div>
+
+      <div>
+      <textarea style="width: 345px; height: 100px;" id="myArea2"></textarea>
+      <br />
+      <button onClick="addArea2();">+</button> <button onClick="removeArea2();">-</button> 
+      </div>
+      <div style="clear: both;"></div>
+
+
       
       <button class="btn btn-outline-primary" onclick="note_reg('add_note')">Enviar</button>
     </div>
@@ -29,10 +38,16 @@ function note_reg(identifier){
   //Capturamos las id de los input
   var title = $("#title").val();
   var content = $("#content").val();
+  nicEditors.findEditor("#myArea2").saveContent();
+
+  var myArea2 = $("#myArea2").val();
 
   var note = {"title":title, "content":content};
 
+  alert(myArea2);
+
   alert(JSON.stringify(note, null, 4));
+  exit();
 
   $.ajax({
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
@@ -63,3 +78,25 @@ function note_reg(identifier){
   });
 }
 </script>
+
+<script>
+var area1, area2;
+
+function toggleArea1() {
+  if(!area1) {
+    area1 = new nicEditor({fullPanel : true}).panelInstance('myArea1',{hasPanel : true});
+  } else {
+    area1.removeInstance('myArea1');
+    area1 = null;
+  }
+}
+
+function addArea2() {
+  area2 = new nicEditor({fullPanel : true}).panelInstance('myArea2');
+}
+function removeArea2() {
+  area2.removeInstance('myArea2');
+}
+
+bkLib.onDomLoaded(function() { toggleArea1(); });
+</script> 
