@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
+
 <div class="col-md-7 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
@@ -16,13 +20,65 @@
         <input type="text" id="content" class="form-control form-control-lg" placeholder="contenido" aria-label="Nombre">
       </div>
 
-      <div>
-      <textarea style="width: 345px; height: 100px;" id="myArea2"></textarea>
-      <br />
-      <button onClick="addArea2();">+</button> <button onClick="removeArea2();">-</button> 
-      </div>
-      <div style="clear: both;"></div>
 
+<style>
+  body > #standalone-container {
+    margin: 50px auto;
+    max-width: 720px;
+  }
+  #editor-container {
+    height: 350px;
+  }
+</style>
+      <div id="standalone-container">
+  <div id="toolbar-container">
+    <span class="ql-formats">
+      <select class="ql-font"></select>
+      <select class="ql-size"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-bold"></button>
+      <button class="ql-italic"></button>
+      <button class="ql-underline"></button>
+      <button class="ql-strike"></button>
+    </span>
+    <span class="ql-formats">
+      <select class="ql-color"></select>
+      <select class="ql-background"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-script" value="sub"></button>
+      <button class="ql-script" value="super"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-header" value="1"></button>
+      <button class="ql-header" value="2"></button>
+      <button class="ql-blockquote"></button>
+      <button class="ql-code-block"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-list" value="ordered"></button>
+      <button class="ql-list" value="bullet"></button>
+      <button class="ql-indent" value="-1"></button>
+      <button class="ql-indent" value="+1"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-direction" value="rtl"></button>
+      <select class="ql-align"></select>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-link"></button>
+      <button class="ql-image"></button>
+      <button class="ql-video"></button>
+      <button class="ql-formula"></button>
+    </span>
+    <span class="ql-formats">
+      <button class="ql-clean"></button>
+    </span>
+  </div>
+  <div id="editor-container"></div>
+  
+</div>
 
       
       <button class="btn btn-outline-primary" onclick="note_reg('add_note')">Enviar</button>
@@ -38,17 +94,22 @@ function note_reg(identifier){
   //Capturamos las id de los input
   var title = $("#title").val();
   var content = $("#content").val();
-  nicEditors.findEditor("#myArea2").saveContent();
+  
+  //Capturamos las id de los input
+  //todo el contenido del texto enriquecido
+  var delta = quill.getContents();
 
-  var myArea2 = $("#myArea2").val();
-
+  //Solo texto
+  var text = quill.getText(0, 1000);
+  
+  
   var note = {"title":title, "content":content};
 
-  alert(myArea2);
 
   alert(JSON.stringify(note, null, 4));
+  alert(JSON.stringify(delta, null, 4));
   exit();
-
+ 
   $.ajax({
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
           data:  {"note":note, "identifier":identifier}, 
@@ -79,24 +140,22 @@ function note_reg(identifier){
 }
 </script>
 
+
 <script>
-var area1, area2;
+  var quill = new Quill('#editor-container', {
+    modules: {
+      formula: true,
+      syntax: true,
+      toolbar: '#toolbar-container'
+    },
+    placeholder: 'Escribir',
+    theme: 'snow'
+  });
 
-function toggleArea1() {
-  if(!area1) {
-    area1 = new nicEditor({fullPanel : true}).panelInstance('myArea1',{hasPanel : true});
-  } else {
-    area1.removeInstance('myArea1');
-    area1 = null;
-  }
-}
-
-function addArea2() {
-  area2 = new nicEditor({fullPanel : true}).panelInstance('myArea2');
-}
-function removeArea2() {
-  area2.removeInstance('myArea2');
-}
-
-bkLib.onDomLoaded(function() { toggleArea1(); });
-</script> 
+  //Seteando valores por defecto
+  quill.setContents([
+  { insert: 'Hello ' },
+  { insert: 'World!', attributes: { bold: true } },
+  { insert: '\n' }
+]);
+</script>

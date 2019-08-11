@@ -24,8 +24,13 @@ $admin_style= "{$link_init}{$assets_css_admin}style.css{$link_end}";
 //MaterialDesignIcons 3.6.95
 $materialdesign_css= "{$link_init}{$Materialdesign_url}{$link_end}";
 
-//Data tables
+//Data tables -Usado en resumen.
 $data_tables_css= "{$link_init}{$assets_css_data_tables}datatables.min.css{$link_end}";
+
+//quill texto enriquecido
+$quill_css= "{$link_init}{$assets_css_quill}quill.snow.css{$link_end}";
+
+
 
 
 
@@ -35,13 +40,13 @@ switch ($page){
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
 	case "Admin":
-	echo $admin_style.''.$materialdesign_css.''.$data_tables_css;
+	echo $admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css;
 	break;
 	case "Login":
 	case "Register":
 	echo $admin_style.''.$materialdesign_css;
 	break;
-	default:
+	default: 
 	echo "//No se carga ningún css";
 }
 

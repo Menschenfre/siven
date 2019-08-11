@@ -40,13 +40,14 @@ $js = "${Includes_url}/js.php";
 $assets_css = "{$Assets_origen}/css/";
 $assets_css_admin = "{$assets_css}admin_style/";
 $assets_css_data_tables = "{$assets_css}data_tables/";
+$assets_css_quill = "{$assets_css}quill/";
 /*----------------------------------------------------------*/
 // Assets js
 $assets_js = "{$Assets_origen}/js/";
 $assets_js_admin = "{$assets_js}admin_js/";
 $assets_js_data_tables = "{$assets_js}data_tables/";
 $assets_js_canvasjs = "{$assets_js}canvasjs/";
-$assets_js_nicEdit = "{$assets_js}/nicEdit/";
+$assets_js_quill = "{$assets_js}quill/";
 /*----------------------------------------------------------*/
 // Assets images
 $assets_images = "{$Assets_origen}/images/";
