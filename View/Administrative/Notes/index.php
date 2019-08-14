@@ -17,7 +17,7 @@ switch ($identifier){
 	//Pasamos la variable al método save del controlador(master)
 	$result=$control_note->save($note);
 
-	echo $result;
+	echo $note;
 	break;
 
 	

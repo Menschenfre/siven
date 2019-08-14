@@ -12,16 +12,9 @@
        
       <div class="form-group">
         <label>Título</label>
-        <input type="text" id="title" class="form-control form-control-lg" placeholder="Título" aria-label="Nombre">
+        <input type="text" id="title" class="form-control form-control-lg" placeholder="Título" aria-label="Nombre"> 
       </div>
-
-      <div class="form-group">
-        <label>Contenido</label>
-        <input type="text" id="content" class="form-control form-control-lg" placeholder="contenido" aria-label="Nombre">
-      </div>
-
-
-<style>
+<style> 
   body > #standalone-container {
     margin: 50px auto;
     max-width: 720px;
@@ -30,54 +23,57 @@
     height: 350px;
   }
 </style>
-      <div id="standalone-container">
-  <div id="toolbar-container">
-    <span class="ql-formats">
-      <select class="ql-font"></select>
-      <select class="ql-size"></select>
-    </span>
-    <span class="ql-formats">
-      <button class="ql-bold"></button>
-      <button class="ql-italic"></button>
-      <button class="ql-underline"></button>
-      <button class="ql-strike"></button>
-    </span>
-    <span class="ql-formats">
-      <select class="ql-color"></select>
-      <select class="ql-background"></select>
-    </span>
-    <span class="ql-formats">
-      <button class="ql-script" value="sub"></button>
-      <button class="ql-script" value="super"></button>
-    </span>
-    <span class="ql-formats">
-      <button class="ql-header" value="1"></button>
-      <button class="ql-header" value="2"></button>
-      <button class="ql-blockquote"></button>
-      <button class="ql-code-block"></button>
-    </span>
-    <span class="ql-formats">
-      <button class="ql-list" value="ordered"></button>
-      <button class="ql-list" value="bullet"></button>
-      <button class="ql-indent" value="-1"></button>
-      <button class="ql-indent" value="+1"></button>
-    </span>
-    <span class="ql-formats">
-      <button class="ql-direction" value="rtl"></button>
-      <select class="ql-align"></select>
-    </span>
-    <span class="ql-formats">
-      <button class="ql-link"></button>
-      <button class="ql-image"></button>
-      <button class="ql-video"></button>
-      <button class="ql-formula"></button>
-    </span>
-    <span class="ql-formats">
-      <button class="ql-clean"></button>
-    </span>
-  </div>
-  <div id="editor-container"></div>
-  
+<div class="form-group">
+        <label>Contenido:</label>
+</div>
+  <div id="standalone-container">
+    <div id="toolbar-container">
+      <span class="ql-formats">
+        <select class="ql-font"></select>
+        <select class="ql-size"></select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <button class="ql-strike"></button>
+      </span>
+      <span class="ql-formats">
+        <select class="ql-color"></select>
+        <select class="ql-background"></select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-script" value="sub"></button>
+        <button class="ql-script" value="super"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-header" value="1"></button>
+        <button class="ql-header" value="2"></button>
+        <button class="ql-blockquote"></button>
+        <button class="ql-code-block"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <button class="ql-indent" value="-1"></button>
+        <button class="ql-indent" value="+1"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-direction" value="rtl"></button>
+        <select class="ql-align"></select>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-link"></button>
+        <button class="ql-image"></button>
+        <button class="ql-video"></button>
+        <button class="ql-formula"></button>
+      </span>
+      <span class="ql-formats">
+        <button class="ql-clean"></button>
+      </span>
+    </div>
+    <div id="editor-container"></div>
+
 </div>
 
       
@@ -93,22 +89,25 @@ function note_reg(identifier){
 
   //Capturamos las id de los input
   var title = $("#title").val();
-  var content = $("#content").val();
-  
-  //Capturamos las id de los input
   //todo el contenido del texto enriquecido
-  var delta = quill.getContents();
+  var content = quill.getContents();
 
   //Solo texto
-  var text = quill.getText(0, 1000);
+  //var text = quill.getText(0, 1000);
   
-  
-  var note = {"title":title, "content":content};
+  var test= JSON.stringify(content,null,4);
+  //var content = {quill};
+  var note = {"title":title, "content":test};
 
+  
 
   alert(JSON.stringify(note, null, 4));
-  alert(JSON.stringify(delta, null, 4));
-  exit();
+  alert(JSON.stringify(content, null, 4));
+
+  
+
+  alert(test);
+  //exit(); 
  
   $.ajax({
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
@@ -152,10 +151,13 @@ function note_reg(identifier){
     theme: 'snow'
   });
 
-  //Seteando valores por defecto
+  /*Seteando valores por defecto
   quill.setContents([
   { insert: 'Hello ' },
   { insert: 'World!', attributes: { bold: true } },
   { insert: '\n' }
-]);
+]);*/
 </script>
+
+
+

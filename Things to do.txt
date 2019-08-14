@@ -9,4 +9,4 @@
 -Crear inserción de código o modificación de variables mediante bd, esto como utilidad experimental no funcional.
 -Ajustar vista en dispositivos celulares(tamaño de cajas, etc).
 -Crear wiki con data relevante
-
+-test ftpsync
