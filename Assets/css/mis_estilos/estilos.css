@@ -54,3 +54,27 @@
     max-width: 100%;
     height: auto;
 }
+
+/*menos bordes de la pantalla de admin */
+.page-body-wrapper {
+  min-height: calc(100vh - 63px);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  padding-left: 0;
+  padding-right: 0; }
+  .page-body-wrapper:not(.auth-page) {
+    padding-top: 0px !important; }
+  .page-body-wrapper.full-page-wrapper {
+    width: 100%;
+    min-height: 100vh; }
+
+/*Menos bordes del menú lateral 
+.sidebar .nav .nav-item .nav-link {
+      align-items: center;
+      display: flex;
+      padding: 30px 35px !important;
+      white-space: nowrap;
+      height: 52px;
+      color: #4a4a4a; }    */

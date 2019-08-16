@@ -95,18 +95,17 @@ function note_reg(identifier){
   //Solo texto
   //var text = quill.getText(0, 1000);
   
-  var test= JSON.stringify(content,null,4);
-  //var content = {quill};
-  var note = {"title":title, "content":test};
+  //Transformamos el contenido en texto plano
+  var content= JSON.stringify(content,null,4);
+
+  //Metemos los valores obtenidos a un array
+  var note = {"title":title, "content":content};
 
   
 
-  alert(JSON.stringify(note, null, 4));
-  alert(JSON.stringify(content, null, 4));
-
-  
-
-  alert(test);
+  //alert(JSON.stringify(note, null, 4));
+  //alert(JSON.stringify(content, null, 4));
+  //alert(test);
   //exit(); 
  
   $.ajax({
@@ -125,13 +124,13 @@ function note_reg(identifier){
               if(response==1){
                   //alert(JSON.stringify(response));
                   alert("Llega la data");
-                  alert(response);
+                  //alert(response);
                   //window.location = "/admin";
 
               }else{
                 alert("No llega la data");
                 alert(response);
-                alert(JSON.stringify(response));
+                //alert(JSON.stringify(response));
               }
                   
           }

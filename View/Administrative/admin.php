@@ -14,7 +14,7 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
 <body>
 
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:partials/_navbar.html 
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         
@@ -186,7 +186,7 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
-    </nav>
+    </nav> -->
 
 
 
