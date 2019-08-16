@@ -345,7 +345,7 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
-              <div class="card card-statistics" onclick="addProductAppears()">
+              <div class="card card-statistics" onclick="addNoteAppears()">
                 <div class="card-body">
                   <div class="clearfix">
                     <div class="float-left">
