@@ -70,10 +70,10 @@
     width: 100%;
     min-height: 100vh; }
  
-/*Menos bordes del menú lateral 
-.sidebar .nav .nav-item .nav-link {
-      padding: 26px 35px !important;
-     }     */
+/*Menos bordes del avatar menú lateral */
+.sidebar .nav .nav-item.nav-profile .nav-link {
+    padding: 36px 35px;
+} 
 
 /* Menos margen en el cuerpo de los formularios */
 .card .card-body {
@@ -82,7 +82,7 @@
 /* Menos margen en el cuerpo del cuerpo de los formularios*/
 .content-wrapper {
     background: #f2f8f9;
-    padding: 1.5rem 0rem !important;
+    padding: 1.5rem 0.5rem !important;
     width: 100%;
     -webkit-flex-grow: 1; 
     flex-grow: 1;

@@ -224,12 +224,26 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
             </a>
           </li>
 
+ <!--Sección del menú notas -->
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="addNoteAppears()">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
               <span class="menu-title">Notas</span>
+              <i class="menu-arrow"></i>
             </a>
-          </li> 
+            <div class="collapse" id="ui-basic3">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="addNoteAppears()">
+                  Registrar 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="list_noteAppears()">Lista de notas</a>
+                </li>
+              </ul>
+            </div>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -463,6 +477,15 @@ function addNoteAppears(){
   $('#dashboard_content').hide();
   //Se trae el contenido de agregar producto y se muestra dentro del contenido 
   $.ajax({url: "/View/Administrative/Notes/add_note.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
+};
+
+function list_noteAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de bills y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/Notes/list_note.php", success: function(result){
       $("#admin_content").html(result);
   }});
 };
