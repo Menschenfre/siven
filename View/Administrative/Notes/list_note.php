@@ -5,10 +5,29 @@ require_once($controller_note); ?>
 <?php $note_control=new NoteController(); 
 //Invocamos la funcion que lista las notas
 $list_note = $note_control->list();
+$call_row = $list_note[16];
+$call_detail_of_row = $call_row["content"];
 
+$explode = explode(' ',$call_detail_of_row);
 
+//$decode = json_decode('ops',$call_detail_of_row, true);
 
-var_dump($list_note[9]);
+$cal = 'decoding'; 
+
+//var_dump($list_note);
+var_dump($explode);
+//var_dump($call_detail_of_row);
+//var_dump(json_decode($call_detail_of_row["ops"], true));
+foreach ($list_note as $key){
+
+}
+        /*$key["id"]?>
+             $key["name"]?>
+          $key["total"]?>
+            >
+            $key["created"]?>*/
+        
+        
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
@@ -109,19 +128,30 @@ var_dump($list_note[9]);
     theme: 'snow'
   });
 
-  //Seteando valores por defecto
+  /*Seteando valores por defecto
   quill.setContents([
   {
             "attributes": {
                 "font": "monospace",
                 "size": "huge"
             },
-            "insert": "cacac todo empieza"
+            "insert": "Test"
         },
         {
             "insert": ""
         }
-]);
+]);*/
+
+  //Seteando valores por defecto
+  var ops=[
+        {"insert":"this is a test bit of text\n"}
+    ];
+  $jsonParse= JSON.parse(<?php echo $explode ?>);
+  alert($jsonParse);
+  //quill.setContents(<?php echo $jsonParse ?>, 'api');
+
+var met = <?php $cal;  ?>
+alert(met);
 </script>
 
 

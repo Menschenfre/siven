@@ -96,7 +96,7 @@ function note_reg(identifier){
   //var text = quill.getText(0, 1000);
   
   //Transformamos el contenido en texto plano
-  var content= JSON.stringify(content,null,4);
+  var content= JSON.stringify(content);
 
   //Metemos los valores obtenidos a un array
   var note = {"title":title, "content":content};
