@@ -13,6 +13,8 @@ switch ($identifier){
 
 	//Se recibe el array con la data de la vista
 	$note = $_POST['note'];
+
+	//$varee= implode($note);
 	
 	//Pasamos la variable al método save del controlador(master)
 	$result=$control_note->save($note);

@@ -98,6 +98,8 @@ function note_reg(identifier){
   //Transformamos el contenido en texto plano
   var content= JSON.stringify(content);
 
+  alert(content);
+  //exit();
   //Metemos los valores obtenidos a un array
   var note = {"title":title, "content":content};
 
@@ -115,11 +117,13 @@ function note_reg(identifier){
           type:  'post', //método de envio
           beforeSend: function () {
               alert("Enviando data...");
+              
                   //$("#resultado").html("Procesando, espere por favor...");
           },
           //response es lo primero que se retorna en el controller
           success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-
+            alert(JSON.stringify(response));
+              //exit();
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){
                   //alert(JSON.stringify(response));
