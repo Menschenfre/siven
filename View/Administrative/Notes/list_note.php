@@ -9,25 +9,29 @@ $call_row = $list_note[16];
 $call_detail_of_row = $call_row["content"];
 
 $explode = explode(' ',$call_detail_of_row);
+$jsonaArray= json_decode($explode[0], true);
+
+$json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
+$json2= '{"ops":[{"attributes":{"size":"huge"},"insert":"Note"},{"insert":" "}]}';
+$deco = json_decode($json2, true);
+$enco = json_encode($deco["ops"]);
+
+//var_dump(json_decode($json, true));
+//var_dump(json_decode($json2, true));
+//var_dump(json_decode($explode[0], true));
+var_dump($enco);
+var_dump($json);
 
 //$decode = json_decode('ops',$call_detail_of_row, true);
 
-$cal = 'decoding'; 
+//$cal = 'decoding'; 
 
 //var_dump($list_note);
-var_dump($explode);
+//var_dump($json);
+//var_dump($explode[0]);
 //var_dump($call_detail_of_row);
 //var_dump(json_decode($call_detail_of_row["ops"], true));
-foreach ($list_note as $key){
 
-}
-        /*$key["id"]?>
-             $key["name"]?>
-          $key["total"]?>
-            >
-            $key["created"]?>*/
-        
-        
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
@@ -128,30 +132,10 @@ foreach ($list_note as $key){
     theme: 'snow'
   });
 
-  /*Seteando valores por defecto
-  quill.setContents([
-  {
-            "attributes": {
-                "font": "monospace",
-                "size": "huge"
-            },
-            "insert": "Test"
-        },
-        {
-            "insert": ""
-        }
-]);*/
-
   //Seteando valores por defecto
-  var ops=[
-        {"insert":"this is a test bit of text\n"}
-    ];
-  $jsonParse= JSON.parse(<?php echo $explode ?>);
-  alert($jsonParse);
-  //quill.setContents(<?php echo $jsonParse ?>, 'api');
+  quill.setContents(<?php echo $enco ?>);
 
-var met = <?php $cal;  ?>
-alert(met);
+  
 </script>
 
 
