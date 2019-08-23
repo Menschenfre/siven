@@ -35,7 +35,7 @@ class Notes extends Crud{
         //Constructor de atributos, recibimos valores de array declarado en el constructor
 		$this->title = $note["title"];
 		//$this->content = $note["content"];
-        $this->content = '{"ops":[{"attributes":{"font":"serif","size":"huge"},"insert":"NOTE  "},{"insert":"\n"}]}';
+        $this->setContent($content);
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;
@@ -108,7 +108,7 @@ class Notes extends Crud{
      */
     public function getContent()
     {
-        return $this->content;
+        return $this->content; 
     }
 
     /**
@@ -119,7 +119,9 @@ class Notes extends Crud{
     public function setContent($content)
     {
         $duracell= '{"ops":[{"attributes":{"size":"huge"},"insert":"Note"},{"insert":" "}]}';
-        $this->content = $duracell;
+        $duracell= '{"ops":[{"attributes":{"font":"serif","size":"huge"},"insert":"NOTE  "},{"insert":"\n"}]}';
+        $duracellfix= mysql_real_escape_string($duracell);
+        $this->content = $duracellfix;
 
         return $this;
     }
