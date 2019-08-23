@@ -15,6 +15,8 @@ class Notes extends Crud{
 	//Nombre de la tabla
 	public $table= "notes";
 
+    public $duracell= '{"ops":[{"attributes":{"size":"huge"},"insert":"Note"},{"insert":" "}]}';
+
 	//Atributos
 	private $id;
 	private $title;
@@ -32,7 +34,8 @@ class Notes extends Crud{
 
         //Constructor de atributos, recibimos valores de array declarado en el constructor
 		$this->title = $note["title"];
-		$this->content = $note["content"];
+		//$this->content = $note["content"];
+        $this->content = '{"ops":[{"attributes":{"font":"serif","size":"huge"},"insert":"NOTE  "},{"insert":"\n"}]}';
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;
@@ -115,7 +118,8 @@ class Notes extends Crud{
      */
     public function setContent($content)
     {
-        $this->content = $content;
+        $duracell= '{"ops":[{"attributes":{"size":"huge"},"insert":"Note"},{"insert":" "}]}';
+        $this->content = $duracell;
 
         return $this;
     }
@@ -193,7 +197,8 @@ class Notes extends Crud{
 
         //Cerramos la consulta y la conexión 
         $this->con->close(); 
-        return 1;
+        //return 1;
+        return $this->content;  
     }
 }
 ?>

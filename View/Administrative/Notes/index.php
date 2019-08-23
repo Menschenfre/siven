@@ -19,14 +19,15 @@ switch ($identifier){
 	//Pasamos la variable al método save del controlador(master)
 	$result=$control_note->save($note);
 
+
 	echo $result;
 	break;
-
+ 
 	
 	/*Respuesta default*/
 	default:
 	echo "//No se ha seteado ningun valor atravéz del botón";
 }
 
-
+ 
 ?>

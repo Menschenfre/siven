@@ -22,8 +22,8 @@ class Conn{
 			return;
 		}
 		//Cambiamos a utf8 para tildes
-		$this->con->set_charset($this->dbcharset);
-	}
+		//$this->con->set_charset($this->dbcharset);
+	} 
 }
 
 ?>
