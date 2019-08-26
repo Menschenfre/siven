@@ -24,19 +24,19 @@ $enco = json_encode($deco["ops"]);
 //var_dump(json_decode($json2, true));
 //var_dump(json_decode($explode[0], true));
 //var_dump($enco);
-var_dump($json2); 
-var_dump($call_detail_of_row);
+//var_dump($json2); 
+//var_dump($call_detail_of_row);
 
-var_dump($deco);
-var_dump($deco2);
+//var_dump($deco);
+//var_dump($deco2);
 
-var_dump($call_detail_of_row2);
+//var_dump($call_detail_of_row2);
 
 //$decode = json_decode('ops',$call_detail_of_row, true);
 
 //$cal = 'decoding'; 
 
-//var_dump($list_note);
+var_dump($list_note);
 //var_dump($json);
 //var_dump($explode[0]);
 //var_dump($call_detail_of_row);
@@ -147,8 +147,8 @@ var_dump($call_detail_of_row2);
 
   //alert(<?php echo $json2 ?>);
   //alert(<?php echo $call_detail_of_row2 ?>);
-  alert(JSON.stringify(<?php echo $call_detail_of_row2 ?>));
-  alert(JSON.stringify(<?php echo $json2 ?>));
+  //alert(JSON.stringify(<?php echo $call_detail_of_row2 ?>));
+  //alert(JSON.stringify(<?php echo $json2 ?>));
   
 
   

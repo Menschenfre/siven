@@ -2,7 +2,7 @@
 /*Modelo de producto---------------------------------------------------------------------------------------
 Versión: 1.0
 Fecha de creación: 07-08-2019
-Fecha última modificación: 07-08-2019
+Fecha última modificación: 23-08-2019
 Comentario: Clase Notes.php, utilizada para almacenar notas de todo tipo.
 -----------------------------------------------------------------------------------------------------------*/
 
@@ -14,8 +14,6 @@ class Notes extends Crud{
 
 	//Nombre de la tabla
 	public $table= "notes";
-
-    public $duracell= '{"ops":[{"attributes":{"size":"huge"},"insert":"Note"},{"insert":" "}]}';
 
 	//Atributos
 	private $id;
@@ -34,8 +32,8 @@ class Notes extends Crud{
 
         //Constructor de atributos, recibimos valores de array declarado en el constructor
 		$this->title = $note["title"];
-		//$this->content = $note["content"];
-        $this->setContent($content);
+        //real escape, necesario para combinaciones que reconoce mysql, ej: saltos de linea \n
+		$this->content = mysqli_real_escape_string($this->con, $note["content"]);
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;
@@ -118,10 +116,8 @@ class Notes extends Crud{
      */
     public function setContent($content)
     {
-        $duracell= '{"ops":[{"attributes":{"size":"huge"},"insert":"Note"},{"insert":" "}]}';
-        $duracell= '{"ops":[{"attributes":{"font":"serif","size":"huge"},"insert":"NOTE  "},{"insert":"\n"}]}';
-        $duracellfix= mysql_real_escape_string($duracell);
-        $this->content = $duracellfix;
+        
+        $this->content = $content;
 
         return $this;
     }
@@ -199,8 +195,8 @@ class Notes extends Crud{
 
         //Cerramos la consulta y la conexión 
         $this->con->close(); 
-        //return 1;
-        return $this->content;  
+        return 1;
+        //return $this->content;  
     }
 }
 ?>
