@@ -5,43 +5,17 @@ require_once($controller_note); ?>
 <?php $note_control=new NoteController(); 
 //Invocamos la funcion que lista las notas
 $list_note = $note_control->list();
-$call_row = $list_note[16];
-$call_detail_of_row = (string)$call_row["content"];
-$call_detail_of_row2 = $call_detail_of_row;
+$call_row = $list_note[1];
+
+$attribute_call_row = $call_row["content"];
+$decode_attribute_call_row = json_decode($attribute_call_row, true);
+
+$encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]);
 
 
+//var_dump($encode_decode_atribbute_call_row);
 
-//$explode = explode(' ',$call_detail_of_row);
-$explodeOnly1= $explode;
-
-$json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
-$json2= '{"ops":[{"attributes":{"size":"huge"},"insert":"Note"},{"insert":" "}]}';
-$deco = json_decode($json2, true);
-$deco2 = json_decode($call_detail_of_row2, true);
-$enco = json_encode($deco["ops"]);
-
-//var_dump(json_decode($json, true));
-//var_dump(json_decode($json2, true));
-//var_dump(json_decode($explode[0], true));
-//var_dump($enco);
-//var_dump($json2); 
-//var_dump($call_detail_of_row);
-
-//var_dump($deco);
-//var_dump($deco2);
-
-//var_dump($call_detail_of_row2);
-
-//$decode = json_decode('ops',$call_detail_of_row, true);
-
-//$cal = 'decoding'; 
-
-var_dump($list_note);
-//var_dump($json);
-//var_dump($explode[0]);
-//var_dump($call_detail_of_row);
-//var_dump(json_decode($call_detail_of_row["ops"], true));
-
+ 
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
@@ -143,13 +117,8 @@ var_dump($list_note);
   });
 
   //Seteando valores por defecto
-  quill.setContents(<?php echo $enco ?>);
+  quill.setContents(<?php echo $encode_decode_atribbute_call_row ?>);
 
-  //alert(<?php echo $json2 ?>);
-  //alert(<?php echo $call_detail_of_row2 ?>);
-  //alert(JSON.stringify(<?php echo $call_detail_of_row2 ?>));
-  //alert(JSON.stringify(<?php echo $json2 ?>));
-  
 
   
 </script>

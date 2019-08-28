@@ -187,7 +187,7 @@ class Notes extends Crud{
     }
 
 
-     //Función guardar 
+     //*Función guardar 
     public function create(){
         $sql="INSERT INTO notes(title,content,status,created) VALUES('$this->title','$this->content','$this->status','$this->created')";
         $resultado=$this->con->prepare($sql);
@@ -197,6 +197,6 @@ class Notes extends Crud{
         $this->con->close(); 
         return 1;
         //return $this->content;  
-    }
+    }   
 }
 ?>

@@ -6,6 +6,13 @@ class MasterController{
 
 	}
 
+	public function save($save_data){
+	
+		$model=new $this->model_name($save_data);
+		$result= $model->create();
+		
+		return $result;
+	}
 
 	public function list(){
 	
@@ -17,6 +24,6 @@ class MasterController{
 
 
 
-}
+} 
 
 ?>
