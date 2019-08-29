@@ -223,6 +223,12 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.bootstrapdash.com/demo/star-admin-angular/dashboard">
+              <i class="menu-icon mdi mdi-television"></i>
+              <span class="menu-title">Templato</span>
+            </a>
+          </li>
 
  <!--Sección del menú notas -->
           <li class="nav-item">
@@ -244,6 +250,27 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
               </ul>
             </div>
           </li>
+
+ <!--Sección del menú historias -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#story_menu" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon mdi mdi-content-copy"></i>
+              <span class="menu-title">Feber</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="story_menu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="addNoteAppears()">
+                  Registrar 
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="list_noteAppears()">Listar feber</a>
+                </li>
+              </ul>
+            </div>
+          </li> 
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
