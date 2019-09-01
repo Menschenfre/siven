@@ -56,21 +56,12 @@
 }
 
 /*menos bordes de la pantalla de admin */
-.page-body-wrapper {
-  min-height: calc(100vh - 63px);
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  padding-left: 0;
-  padding-right: 0; }
-  .page-body-wrapper:not(.auth-page) {
-    padding-top: 0px !important; }
-  .page-body-wrapper.full-page-wrapper {
-    width: 100%;
-    min-height: 100vh; }
- 
-/*Menos bordes del avatar menú lateral */
+
+.page-body-wrapper:not(.auth-page) {
+  padding-top: 35px !important; 
+}
+
+/*Menos bordes del avatar menú lateral*/ 
 .sidebar .nav .nav-item.nav-profile .nav-link {
     padding: 36px 35px;
 } 
@@ -81,9 +72,32 @@
 } 
 /* Menos margen en el cuerpo del cuerpo de los formularios*/
 .content-wrapper {
-    background: #f2f8f9;
     padding: 1.5rem 0.5rem !important;
-    width: 100%;
-    -webkit-flex-grow: 1; 
-    flex-grow: 1;
+}
+
+/*Cambio en top menú, color*/
+.navbar.default-layout {
+    background: linear-gradient(120deg, #111, #1a3f98) !important;
+}
+
+
+/*Desaparece la caja del top menú izquierda*/
+.navbar.default-layout .navbar-brand-wrapper {
+    height: 0px !important;
+}
+
+
+/*Ancho top menú*/
+.navbar.default-layout .navbar-menu-wrapper {
+    height: 43px !important;
+}
+
+/*Posición pop up top menú*/
+.nav .nav-item.dropdown .navbar-dropdown, .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    top: calc(43px - 6px) !important;  
+}
+
+/*Posición pop up mobil menú lateral */
+.sidebar-offcanvas {
+    top: 43px !important;
 }

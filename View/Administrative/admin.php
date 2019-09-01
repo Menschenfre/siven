@@ -14,7 +14,9 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
 <body>
 
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html 
+
+    <!-- TOP NAVBAR -->
+    
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         
@@ -23,17 +25,13 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
           <li class="nav-item">
-            <a href="#" class="nav-link">Schedule
-              <span class="badge badge-primary ml-1">New</span>
+            <a href="#" class="nav-link">Calendario
+              <span class="badge badge-primary ml-1">Fecha pronta(1)</span>
             </a>
           </li>
           <li class="nav-item active">
             <a href="#" class="nav-link">
-              <i class="mdi mdi-elevation-rise"></i>Reports</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
+              <i class="mdi mdi-elevation-rise"></i>Estadísticas</a>
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
@@ -44,9 +42,9 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
               <div class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
+                <p class="mb-0 font-weight-normal float-left">Tienes 7 tareas pendientes
                 </p>
-                <span class="badge badge-info badge-pill float-right">View all</span>
+                <span class="badge badge-info badge-pill float-right">Ver todas</span>
               </div>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
@@ -54,11 +52,11 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                   
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">Reunión
                     <span class="float-right font-weight-light small-text">1 Minutes ago</span>
                   </h6>
                   <p class="font-weight-light small-text">
-                    The meeting is cancelled
+                    Se cancela la reunión
                   </p>
                 </div>
               </a>
@@ -68,11 +66,11 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                   
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
+                  <h6 class="preview-subject ellipsis font-weight-medium text-dark">Cuenta
                     <span class="float-right font-weight-light small-text">15 Minutes ago</span>
                   </h6>
                   <p class="font-weight-light small-text">
-                    New product launch
+                    Pendiente el registro de cuentas (2)
                   </p>
                 </div>
               </a>
@@ -99,9 +97,9 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <a class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 4 new notifications
+                <p class="mb-0 font-weight-normal float-left">Tienes 4 notificaciones
                 </p>
-                <span class="badge badge-pill badge-warning float-right">View all</span>
+                <span class="badge badge-pill badge-warning float-right">Ver todas</span>
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
@@ -111,7 +109,7 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium text-dark">Application Error</h6>
+                  <h6 class="preview-subject font-weight-medium text-dark">Error procedimiento BD</h6>
                   <p class="font-weight-light small-text">
                     Just now
                   </p>
@@ -125,9 +123,9 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
+                  <h6 class="preview-subject font-weight-medium text-dark">Intentos fallidos</h6>
                   <p class="font-weight-light small-text">
-                    Private message
+                    Hace 3 horas 
                   </p>
                 </div>
               </a>
@@ -139,7 +137,7 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
+                  <h6 class="preview-subject font-weight-medium text-dark">Nuevos correos(2)</h6>
                   <p class="font-weight-light small-text">
                     2 days ago
                   </p>
@@ -149,8 +147,8 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Sickven !</span>
-              <img class="img-xs rounded-circle" src="<?php echo $assets_images ?>face9.jpg" alt="Profile image">
+              <span class="profile-text">Cuenta</span>
+              
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item p-0">
@@ -167,13 +165,10 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                 </div>
               </a>
               <a class="dropdown-item mt-2">
-                Manage Accounts
+                Administrar cuenta
               </a>
               <a class="dropdown-item">
-                Change Password
-              </a>
-              <a class="dropdown-item">
-                Check Inbox
+                Cambiar contraseña
               </a>
               
               <a class="dropdown-item" href="#" onclick="logout('logout')">
@@ -186,7 +181,9 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
-    </nav> -->
+    </nav> 
+
+    <!-- TOP NAVBAR -->
 
 
 
@@ -205,14 +202,14 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
                   <img src="<?php echo $assets_images ?>face9.jpg" alt="profile image">
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Richard V.Welsh</p>
+                  <p class="profile-name">Sivenatico</p>
                   <div>
-                    <small class="designation text-muted">Noob</small>
+                    <small class="designation text-muted">New</small>
                     <span class="status-indicator online"></span>
                   </div>
                 </div>
               </div>
-              <button class="btn btn-success btn-block">New Project
+              <button class="btn btn-success btn-block">Registrar cuenta
                 <i class="mdi mdi-plus"></i>
               </button>
             </div>
@@ -255,18 +252,18 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#story_menu" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-content-copy"></i>
-              <span class="menu-title">Feber</span>
+              <span class="menu-title">Libros</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="story_menu">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="addNoteAppears()">
-                  Registrar 
+                  <a class="nav-link" href="#" onclick="addStoryAppears()">
+                  Registrar libros 
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" onclick="list_noteAppears()">Listar feber</a>
+                  <a class="nav-link" href="#" onclick="list_storyAppears()">Listar libros</a>
                 </li>
               </ul>
             </div>
@@ -513,6 +510,25 @@ function list_noteAppears(){
   $('#dashboard_content').hide();
   //Se trae el contenido de bills y se muestra dentro del contenido 
   $.ajax({url: "/View/Administrative/Notes/list_note.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
+};
+
+
+function addStoryAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de agregar producto y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/Stories/add_story.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
+};
+
+function list_storyAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de bills y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/Stories/list_story.php", success: function(result){
       $("#admin_content").html(result);
   }});
 };
