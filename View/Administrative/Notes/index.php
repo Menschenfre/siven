@@ -9,7 +9,7 @@ switch ($identifier){
 	/*Respuesta Ajax al agregar una nota*/
 	case "add_note":
 	require_once($controller_note);
-	$control_note=new NoteController();
+	$note_control=new NoteController();
 
 	//Se recibe el array con la data de la vista
 	$note = $_POST['note'];
@@ -17,17 +17,17 @@ switch ($identifier){
 	//$varee= implode($note);
 	
 	//Pasamos la variable al método save del controlador(master)
-	$result=$control_note->save($note);
+	$result=$note_control->save($note);
 
 
 	echo $result;
 	break;
- 
+  
 	
 	/*Respuesta default*/
 	default:
 	echo "//No se ha seteado ningun valor atravéz del botón";
 }
 
- 
+
 ?>

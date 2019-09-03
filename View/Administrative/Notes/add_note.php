@@ -109,7 +109,7 @@ function note_reg(identifier){
   //alert(JSON.stringify(content, null, 4));
   //alert(test);
   //exit(); 
-  
+   
   $.ajax({ 
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
           data:  {"note":note, "identifier":identifier}, 

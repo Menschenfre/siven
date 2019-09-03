@@ -21,7 +21,7 @@ class Crud extends Conn{
 		return $this->table;
 	} 
 
-	public function read(){
+	public function read($customesql=null){
 		//El nombre de la tabla se obtiene de la clase modelo, atributos
         $sql="SELECT * FROM $this->table";
         $result=$this->con->query($sql);

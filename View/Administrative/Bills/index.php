@@ -2,32 +2,48 @@
 //Incluimos la master de URLs estáticas
 include '/home2/sivenati/public_html/View/Includes/url.php';
 
-//Requerimos el controlador de producto
-require_once($controller_product);
+//Recibimos el valor del identificador
+$identifier = $_POST['identifier'];
 
-//Inicializamos el controlador de producto
-$product_control=new ProductController();
+switch ($identifier){
+	case "add_product":
 
-//Obtenemos la data desde el ajax mediante POST
-$product_name = $_POST['product_name'];
-$product_category = $_POST['product_category'];
-$product_total = $_POST['product_total'];
-$product_price = $_POST['product_price'];
-$producto_date = $_POST['product_date'];
+	//Requerimos el controlador de producto
+	require_once($controller_product);
+	//Inicializamos el controlador de producto
+	$product_control=new ProductController();
 
-/*
-$product_name = "nameTest1";
-$product_category = 1;
-$product_total = 10;
-$product_price = 100;*/
+	//Se recibe el array con la data de la vista
+	$product = $_POST['product'];
 
-$result = $product_control->save($product_category,$product_name,$product_total,$product_price,$producto_date);
-echo $result;
+	/*
+	$product_name = "nameTest1";
+	$product_category = 1;
+	$product_total = 10;
+	$product_price = 100;*/
+
+	$result = $product_control->save($product);
+	echo $result;
 
 
-//$result = $prod_control->Works();
-//echo $result;
+	//$result = $prod_control->Works();
+	//echo $result;
 
-//var_dump($result);
+	//var_dump($result);
+	break;
+ 
+	
+	/*Respuesta default*/
+	default:
+	echo "//No se ha seteado ningun valor atravéz del botón";
+}
+
+
+
+
+
+
+        
+
  
 ?>

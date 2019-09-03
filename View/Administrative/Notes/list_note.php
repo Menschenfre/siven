@@ -13,7 +13,7 @@ $decode_attribute_call_row = json_decode($attribute_call_row, true);
 $encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]);
 
 
-//var_dump($encode_decode_atribbute_call_row);
+//var_dump($decode_attribute_call_row);
 
  
 ?>

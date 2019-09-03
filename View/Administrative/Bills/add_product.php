@@ -46,14 +46,14 @@ $result = $prod_control->list_category();
         <input type="date" id="product_date" class="form-control " placeholder="Fecha" aria-label="Fecha">
       </div>
 
-      <button class="btn btn-outline-primary" onclick="prod_reg()">Enviar</button>
+      <button class="btn btn-outline-primary" onclick="prod_reg('add_product')">Enviar</button>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
   
-function prod_reg(){
+function prod_reg(identifier){
 
   //Capturamos las id de los input
   var product_name = $("#product_name").val();
@@ -62,12 +62,14 @@ function prod_reg(){
   var product_price = $("#product_price").val();
   var product_date = $("#product_date").val();
 
+  var product = {"product_name":product_name,"product_category":product_category,"product_total":product_total,"product_price":product_price,"product_date":product_date};
+
   $.ajax({
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
-          data:  {"product_name":product_name,"product_category":product_category,"product_total":product_total,"product_price":product_price,"product_date":product_date}, 
+          data:  {"product":product, "identifier":identifier}, 
           url:   '/View/Administrative/Bills/index.php', //archivo que recibe la peticion
           type:  'post', //método de envio
-          beforeSend: function () {
+          beforeSend: function () { 
               alert("Enviando data...");
                   //$("#resultado").html("Procesando, espere por favor...");
           },
@@ -85,5 +87,5 @@ function prod_reg(){
                   
           }
   });
-}
+} 
 </script>

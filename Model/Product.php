@@ -24,19 +24,6 @@ class Product extends Crud{
 
 
 
-	/**
-	 * Class Constructor
-	 * @param    $id   
-	 * @param    $id_category   
-	 * @param    $name   
-	 * @param    $total   
-	 * @param    $price   
-	 * @param    $status   
-	 * @param    $created   
-	 * @param    $modified   
-	 * @param    $deleted   
-	 */
-
 	//Inicializamos los atributos nulos para simular un constructor vacío
 	public function __construct($id_category = null, $name = null, $total = null, $price = null, $status = null, $created = null, $modified = null, $deleted = null){
 
@@ -325,6 +312,12 @@ class Product extends Crud{
         return $total;
         
     } 
+
+    public function queryDelivery($year){
+
+        $sql= "SELECT * FROM $this->table WHERE created BETWEEN '$year-01-01' AND '$year-12-31'";
+        return $sql;
+    }
  
 }
 
