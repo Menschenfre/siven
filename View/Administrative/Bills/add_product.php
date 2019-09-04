@@ -64,6 +64,8 @@ function prod_reg(identifier){
 
   var product = {"product_name":product_name,"product_category":product_category,"product_total":product_total,"product_price":product_price,"product_date":product_date};
 
+  alert(product_category);
+
   $.ajax({
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
           data:  {"product":product, "identifier":identifier}, 
@@ -83,6 +85,7 @@ function prod_reg(identifier){
 
               }else{
                 alert("No llega la data, fail");
+                alert(response);
               }
                   
           }

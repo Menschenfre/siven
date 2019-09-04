@@ -10,13 +10,13 @@ require_once($model_product);
 //Cargamos el modelo hijo, que contiene las categorías de los productos.
 require_once($model_products_category);
 
-class ProductController{
+class ProductController extends MasterController{
 
-	/**
-	 * Class Constructor
-	 */
+	//Nombre del modelo para el controlador padre
+    public $model_name= "Product";
+
 	public function __construct(){ 
-	}
+	} 
 	
 	function Works(){
 		return 1;
@@ -33,7 +33,7 @@ class ProductController{
 		$model=new Products_category();
 		$result= $model->read();
 		return $result;
-	}
+	} 
 
 	/*function save($id_category,$name,$total,$price,$created){
 		$model=new Product($id_category,$name,$total,$price,NULL,$created,NULL,NULL);

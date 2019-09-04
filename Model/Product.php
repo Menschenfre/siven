@@ -1,4 +1,4 @@
-<?php
+<?php 
 /*Modelo de producto---------------------------------------------------------------------------------------
 Versión: 1.0
 Fecha última modificación: 11-06-2019
@@ -23,24 +23,24 @@ class Product extends Crud{
 	private $deleted;
 
 
-
+  
 	//Inicializamos los atributos nulos para simular un constructor vacío
-	public function __construct($id_category = null, $name = null, $total = null, $price = null, $status = null, $created = null, $modified = null, $deleted = null){
+	public function __construct($product = null){
 
 		//Herencia de constructor padre
         parent::__construct();
 
         //Constructor de atributos
-		$this->id_category = $id_category;
-		$this->name = $name;
-		$this->total = $total;
-		$this->price = $price;
+		$this->id_category = $product["product_category"];
+		$this->name = $product["product_name"];
+		$this->total = $product["product_total"];
+		$this->price = $product["product_price"];
 		$this->status = $status;
-		$this->created = $created;
+		$this->created = $product["product_date"];
 		$this->modified = $modified;
 		$this->deleted = $deleted;
 	}
-
+ 
     /**
      * @return mixed
      */

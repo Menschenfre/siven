@@ -32,7 +32,7 @@ $quill_css= "{$link_init}{$assets_css_quill}quill.snow.css{$link_end}";
 
 
 
-
+ 
 
 /*Switch por cada página vista*/
 switch ($page){
@@ -40,7 +40,7 @@ switch ($page){
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
 	case "Admin":
-	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css;
+	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css.''.$bootstrap;
 	break;
 	case "Login":
 	case "Register":

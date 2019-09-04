@@ -14,12 +14,18 @@ $total_category_product = $prod_control->total_category_product();
 $total_month = $prod_control->total_month();
 
 ?>
-
+ 
 <script type="text/javascript">
   $(document).ready( function () {
     $('#table_id').DataTable();
 } );
 </script>
+<!-- Search form -->
+<div class="card">
+<div class="card-body">
+<div class="md-form mt-0">
+  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+</div>
 <table id="table_id" class="display">
     <thead>
         <tr>
@@ -28,7 +34,7 @@ $total_month = $prod_control->total_month();
             <th>Cantidad</th>
             <th>Valor</th>
             <th>Fecha gasto</th>
-        </tr>
+        </tr> 
     </thead>
     <tbody>
         <?php foreach ($list_product as $key ) {?>
@@ -42,6 +48,8 @@ $total_month = $prod_control->total_month();
         <?php }  ?>
     </tbody>
 </table>
+</div>
+</div>
 
 <label>General : <?php echo number_format($total_product[0],'0', ',','.')?></label><br>
 
@@ -53,3 +61,4 @@ $total_month = $prod_control->total_month();
 <label>Total por mes : <?php echo number_format($total_month[5],'0', ',','.')?></label><br> 
 <?php 
 echo var_dump($total_month); ?>
+
