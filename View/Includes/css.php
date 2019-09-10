@@ -49,6 +49,9 @@ switch ($page){
 	case "Register":
 	echo $admin_style.''.$materialdesign_css;
 	break;
+	case "Test":
+	echo $bootstrap_select_css;
+	break;
 	default: 
 	echo "//No se carga ningún css";
 }
