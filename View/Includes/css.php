@@ -30,6 +30,9 @@ $data_tables_css= "{$link_init}{$assets_css_data_tables}datatables.min.css{$link
 //quill texto enriquecido
 $quill_css= "{$link_init}{$assets_css_quill}quill.snow.css{$link_end}";
 
+//bootstrap select, mas opciones de select
+$bootstrap_select_css= "{$link_init}{$assets_css_bootstrap_select}bootstrap-select.min.css{$link_end}";
+
 
 
  
@@ -40,7 +43,7 @@ switch ($page){
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
 	case "Admin":
-	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css.''.$bootstrap;
+	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css.''.$bootstrap_select_css;
 	break;
 	case "Login":
 	case "Register":

@@ -23,15 +23,20 @@ $total_month = $prod_control->total_month();
 <!-- Search form -->
 <div class="card">
 <div class="card-body">
-<div class="md-form mt-0">
-  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-</div>
+    
+<select class="selectpicker" multiple title="Choose one of the following...">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+
+    
 <table id="table_id" class="display">
     <thead>
         <tr>
             <th>ID #</th>
             <th>Producto</th>
-            <th>Cantidad</th>
+            <!--<th>Cantidad</th>-->
             <th>Valor</th>
             <th>Fecha gasto</th>
         </tr> 
@@ -41,7 +46,7 @@ $total_month = $prod_control->total_month();
         <tr>
             <td><?php echo $key["id"]?></td>
             <td><?php echo $key["name"]?></td>
-            <td><?php echo $key["total"]?></td>
+            <!--<td><?php echo $key["total"]?></td>-->
             <td><?php echo number_format($key["price"],'0', ',','.')?></td>
             <td><?php echo $key["created"]?></td>
         </tr>

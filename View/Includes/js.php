@@ -34,13 +34,21 @@ $katex_js = "{$script_init}{$assets_js_quill}katex.min.js{$script_end}";
 $highlight_js = "{$script_init}{$assets_js_quill}highlight.min.js{$script_end}";
 
 
+//popper, para dropdown, debe ser invocado antes de bootstrap 
+$popper_js = "{$script_init}{$assets_js_popper}popper.js{$script_end}";
+
+
+//bootstrap select, más opciones de select
+$bootstrap_select_js = "{$script_init}{$assets_js_bootstrap_select}bootstrap-select.min.js{$script_end}";
+
+
 
 switch ($page){
 	case "index":
 	echo $jquery.''.$bootstrap.''.$main_index.''.$sweet_alert.''.$waypoints;
 	break;
 	case "Admin":
-	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js.''.$canvasjs.''.$katex_js.''.$highlight_js.''.$quill_js;
+	echo $popper_js.''.$jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js.''.$canvasjs.''.$katex_js.''.$highlight_js.''.$quill_js;
 	break;
 	case "Register":
 	case "Login":
