@@ -21,16 +21,11 @@ $total_month = $prod_control->total_month();
 } );
 </script>
 <!-- Search form -->
-<select class="selectpicker" multiple>
-  <option>Mustard</option>
-  <option>Ketchup</option>
-  <option>Relish</option>
-</select>
 
 <div class="card">
 <div class="card-body">
     
-<select class="selectpicker" multiple>
+<select id="year_select" class="selectpicker" multiple>
   <option>Mustard</option>
   <option>Ketchup</option>
   <option>Relish</option>

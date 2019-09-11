@@ -55,11 +55,11 @@ switch ($page){
 	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js;
 	break;
 	case "Test":
-	echo $jquery.''.$bootstrap.''.$bootstrap_select_js;
+	echo $popper_js.''.$jquery.''.$bootstrap.''.$bootstrap_select_js;
 	break;
 	default:
 	echo "//No se carga ningún js";
-}
+} 
 
 
 ?>

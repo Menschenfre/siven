@@ -336,10 +336,9 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
 
       <!-- partial -->
       <div class="main-panel">
-
+          
 
         <div class="content-wrapper" id= "admin_content">
-          
           <div class="row" id="dashboard_content">
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
               <div class="card card-statistics" onclick="list_productAppears()">
@@ -469,6 +468,7 @@ function list_productAppears(){
   //Se trae el contenido de bills y se muestra dentro del contenido 
   $.ajax({url: "/View/Administrative/Bills/list_product.php", success: function(result){
       $("#admin_content").html(result);
+      $("#year_select").selectpicker("refresh");
   }});
 };
 

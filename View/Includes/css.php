@@ -43,14 +43,14 @@ switch ($page){
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
 	case "Admin":
-	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css.''.$bootstrap_select_css;
+	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css.''.$bootstrap.''.$bootstrap_select_css;
 	break;
 	case "Login":
 	case "Register":
 	echo $admin_style.''.$materialdesign_css;
 	break;
 	case "Test":
-	echo $bootstrap_select_css;
+	echo $bootstrap.''.$bootstrap_select_css;
 	break;
 	default: 
 	echo "//No se carga ningún css";
@@ -58,5 +58,5 @@ switch ($page){
 
 //var_dump($page);
 
-
+ 
 ?>	
