@@ -25,13 +25,13 @@ $total_month = $prod_control->total_month();
 <div class="card">
 <div class="card-body">
     
-<select id="year_select" class="selectpicker" multiple>
-  <option>Mustard</option>
-  <option>Ketchup</option>
-  <option>Relish</option>
+<select id="year_select" class="selectpicker" title="Años" multiple>
+  <option>2019</option>
+  <option>2020</option>
+  <option>2021</option>  
 </select>
 
-
+<br>
     
 <table id="table_id" class="display">
     <thead>

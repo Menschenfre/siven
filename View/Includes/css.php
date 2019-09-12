@@ -43,7 +43,7 @@ switch ($page){
 	echo $animate.''.$bootstrap.''.$index_theme.''.$mis_estilos;
 	break;
 	case "Admin":
-	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css.''.$bootstrap.''.$bootstrap_select_css;
+	echo $mis_estilos.''.$admin_style.''.$materialdesign_css.''.$data_tables_css.''.$quill_css.''.$bootstrap_select_css;
 	break;
 	case "Login":
 	case "Register":
