@@ -4,16 +4,16 @@ include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
 require_once($controller_product); ?>
 <?php $prod_control=new ProductController();
 //Invocamos la funcion que lista las categorías
-$list_product = $prod_control->list_product();
-$total_product = $prod_control->total_product();
+//$list_product = $prod_control->list_product();
+//$total_product = $prod_control->total_product();
 
-$total_category_product = $prod_control->total_category_product();
+//$total_category_product = $prod_control->total_category_product();
 //var_dump($test);
 
 //Invocamos la función que lista el total por mes
-$total_month = $prod_control->total_month();
+//$total_month = $prod_control->total_month();
 
-
+ 
 //var_dump($list_product);
 ?>
  
@@ -103,23 +103,45 @@ echo var_dump($total_month); ?>
           type:  'post', //método de envio
           beforeSend: function () { 
               alert("Enviando data...");
+
                   //$("#resultado").html("Procesando, espere por favor...");
           },
+
           //response es lo primero que se retorna en el controller
           success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
-
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){
                   alert("Llega la data");
                   //window.location = "/admin";
 
               }else{
+                var data = [
+    [
+        "Tiger caca works",
+        "System Architect",
+        "Edinburgh",
+        "5421", 
+        "2011/04/25",
+        "$3,120"
+    ]
+];
+var works= response.split(',');
+//console.log(JSON.stringify(works));
+//alert(data);
+alert(works);
+alert(response);
+var datal = [
+    [
+        works
+    ]
+];
+console.log(response);
+
                 alert("No llega la data, fail");
-                alert(response);
-                alert(JSON.stringify(response));
+                //alert(response);
                 $('#table_test').dataTable( {
         "destroy": true,
-        data: response,
+        data: datal,
         columns: [
             { title: "Namem" },
             { title: "Position" },
@@ -129,30 +151,13 @@ echo var_dump($total_month); ?>
             { title: "Salary" }
         ]
 } );
+
               }
                   
           }
   });
 
-    var data = [
-    [
-        "Tiger Nixon",
-        "System Architect",
-        "Edinburgh",
-        "5421",
-        "2011/04/25",
-        "$3,120"
-    ],
-    [
-        "Garrett Winters",
-        "Director",
-        "Edinburgh",
-        "8422",
-        "2011/07/25",
-        "$5,300"
-    ]
-];
-    alert(data);
+    
 
     
     //table.destroy();
@@ -172,16 +177,9 @@ echo var_dump($total_month); ?>
         "5421",
         "2011/04/25",
         "$3,120"
-    ],
-    [
-        "Garrett Winters",
-        "Director",
-        "Edinburgh",
-        "8422",
-        "2011/07/25",
-        "$5,300"
     ]
 ];
+alert(data);
 
 
 $('#table_test').dataTable( {
