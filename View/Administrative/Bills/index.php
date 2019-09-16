@@ -31,6 +31,20 @@ switch ($identifier){
 
 	//var_dump($result);
 	break;
+
+	case "list_product":
+	//Requerimos el controlador de producto
+	require_once($controller_product);
+	//Inicializamos el controlador de producto
+	$product_control=new ProductController();
+	$list_product = $product_control->list_product();
+	$cars = array("Volvo", "BMW", "Toyota");
+	$UNA = "UNA";
+	echo $UNA;
+
+	break;
+
+	
  
 	
 	/*Respuesta default*/

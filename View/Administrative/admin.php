@@ -469,6 +469,8 @@ function list_productAppears(){
   $.ajax({url: "/View/Administrative/Bills/list_product.php", success: function(result){
       $("#admin_content").html(result);
       $("#year_select").selectpicker("refresh");
+      $("#month_select").selectpicker("refresh");
+      $("#category_select").selectpicker("refresh");
   }});
 };
 
