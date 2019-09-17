@@ -181,4 +181,3 @@ class Products_category extends Crud{
     }
 }
 
-?>

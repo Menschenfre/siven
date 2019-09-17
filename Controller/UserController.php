@@ -1,17 +1,21 @@
 <?php
- 
-require_once('../Model/User.php');
-$nick="test1";
-$pass="testpass";
-$status="";
-$created="";
-$modified="";
-$user=new User($nick,$pass,$status,$created,$modified);
-$reg=$user->save();
-if ($reg) {
-	echo "bien";
-}else{
-    echo "fallo"; 
-}     
+include '/home2/sivenati/public_html/View/Includes/url.php'; 
 
+require_once($model_user);
+
+class UserController{
+
+	/**
+	 * Class Constructor
+	 */
+	public function __construct(){ 
+	}
+	
+	function save($user){
+		$model=new User2($user);
+		$result= $model->create();
+		
+		return $result;
+	}
+}
 ?>

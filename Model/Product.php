@@ -321,4 +321,3 @@ class Product extends Crud{
  
 }
 
-?> 

@@ -1,4 +1,9 @@
 <?php
+/*Controlador de login---------------------------------------------------------------------------------------
+Versión: 1.0
+Fecha última modificación: 17-09-2019
+Comentario: Clase LoginController.php, diseñada para ejecutar las diversas reglas login y logout.
+-----------------------------------------------------------------------------------------------------------*/
 
 class LoginController{
 
@@ -12,11 +17,4 @@ class LoginController{
 		//exit();
 		return 1;
 	}
-
-	function works(){
-		echo "works!";
-	}
-
 }
-
-?> 

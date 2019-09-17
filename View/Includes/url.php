@@ -19,13 +19,12 @@ $Materialdesign_url= "/Fonts/Materialdesignicons-3.6.95/css/materialdesignicons.
 $model_product= "{$Base_url}{$Model_origen}/Product.php";
 $model_products_category= "{$Base_url}{$Model_origen}/Products_category.php";
 $model_user= "{$Base_url}{$Model_origen}/User.php";
-$model_user2= "{$Base_url}{$Model_origen}/User2.php";
 $model_note= "{$Base_url}{$Model_origen}/Notes.php";
 /*----------------------------------------------------------*/
 //Includes Controllers
 $controller_product= "{$Base_url}{$Controller_origen}/ProductController.php";
 $controller_login= "{$Base_url}{$Controller_origen}/LoginController.php";
-$controller_user= "{$Base_url}{$Controller_origen}/UserController2.php";
+$controller_user= "{$Base_url}{$Controller_origen}/UserController.php";
 $controller_note= "{$Base_url}{$Controller_origen}/NoteController.php";
 $controller_master= "{$Base_url}{$Controller_origen}/MasterController.php";
 
@@ -56,5 +55,3 @@ $assets_js_bootstrap_select = "{$assets_js}bootstrap_select/";
 $assets_images = "{$Assets_origen}/images/";
 
 /*----------------------------------------------------------*/
-
-?>

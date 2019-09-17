@@ -21,14 +21,15 @@ class User extends Crud{
      */
 
     //Inicializamos los atributos nulos para simular un constructor vacío
-    public function __construct($nick = null, $pass= null, $status= null, $created= null, $modified= null){
+    public function __construct($user = null){
 
         //Herencia de constructor padre
         parent::__construct();
 
         //Constructor de atributos
-        $this->nick = $nick;
-        $this->pass = $pass;
+        $this->nick = $user["nick_name"];
+        $this->pass = $user["password"];
+        $this->role = $user["role"];
         $this->setStatus($status);
         $this->setCreated($created);
         $this->modified = $modified;
@@ -136,13 +137,14 @@ class User extends Crud{
 
 
     //Función guardar 
-    public function save(){
-        $sql="INSERT INTO users(nick,pass,status,created) VALUES('$this->nick','$this->pass','$this->status','$this->created')";
+    public function create(){
+        $sql="INSERT INTO users(nick,pass,role,status,created) VALUES('$this->nick','$this->pass','$this->role','$this->status','$this->created')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
 
         //Cerramos la consulta y la conexión 
         $this->con->close();
+        return 1;
     }
 
     //Función buscar por nick, recibe 2 parámetros de comparación

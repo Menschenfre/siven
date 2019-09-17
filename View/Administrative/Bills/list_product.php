@@ -101,8 +101,9 @@ echo var_dump($total_month); ?>
           data:  {"identifier":identifier}, 
           url:   '/View/Administrative/Bills/index.php', //archivo que recibe la peticion
           type:  'post', //método de envio
+          datatype: 'json',
           beforeSend: function () { 
-              alert("Enviando data...");
+             // alert("Enviando data...");
 
                   //$("#resultado").html("Procesando, espere por favor...");
           },
@@ -111,7 +112,7 @@ echo var_dump($total_month); ?>
           success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){
-                  alert("Llega la data");
+                //  alert("Llega la data");
                   //window.location = "/admin";
 
               }else{
@@ -125,23 +126,16 @@ echo var_dump($total_month); ?>
         "$3,120"
     ]
 ];
-var works= response.split(',');
-//console.log(JSON.stringify(works));
-//alert(data);
-alert(works);
-alert(response);
-var datal = [
-    [
-        works
-    ]
-];
-console.log(response);
 
-                alert("No llega la data, fail");
+  alert(response); 
+  
+   
+
+               // alert("No llega la data, fail");
                 //alert(response);
                 $('#table_test').dataTable( {
         "destroy": true,
-        data: datal,
+        data: data,
         columns: [
             { title: "Namem" },
             { title: "Position" },
