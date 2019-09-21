@@ -31,7 +31,7 @@ switch ($identifier){
 	$data=array("fdfd","System Architect","Edinburgh","5421","2011/04/25","$3,120");
 	$cars = array("Volvo", "BMW", "Toyota");
 	echo $UNA ="UNA";
-	//echo json_encode($data);
+	//echo json_encode($data); 
 	//echo implode(",",$data);
 	break;
 	/*Respuesta default*/

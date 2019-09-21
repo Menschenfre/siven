@@ -4,14 +4,14 @@ include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
 require_once($controller_product); ?>
 <?php $prod_control=new ProductController();
 //Invocamos la funcion que lista las categorías
-//$list_product = $prod_control->list_product();
-//$total_product = $prod_control->total_product();
+$list_product = $prod_control->list_product();
+$total_product = $prod_control->total_product();
 
-//$total_category_product = $prod_control->total_category_product();
+$total_category_product = $prod_control->total_category_product();
 //var_dump($test);
 
 //Invocamos la función que lista el total por mes
-//$total_month = $prod_control->total_month();
+$total_month = $prod_control->total_month();
 
  
 //var_dump($list_product);

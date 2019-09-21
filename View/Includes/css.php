@@ -15,7 +15,7 @@ $mis_estilos ='<link rel="stylesheet" href="Assets/css/mis_estilos/estilos.css">
 
 //NO USADO
 //Fontawesome 5.8.1
-$fontawesome='<link rel="stylesheet" type="text/css" href="Fonts/Fontawesome-5.8.1/css/all.min.css">
+$fontawesome='<link rel="stylesheet" type="text/css" href="fonts/Fontawesome-5.8.1/css/all.min.css">
 ';
 
 //Estilos del panel de admin
