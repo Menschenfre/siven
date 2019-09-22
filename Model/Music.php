@@ -1,42 +1,56 @@
-<?php 
-/*Modelo de producto---------------------------------------------------------------------------------------
+<?php
+/*Modelo de música---------------------------------------------------------------------------------------
 Versión: 1.0
-Fecha de creación: 07-08-2019
-Fecha última modificación: 23-08-2019
-Comentario: Clase Notes.php, utilizada para almacenar notas de todo tipo.
+Fecha de creación: 21-09-2019
+Fecha última modificación: 21-09-2019
+Comentario: Clase Notes.php, utilizada para almacenar musica cuya fuente de origen es youtube.
 -----------------------------------------------------------------------------------------------------------*/
 
+//Importamos funciones comunes del crud
 require_once ('Crud.php');
-/**
- * 
- */
-class Notes extends Crud{
 
-	//Nombre de la tabla
-	public $table= "notes";
+class Music extends Crud{
 
-	//Atributos
+	//Nombre de la tabla,parametros,valores, utilizados por el crud.
+	public $table;
+	//parametros que se usarán para guardar en la tabla.
+	public $parameters;
+	//valores que pasaran a guardar, se inicializan en el constructor por dependencia.
+	public $values;
+
+	//Atributos en la bd
 	private $id;
-	private $title;
-	private $content;
+	private $id_user;
+	private $name;
+	private $category;
+	private $url;
 	private $status;
 	private $created;
 	private $modified;
 
-
 	//Inicializamos los atributos nulos para simular un constructor vacío, recibimos un array
-	public function __construct($note = null){
+	public function __construct($music = null){
 
 		//Herencia de constructor padre
         parent::__construct();
 
         //Constructor de atributos, recibimos valores de array declarado en el constructor
-		$this->title = $note["title"];
-        //real escape, necesario para combinaciones que reconoce mysql, ej: saltos de linea \n
-		$this->content = mysqli_real_escape_string($this->con, $note["content"]);
+		//$this->id_user = $music["id_user"];
+		//$this->name = $music["name"];
+		//$this->category = $music["category"];
+		//$this->url = $music["url"];
+		$this->id_user = 1;
+		$this->name = "TESTNAME";
+		$this->category = "TESTCATEGORY";
+		$this->url = "TESTURL";
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;
+
+		$this->table = "music";
+		$this->parameters = "id_user,name,category,url";
+		$this->values = "'$this->id_user','$this->name','$this->category','$this->url'";
+
 		
 	}
 
@@ -84,19 +98,19 @@ class Notes extends Crud{
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getIdUser()
     {
-        return $this->title;
+        return $this->id_user;
     }
 
     /**
-     * @param mixed $title
+     * @param mixed $id_user
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setIdUser($id_user)
     {
-        $this->title = $title;
+        $this->id_user = $id_user;
 
         return $this;
     }
@@ -104,20 +118,59 @@ class Notes extends Crud{
     /**
      * @return mixed
      */
-    public function getContent()
+    public function getName()
     {
-        return $this->content; 
+        return $this->name;
     }
 
     /**
-     * @param mixed $content
+     * @param mixed $name
      *
      * @return self
      */
-    public function setContent($content)
+    public function setName($name)
     {
-        
-        $this->content = $content;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param mixed $url
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
 
         return $this;
     }
@@ -135,8 +188,6 @@ class Notes extends Crud{
      *
      * @return self
      */
-
-    //Seteamos el status en 1 = desponible
     public function setStatus($status)
     {
         $this->status = 1;
@@ -157,8 +208,6 @@ class Notes extends Crud{
      *
      * @return self
      */
-
-    //Seteamos el formato de la fecha
     public function setCreated($created)
     {
         $this->created = $this->dateTimeNow->format('Y-m-d H:i:s');
@@ -185,17 +234,4 @@ class Notes extends Crud{
 
         return $this;
     }
-
-
-     //*Función guardar 
-    public function create(){
-        $sql="INSERT INTO notes(title,content,status,created) VALUES('$this->title','$this->content','$this->status','$this->created')";
-        $resultado=$this->con->prepare($sql);
-        $re=$resultado->execute();
-
-        //Cerramos la consulta y la conexión 
-        $this->con->close(); 
-        return 1;
-        //return $this->content;  
-    }   
 }

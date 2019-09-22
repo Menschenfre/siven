@@ -36,6 +36,18 @@ class Crud extends Conn{
         return $list;
     }
 
+    public function createTEST(){
+
+    	$sql="INSERT INTO $this->table($this->parameters) VALUES($this->values)";
+        $resultado=$this->con->prepare($sql);
+        $re=$resultado->execute();
+
+        //Cerramos la consulta y la conexión 
+        $this->con->close(); 
+        return 1;
+        //return $this->content;  
+    }
+
 }
 
 ?>

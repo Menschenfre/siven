@@ -20,6 +20,7 @@ $model_product= "{$Base_url}{$Model_origen}/Product.php";
 $model_products_category= "{$Base_url}{$Model_origen}/Products_category.php";
 $model_user= "{$Base_url}{$Model_origen}/User.php";
 $model_note= "{$Base_url}{$Model_origen}/Notes.php";
+$model_music= "{$Base_url}{$Model_origen}/Music.php";
 /*----------------------------------------------------------*/
 //Includes Controllers
 $controller_product= "{$Base_url}{$Controller_origen}/ProductController.php";
