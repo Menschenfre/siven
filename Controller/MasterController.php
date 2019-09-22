@@ -22,4 +22,12 @@ class MasterController{
 		$result= $model->read();
 		return $result;
 	}
+
+	//Función que recibe como parámetro un arreglo con la info a guardar atravéz del modelo.
+	public function saveTest($save_data){
+		$model=new $this->model_name($save_data);
+		$result= $model->createTEST();
+		
+		return $result;
+	}
 } 

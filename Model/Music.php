@@ -36,13 +36,14 @@ class Music extends Crud{
 
         //Constructor de atributos, recibimos valores de array declarado en el constructor
 		//$this->id_user = $music["id_user"];
-		//$this->name = $music["name"];
-		//$this->category = $music["category"];
-		//$this->url = $music["url"];
+		$this->name = $music["name"];
+		$this->category = $music["category"];
+		$this->url = $music["url"];
 		$this->id_user = 1;
-		$this->name = "TESTNAME";
-		$this->category = "TESTCATEGORY";
-		$this->url = "TESTURL";
+		//$this->name = "TESTNAME";
+		//$this->category = "TESTCATEGORY";
+		
+        //$this->url = "TESTURL";
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;

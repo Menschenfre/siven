@@ -28,6 +28,7 @@ $controller_login= "{$Base_url}{$Controller_origen}/LoginController.php";
 $controller_user= "{$Base_url}{$Controller_origen}/UserController.php";
 $controller_note= "{$Base_url}{$Controller_origen}/NoteController.php";
 $controller_master= "{$Base_url}{$Controller_origen}/MasterController.php";
+$controller_music= "{$Base_url}{$Controller_origen}/MusicController.php";
 
 /*----------------------------------------------------------*/
 // Includes css

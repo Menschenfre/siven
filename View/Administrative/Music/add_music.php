@@ -24,3 +24,48 @@
     </div>
   </div>
 </div> 
+
+<script type="text/javascript">
+  
+function note_reg(identifier){
+
+  //Capturamos las id de los input
+  var name = $("#name").val();
+  var category = $("#category").val();
+  var url = $("#url").val();
+
+
+
+ var separador = "=";
+ var arregloDeSubCadenas = url.split(separador);
+
+//obtenemos el string despues del = y le aplicamos trim para eliminar espacios vacios
+console.log(arregloDeSubCadenas[1].trim());
+exit();
+
+  //Metemos los valores obtenidos a un array
+  var music = {"name":name, "category":category, "url":url};
+
+   
+  $.ajax({ 
+      //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
+          data:  {"music":music, "identifier":identifier}, 
+          url:   '/View/Administrative/Music/index.php', //archivo que recibe la peticion
+          type:  'post', //método de envio
+          beforeSend: function () {
+              alert("Enviando data...");
+          },
+          //response es lo primero que se retorna en el controller
+          success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+        //Si el controlador retorna un positivo se devuelve mensaje exitoso 
+              if(response==1){
+                  alert("Llega la data");
+              }else{
+                alert("No llega la data");
+                alert(response);
+              }
+                  
+          }
+  });
+}
+</script>

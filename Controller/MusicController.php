@@ -12,7 +12,7 @@ require_once($controller_master);
 //Se carga el modelo correspondiente, este es utilizado por el controlador padre
 require_once($model_music);
 
-class NoteController extends MasterController{
+class MusicController extends MasterController{
 
 
 	//Nombre del modelo para el controlador maestro

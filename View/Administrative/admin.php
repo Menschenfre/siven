@@ -278,6 +278,12 @@ if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="add_musicAppears()">Agregar</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#" onclick="list_musicAppears()">Listados</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="#" onclick="playlistAppears(1)">Lista 1</a>
                 </li>
                 <li class="nav-item">
@@ -534,6 +540,25 @@ function list_storyAppears(){
       $("#admin_content").html(result);
   }});
 };
+
+function add_musicAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de bills y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/Music/add_music.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
+};
+
+function list_musicAppears(){
+  //Ocultamos el contenido actual
+  $('#dashboard_content').hide();
+  //Se trae el contenido de bills y se muestra dentro del contenido 
+  $.ajax({url: "/View/Administrative/Music/list_music.php", success: function(result){
+      $("#admin_content").html(result);
+  }});
+};
+
 
 function logout(identifier){
         $.ajax({
