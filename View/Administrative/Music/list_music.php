@@ -22,8 +22,14 @@
     <script>
 
         // create youtube player
+        
         var player;
         function onYouTubePlayerAPIReady() {
+
+          if (player!=null){
+            alert("no nulo");
+
+          }else{
             player = new YT.Player('player', {
               width: '856',
               height: '482',
@@ -31,9 +37,12 @@
               events: {
                 onStateChange: onPlayerStateChange
               }
-            });
-        }
+            }); 
+          }
 
+            
+        } 
+ 
         // when video ends
         function onPlayerStateChange(event) {        
             if(event.data === 0) {          
@@ -41,7 +50,7 @@
                 player.loadVideoById('1wYNFfgrXTI');
             }
         }
-
+ 
 
         
 

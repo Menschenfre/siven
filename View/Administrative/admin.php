@@ -551,11 +551,13 @@ function add_musicAppears(){
 };
 
 function list_musicAppears(){
+
   //Ocultamos el contenido actual
   $('#dashboard_content').hide();
   //Se trae el contenido de bills y se muestra dentro del contenido 
   $.ajax({url: "/View/Administrative/Music/list_music.php", success: function(result){
       $("#admin_content").html(result);
+
   }});
 };
 
