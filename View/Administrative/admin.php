@@ -1,10 +1,11 @@
+<?php
+ob_start();
+?>
 <?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
 
 <?php 
-//var_dump($_SESSION["user"]); 
 if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
-
-  //header('Location: /login');
+  header('Location: /login');
   exit();
 }
 ?>
@@ -610,3 +611,6 @@ function logout(identifier){
 </body>
 
 </html>
+<?php
+ob_end_flush();
+?>

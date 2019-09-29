@@ -5,11 +5,7 @@
       <p class="card-description">
         Acá se registra la música.
       </p>
-       
-      <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" id="name" class="form-control form-control-lg" placeholder="Nombre" aria-label="Nombre"> 
-      </div>
+      
       <div class="form-group">
         <label>Categoría</label>
         <input type="text" id="category" class="form-control form-control-lg" placeholder="Categoría" aria-label="Nombre"> 
@@ -25,26 +21,26 @@
   </div>
 </div> 
 
+
 <script type="text/javascript">
   
 function note_reg(identifier){
 
   //Capturamos las id de los input
-  var name = $("#name").val();
   var category = $("#category").val();
   var url = $("#url").val();
 
 
 
- var separador = "=";
- var arregloDeSubCadenas = url.split(separador);
+  var separador = "=";
+  var arregloDeSubCadenas = url.split(separador);
+  //obtenemos el string despues del = y le aplicamos trim para eliminar espacios vacios
+  var url = arregloDeSubCadenas[1].trim();
+  alert(url);
 
-//obtenemos el string despues del = y le aplicamos trim para eliminar espacios vacios
-console.log(arregloDeSubCadenas[1].trim());
-exit();
 
   //Metemos los valores obtenidos a un array
-  var music = {"name":name, "category":category, "url":url};
+  var music = {"category":category, "url":url};
 
    
   $.ajax({ 

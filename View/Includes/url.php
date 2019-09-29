@@ -37,7 +37,7 @@ $css = "${Includes_url}/css.php";
 $js = "${Includes_url}/js.php";
 
 /*----------------------------------------------------------*/
-// Assets css
+// Assets css 
 $assets_css = "{$Assets_origen}/css/";
 $assets_css_admin = "{$assets_css}admin_style/";
 $assets_css_data_tables = "{$assets_css}data_tables/";

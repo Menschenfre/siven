@@ -36,7 +36,7 @@ class Music extends Crud{
 
         //Constructor de atributos, recibimos valores de array declarado en el constructor
 		//$this->id_user = $music["id_user"];
-		$this->name = $music["name"];
+		$this->name = mysqli_real_escape_string($this->con, $music["name"]);
 		$this->category = $music["category"];
 		$this->url = $music["url"];
 		$this->id_user = 1;

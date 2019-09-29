@@ -37,7 +37,8 @@
 
     </script>
 
-    <?php $content = file_get_contents("http://youtube.com/get_video_info?video_id=GbNhJ-7VxPM");
+    <?php $content = file_get_contents("http://youtube.com/get_video_info?video_id=ThI9fm52lms");
 parse_str($content, $ytarr);
-$jsondec = json_decode($ytarr['player_response'],true); echo $jsondec['videoDetails'][title];
+$jsondec = json_decode($ytarr['player_response'],true); 
+echo $jsondec['videoDetails'][title];
 //echo $ytarr['title'];
