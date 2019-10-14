@@ -21,6 +21,7 @@ $total_month = $prod_control->total_month();
 } );
 </script>
 <!-- Search form -->
+<<<<<<< HEAD
 
 <div class="card">
 <div class="card-body">
@@ -32,6 +33,17 @@ $total_month = $prod_control->total_month();
 </select>
 
 <br>
+=======
+<div class="card">
+<div class="card-body">
+    
+<select class="selectpicker" multiple title="Choose one of the following...">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+
+>>>>>>> parent of 7a41690... Cambios testing
     
 <table id="table_id" class="display">
     <thead>

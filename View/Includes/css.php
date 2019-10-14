@@ -49,9 +49,12 @@ switch ($page){
 	case "Register":
 	echo $admin_style.''.$materialdesign_css;
 	break;
+<<<<<<< HEAD
 	case "Test":
 	echo $bootstrap.''.$bootstrap_select_css;
 	break;
+=======
+>>>>>>> parent of 7a41690... Cambios testing
 	default: 
 	echo "//No se carga ningún css";
 }

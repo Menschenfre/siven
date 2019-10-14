@@ -48,15 +48,18 @@ switch ($page){
 	echo $jquery.''.$bootstrap.''.$main_index.''.$sweet_alert.''.$waypoints;
 	break;
 	case "Admin":
-	echo $popper_js.''.$jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js.''.$canvasjs.''.$katex_js.''.$highlight_js.''.$quill_js.''.$bootstrap_select_js;
+	echo $popper_js.''.$jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js.''.$data_tables_js.''.$canvasjs.''.$katex_js.''.$highlight_js.''.$quill_js;
 	break;
 	case "Register":
 	case "Login":
 	echo $jquery.''.$bootstrap.''.$admin_base_js.''.$admin_offcanvas_js.''.$admin_dashboard_js.''.$admin_misc_js;
 	break;
+<<<<<<< HEAD
 	case "Test":
 	echo $popper_js.''.$jquery.''.$bootstrap.''.$bootstrap_select_js;
 	break;
+=======
+>>>>>>> parent of 7a41690... Cambios testing
 	default:
 	echo "//No se carga ningún js";
 } 
