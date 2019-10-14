@@ -22,9 +22,11 @@ $list_music = $music_control->list();
        
        <div id="player"></div>
        <?php foreach ($list_music as $key) {?>
-        <div><?php echo $key["name"] ?></div>
+        <div id="test"><?php echo $key["name"] ?></div>
 
        <?php }?>
+
+       <div id="test2">holo</div>
      
 
       
@@ -65,8 +67,18 @@ $list_music = $music_control->list();
                 player.loadVideoById('1wYNFfgrXTI');
             }
         }
+
+       
  
 
         
 
     </script>
+
+    <script>
+$(document).ready(function(){
+  $("#test2").click(function(){
+    alert("The paragraph was clicked.");
+  });
+});
+</script>
