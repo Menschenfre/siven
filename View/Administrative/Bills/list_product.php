@@ -16,6 +16,11 @@ $total_month = $prod_control->total_month();
  
 //var_dump($list_product);
 ?>
+
+<?php 
+$test_list = $prod_control->list_test();
+//var_dump($test_list);
+?>
  
 <script type="text/javascript">
   $(document).ready( function () {
@@ -52,7 +57,6 @@ $total_month = $prod_control->total_month();
         <tr>
             <th>ID #</th>
             <th>Producto</th>
-            <!--<th>Cantidad</th>-->
             <th>Valor</th>
             <th>Fecha gasto</th>
         </tr> 
@@ -62,7 +66,6 @@ $total_month = $prod_control->total_month();
         <tr>
             <td><?php echo $key["id"]?></td>
             <td><?php echo $key["name"]?></td>
-            <!--<td><?php echo $key["total"]?></td>-->
             <td><?php echo number_format($key["price"],'0', ',','.')?></td>
             <td><?php echo $key["created"]?></td>
         </tr>
@@ -116,18 +119,35 @@ echo var_dump($total_month); ?>
                   //window.location = "/admin";
 
               }else{
+                var aca = response;
+                var aca2 = JSON.parse(response);
                 var data = [
     [
         "Tiger caca works",
         "System Architect",
         "Edinburgh",
         "5421", 
-        "2011/04/25",
+        "2011/04/27",
         "$3,120"
     ]
+
 ];
 
-  alert(response); 
+          var data2 = [
+    ["fdfd","System Architect","Edinburgh","5421","2011\/04\/30","$3,120"],
+    ["fdfd","System Architect","Edinburgh","6421","2011\/04\/30","$3,120"]
+    
+];
+ var data3 = [
+    aca2
+    
+];
+
+
+  alert(data2); 
+  alert(data3); 
+  alert(JSON.stringify(aca2));
+
   
    
 
@@ -135,7 +155,7 @@ echo var_dump($total_month); ?>
                 //alert(response);
                 $('#table_test').dataTable( {
         "destroy": true,
-        data: data,
+        data: aca2,
         columns: [
             { title: "Namem" },
             { title: "Position" },

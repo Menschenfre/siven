@@ -11,9 +11,9 @@ $result = $prod_control->list_category();
 <div class="col-md-7 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Ingreso de productos</h4>
+      <h4 class="card-title">Ingreso de gastos</h4>
       <p class="card-description">
-        Acá se registran los gastos por productos
+        Acá se registran los gastos por total
       </p>
       
       <div class="form-group">
@@ -29,11 +29,6 @@ $result = $prod_control->list_category();
           <?php }  ?>
           
         </select>
-      </div>
-
-      <div class="form-group">
-        <label>Cantidad</label>
-        <input type="text" id="product_total" class="form-control form-control-lg" placeholder="Cantidad" aria-label="Cantidad">
       </div>
 
       <div class="form-group">
@@ -58,11 +53,10 @@ function prod_reg(identifier){
   //Capturamos las id de los input
   var product_name = $("#product_name").val();
   var product_category = $("#product_category").val();
-  var product_total = $("#product_total").val();
   var product_price = $("#product_price").val();
   var product_date = $("#product_date").val();
 
-  var product = {"product_name":product_name,"product_category":product_category,"product_total":product_total,"product_price":product_price,"product_date":product_date};
+  var product = {"product_name":product_name,"product_category":product_category,"product_price":product_price,"product_date":product_date};
 
   alert(product_category);
 

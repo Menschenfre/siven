@@ -60,4 +60,11 @@ class ProductController extends MasterController{
 		$customesql= $model->queryDelivery($year);
 		$result= $model->read($customesql);
 	}
+
+	//Test list
+	function list_test(){
+		$model=new Product();
+		$result= $model->testQuery();
+		return $result;
+	}
 }

@@ -21,7 +21,11 @@ class Crud extends Conn{
 		return $this->table;
 	} 
 
-	public function read($customesql=null){
+//Función que lee la data, recibe como parametro el tipo de resultado esperado "$result_type" de la clase mysqli_result.
+	public function read($customesql=null, $result_type=null){
+        if($result_type==null){
+            $result_type="mysqli_fetch_array";
+        }
 		//El nombre de la tabla se obtiene de la clase modelo, atributos
         $sql="SELECT * FROM $this->table";
         $result=$this->con->query($sql);
@@ -29,7 +33,7 @@ class Crud extends Conn{
         $list = array();
 
         //Por cada fila del resultado en la query se guarda dentro de la variable array $list
-        while ($row = mysqli_fetch_array($result))
+        while ($row = $result_type($result))
         $list[] = $row;
 
     	//Se retorna un arreglo con cada fila en la base de datos

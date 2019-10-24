@@ -15,7 +15,6 @@ class Product extends Crud{
 	private $id;
 	private $id_category;
 	private $name;
-	private $total;
 	private $price;
 	private $status;
 	private $created;
@@ -33,7 +32,6 @@ class Product extends Crud{
         //Constructor de atributos
 		$this->id_category = $product["product_category"];
 		$this->name = $product["product_name"];
-		$this->total = $product["product_total"];
 		$this->price = $product["product_price"];
 		$this->status = $status;
 		$this->created = $product["product_date"];
@@ -77,26 +75,6 @@ class Product extends Crud{
     public function setName($name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
-     * @param mixed $total
-     *
-     * @return self
-     */
-    public function setTotal($total)
-    {
-        $this->total = $total;
 
         return $this;
     }
@@ -243,7 +221,7 @@ class Product extends Crud{
 
     public function create(){
 
-        $sql="INSERT INTO products(id_category,name,total,price,status,created) VALUES('$this->id_category','$this->name','$this->total','$this->price', 1, '$this->created')";
+        $sql="INSERT INTO products(id_category,name,price,status,created) VALUES('$this->id_category','$this->name','$this->price', 1, '$this->created')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
         
@@ -317,6 +295,23 @@ class Product extends Crud{
 
         $sql= "SELECT * FROM $this->table WHERE created BETWEEN '$year-01-01' AND '$year-12-31'";
         return $sql;
+    }
+
+
+    
+    public function testQuery(){
+        //El nombre de la tabla se obtiene de la clase modelo, atributos
+        $sql="SELECT * FROM $this->table";
+        $result=$this->con->query($sql);
+        //Inicializamos un array
+        $list = array();
+
+        //Por cada fila del resultado en la query se guarda dentro de la variable array $list
+        while ($row = mysqli_fetch_row($result))
+        $list[] = $row;
+
+        //Se retorna un arreglo con cada fila en la base de datos
+        return $list;
     }
  
 }
