@@ -22,7 +22,7 @@ class Crud extends Conn{
 	} 
 
 //Función que lee la data, recibe como parametro el tipo de resultado esperado "$result_type" de la clase mysqli_result.
-	public function read($customesql=null, $result_type=null){
+	public function read($result_type=null){
         if($result_type==null){
             $result_type="mysqli_fetch_array";
         }

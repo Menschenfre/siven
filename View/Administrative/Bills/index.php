@@ -24,9 +24,9 @@ switch ($identifier){
 	$product_control=new ProductController();
 	$list_product = $product_control->list_product();
 
-	$test_list = $product_control->list_test();
+	//$test_list = $product_control->list_test();
 
-	echo json_encode($test_list);
+	echo json_encode($list_product);
 
 	//echo json_encode($list_product);
 

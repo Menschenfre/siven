@@ -25,7 +25,7 @@ class ProductController extends MasterController{
 	public function __construct(){ 
 	} 
 	//Listado de productos, este es reflejado en el listado  "list_product.php"
-	function list_product(){
+	function list_product($result_type=null){
 		$model=new Product();
 		$result= $model->read();
 		return $result;

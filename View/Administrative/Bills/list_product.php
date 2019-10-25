@@ -18,15 +18,10 @@ $total_month = $prod_control->total_month();
 ?>
 
 <?php 
-$test_list = $prod_control->list_test();
-//var_dump($test_list);
+//Codificamos el array obtenido para que sea consumido por la tabla fija de datatable en jquery.
+$list_list= json_encode($list_product);
 ?>
  
-<script type="text/javascript">
-  $(document).ready( function () {
-    $('#table_id').DataTable();
-} );
-</script>
 <!-- Search form -->
 
 <div class="card">
@@ -51,27 +46,11 @@ $test_list = $prod_control->list_test();
 </select>
 
 </br></br>
-    
-<table id="table_id" class="display">
-    <thead>
-        <tr>
-            <th>ID #</th>
-            <th>Producto</th>
-            <th>Valor</th>
-            <th>Fecha gasto</th>
-        </tr> 
-    </thead>
-    <tbody>
-        <?php foreach ($list_product as $key ) {?>
-        <tr>
-            <td><?php echo $key["id"]?></td>
-            <td><?php echo $key["name"]?></td>
-            <td><?php echo number_format($key["price"],'0', ',','.')?></td>
-            <td><?php echo $key["created"]?></td>
-        </tr>
-        <?php }  ?>
-    </tbody>
+
+<table id="table_product" class="display" style="width:100%">
 </table>
+    
+
 </div>
 </div>
 
@@ -87,16 +66,13 @@ $test_list = $prod_control->list_test();
 echo var_dump($total_month); ?>
 
 
-<table id="table_test" class="display" style="width:100%">
-</table>
 
 
 <script>
-
   $("#year_select").change(function(){
     //Capturamos las id de los input
     var year = $("#year_select").val();
-    alert(year);
+    //alert(year);
     var identifier = "list_product";
 
     $.ajax({
@@ -107,8 +83,6 @@ echo var_dump($total_month); ?>
           datatype: 'json',
           beforeSend: function () { 
              // alert("Enviando data...");
-
-                  //$("#resultado").html("Procesando, espere por favor...");
           },
 
           //response es lo primero que se retorna en el controller
@@ -119,96 +93,43 @@ echo var_dump($total_month); ?>
                   //window.location = "/admin";
 
               }else{
-                var aca = response;
-                var aca2 = JSON.parse(response);
-                var data = [
-    [
-        "Tiger caca works",
-        "System Architect",
-        "Edinburgh",
-        "5421", 
-        "2011/04/27",
-        "$3,120"
-    ]
 
-];
-
-          var data2 = [
-    ["fdfd","System Architect","Edinburgh","5421","2011\/04\/30","$3,120"],
-    ["fdfd","System Architect","Edinburgh","6421","2011\/04\/30","$3,120"]
-    
-];
- var data3 = [
-    aca2
-    
-];
-
-
-  alert(data2); 
-  alert(data3); 
-  alert(JSON.stringify(aca2));
-
-  
-   
-
-               // alert("No llega la data, fail");
-                //alert(response);
-                $('#table_test').dataTable( {
-        "destroy": true,
-        data: aca2,
-        columns: [
-            { title: "Namem" },
-            { title: "Position" },
-            { title: "Office" },
-            { title: "Extn." },
-            { title: "Start date" },
-            { title: "Salary" }
-        ]
-} );
-
-              }
-                  
+              var aca2 = JSON.parse(response);
+              $('#table_product').dataTable( {
+                "destroy": true,
+                 data: aca2,
+                  columns: [
+                      { title: "ID" },
+                      { title: "Position" },
+                      { title: "Office" },
+                      { title: "Extn." },
+                      { title: "Start date" },
+                      { title: "Salary" }
+                  ]
+              } );
+            }     
           }
+    });    
   });
-
-    
-
-    
-    //table.destroy();
-    
-    
-    
-
-    
-  });
-
-  $("#month_select").change(function(){
-     var data = [
-    [
-        "Tiger caca works",
-        "System Architect",
-        "Edinburgh",
-        "5421",
-        "2011/04/25",
-        "$3,120"
-    ]
-];
-alert(data);
-
-
-$('#table_test').dataTable( {
-        "destroy": true,
-        data: data,
-        columns: [
-            { title: "Namem" },
-            { title: "Position" },
-            { title: "Office" },
-            { title: "Extn." },
-            { title: "Start date" },
-            { title: "Salary" }
-        ]
-} );
-  });
-
 </script>
+<script>
+$(document).ready(function(){
+  var aca2= <?php echo $list_list; ?>
+
+  $('#table_product').dataTable( {
+    "destroy": true,
+     data: aca2,
+      columns: [
+          { title: "ID" },
+          { title: "Position" },
+          { title: "Office" },
+          { title: "Extn." },
+          { title: "Start date" },
+          { title: "Salary" }
+      ]
+  } );
+  
+});
+</script>
+
 
