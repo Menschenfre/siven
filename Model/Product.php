@@ -9,9 +9,11 @@ require_once ('Crud.php');
 
 class Product extends Crud{
 
-//Nombre de la tabla
-    public $table= "products";
-//Atributos
+    //Nombre de la tabla
+    public $table;
+    //Parámetros de lectura "solo los requeridos" para la función read del crud
+    public $read_parameters;    
+    //Atributos
 	private $id;
 	private $id_category;
 	private $name;
@@ -37,6 +39,9 @@ class Product extends Crud{
 		$this->created = $product["product_date"];
 		$this->modified = $modified;
 		$this->deleted = $deleted;
+        //Valores usados en funciones
+        $this->table = "products";
+        $this->read_parameters = "id,name,price,created";
 	}
  
     /**

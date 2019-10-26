@@ -23,11 +23,21 @@ class Crud extends Conn{
 
 //Función que lee la data, recibe como parametro el tipo de resultado esperado "$result_type" de la clase mysqli_result.
 	public function read($result_type=null){
+        //Validación para futuras lecturas con otro tipo de resultados (aún no usado).
         if($result_type==null){
             $result_type="mysqli_fetch_array";
         }
+
+        //Si está definida la variable read_parameters en la clase del objeto.
+        if (isset($this->read_parameters)){
+            //Se leen solo los valores definidos en la clase del objeto.
+            $sql="SELECT $this->read_parameters FROM $this->table";
+        }else{
+            //Se leen todos los valores de la tabla.
+            $sql="SELECT * FROM $this->table";
+        }
 		//El nombre de la tabla se obtiene de la clase modelo, atributos
-        $sql="SELECT * FROM $this->table";
+        //$sql="SELECT * FROM $this->table";
         $result=$this->con->query($sql);
         //Inicializamos un array
         $list = array();

@@ -97,14 +97,23 @@ echo var_dump($total_month); ?>
               var aca2 = JSON.parse(response);
               $('#table_product').dataTable( {
                 "destroy": true,
+                "language": {
+                "search": "Buscar:",
+                "info": "Mostrando registro _START_ al _END_ de _TOTAL_ resultados",
+                "lengthMenu": "Mostrando _MENU_ resultados",
+                "paginate": {
+                    "first":      "Primero",
+                    "last":       "Último",
+                    "next":       "Siguiente",
+                    "previous":   "Anterior"
+                    },
+                },
                  data: aca2,
                   columns: [
                       { title: "ID" },
-                      { title: "Position" },
-                      { title: "Office" },
-                      { title: "Extn." },
-                      { title: "Start date" },
-                      { title: "Salary" }
+                      { title: "Nombre" },
+                      { title: "Precio" },
+                      { title: "Fecha" }
                   ]
               } );
             }     
@@ -112,20 +121,32 @@ echo var_dump($total_month); ?>
     });    
   });
 </script>
+
+
+<!-- Script de la tabla estática inicial con todos los registros -->
 <script>
 $(document).ready(function(){
   var aca2= <?php echo $list_list; ?>
 
   $('#table_product').dataTable( {
     "destroy": true,
+    "language": {
+    "search": "Buscar:",
+    "info": "Mostrando registro _START_ al _END_ de _TOTAL_ resultados",
+    "lengthMenu": "Mostrando _MENU_ resultados",
+    "paginate": {
+        "first":      "Primero",
+        "last":       "Último",
+        "next":       "Siguiente",
+        "previous":   "Anterior"
+    },
+  },
      data: aca2,
       columns: [
           { title: "ID" },
-          { title: "Position" },
-          { title: "Office" },
-          { title: "Extn." },
-          { title: "Start date" },
-          { title: "Salary" }
+          { title: "Nombre" },
+          { title: "Precio" },
+          { title: "Fecha" }
       ]
   } );
   
