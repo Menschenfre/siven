@@ -22,6 +22,40 @@ $encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
 
+<div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Notas:</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Creado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($list_note as $key ) {?>
+                        <tr>
+                            <td><?php echo $key["id"]?></td>
+                            <td><?php
+                            if(strlen($key["title"])>37){
+                               echo substr($key["title"],0, 33)."...";
+                            }else{
+                              echo $key["title"];
+                            }?></td>
+
+                            <td><?php echo $key["created"]?></td>
+                        </tr>
+                        <?php }  ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="col-md-7 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">

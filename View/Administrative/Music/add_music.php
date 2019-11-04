@@ -5,7 +5,10 @@
       <p class="card-description">
         Acá se registra la música.
       </p>
-      
+      <div class="form-group">
+        <label>Grupo/artista</label>
+        <input type="text" id="artist" class="form-control form-control-lg" placeholder="Grupo"> 
+      </div>
       <div class="form-group">
         <label>Categoría</label>
         <input type="text" id="category" class="form-control form-control-lg" placeholder="Categoría" aria-label="Nombre"> 
@@ -13,6 +16,10 @@
       <div class="form-group">
         <label>Url</label>
         <input type="text" id="url" class="form-control form-control-lg" placeholder="Url" aria-label="Nombre"> 
+      </div>
+      <div class="form-group">
+        <label>Tags</label>
+        <input type="text" id="tag" class="form-control form-control-lg" placeholder="Tags"> 
       </div>
 
       
@@ -28,7 +35,9 @@ function note_reg(identifier){
 
   //Capturamos las id de los input
   var category = $("#category").val();
+  var artist = $("#artist").val();
   var url = $("#url").val();
+  var tag = $("#tag").val();
 
 
 
@@ -40,7 +49,7 @@ function note_reg(identifier){
 
 
   //Metemos los valores obtenidos a un array
-  var music = {"category":category, "url":url};
+  var music = {"category":category, "url":url, "artist":artist, "tag":tag};
 
    
   $.ajax({ 

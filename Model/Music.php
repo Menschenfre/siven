@@ -22,8 +22,10 @@ class Music extends Crud{
 	private $id;
 	private $id_user;
 	private $name;
+    private $artist;
 	private $category;
 	private $url;
+    private $tag;
 	private $status;
 	private $created;
 	private $modified;
@@ -37,8 +39,10 @@ class Music extends Crud{
         //Constructor de atributos, recibimos valores de array declarado en el constructor
 		//$this->id_user = $music["id_user"];
 		$this->name = mysqli_real_escape_string($this->con, $music["name"]);
+        $this->artist = mysqli_real_escape_string($this->con, $music["artist"]);
 		$this->category = $music["category"];
 		$this->url = $music["url"];
+        $this->tag = $music["tag"];
 		$this->id_user = 1;
 		//$this->name = "TESTNAME";
 		//$this->category = "TESTCATEGORY";
@@ -49,8 +53,8 @@ class Music extends Crud{
 		$this->modified = $modified;
 
 		$this->table = "music";
-		$this->parameters = "id_user,name,category,url";
-		$this->values = "'$this->id_user','$this->name','$this->category','$this->url'";
+		$this->parameters = "id_user,name,category,url,artist,tag";
+		$this->values = "'$this->id_user','$this->name','$this->category','$this->url','$this->artist','$this->tag'";
 
 		
 	}
@@ -136,6 +140,23 @@ class Music extends Crud{
         return $this;
     }
 
+    public function getArtist()
+    {
+        return $this->artist;
+    }
+
+    /**
+     * @param mixed $name
+     *
+     * @return self
+     */
+    public function setArtist($artist)
+    {
+        $this->artist = $artist;
+
+        return $this;
+    }
+
     /**
      * @return mixed
      */
@@ -164,14 +185,23 @@ class Music extends Crud{
         return $this->url;
     }
 
-    /**
-     * @param mixed $url
-     *
-     * @return self
-     */
+    
     public function setUrl($url)
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
 
         return $this;
     }
