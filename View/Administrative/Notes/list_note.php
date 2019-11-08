@@ -5,7 +5,7 @@ require_once($controller_note); ?>
 <?php $note_control=new NoteController(); 
 //Invocamos la funcion que lista las notas
 $list_note = $note_control->list();
-$call_row = $list_note[1];
+$call_row = $list_note[2];
 
 $attribute_call_row = $call_row["content"];
 $decode_attribute_call_row = json_decode($attribute_call_row, true);
@@ -13,7 +13,7 @@ $decode_attribute_call_row = json_decode($attribute_call_row, true);
 $encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]);
 
 
-//var_dump($decode_attribute_call_row);
+//var_dump($encode_decode_atribbute_call_row);
 
  
 ?>
@@ -37,8 +37,9 @@ $encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]
                     </thead>
                     <tbody>
                         <?php foreach ($list_note as $key ) {?>
-                        <tr>
+                        <tr onclick="view_note(<?php echo $key["id"]  ?>)">
                             <td><?php echo $key["id"]?></td>
+
                             <td><?php
                             if(strlen($key["title"])>37){
                                echo substr($key["title"],0, 33)."...";
@@ -154,7 +155,30 @@ $encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]
   quill.setContents(<?php echo $encode_decode_atribbute_call_row ?>);
 
 
-  
+
+  function view_note(note_id){
+  //alert(note_id);
+  $.ajax({
+      //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
+          data:  {"identifier":'view_note', "note_id":note_id}, 
+          url:   '/View/Administrative/Notes/index.php', //archivo que recibe la peticion
+          type:  'post', //método de envio
+          datatype: 'json',
+          beforeSend: function () { 
+             //alert("Enviando data...");
+          },
+
+          //response es lo primero que se retorna en el controller
+          success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+
+                //Transformamos la respuesta en un JSON
+                var aca2 = JSON.parse(response);
+                //Mostramos el contenido
+                quill.setContents(aca2);     
+          }
+    });
+  };
+
 </script>
 
 
