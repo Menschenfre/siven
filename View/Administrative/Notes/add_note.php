@@ -1,3 +1,12 @@
+<?php //Obtenemos las url estáticas
+include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
+<?php //Llamamos el controlador de producto
+require_once($controller_note); ?>
+<?php $note_control=new NoteController();
+//Invocamos la funcion que lista las categorías
+$result = $note_control->list_category();
+?>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
@@ -13,6 +22,15 @@
       <div class="form-group">
         <label>Título</label>
         <input type="text" id="title" class="form-control form-control-lg" placeholder="Título" aria-label="Nombre"> 
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Categoría</label>
+        <select class="form-control form-control-lg" id="note_category">
+          <?php foreach ($result as $key) {?>
+            <option value=<?php echo $key["id"]?>><?php echo $key["name"] ?></option>
+          <?php }  ?>
+          
+        </select>
       </div>
 <style> 
   body > #standalone-container {

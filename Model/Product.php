@@ -11,7 +11,7 @@ class Product extends Crud{
 
     //Nombre de la tabla
     public $table;
-    //Parámetros de lectura "solo los requeridos" para la función read del crud
+    //Parámetros de lectura "solo los requeridos" para las funciones leer
     public $read_parameters;    
     //Atributos
 	private $id;

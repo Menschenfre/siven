@@ -11,6 +11,8 @@ include '/home2/sivenati/public_html/View/Includes/url.php';
 require_once($controller_master);
 //Se carga el modelo correspondiente, este es utilizado por el controlador padre
 require_once($model_note);
+//Cargamos el modelo hijo, que contiene las categorías de las notas.
+require_once($model_notes_category);
 
 class NoteController extends MasterController{
 
@@ -22,4 +24,11 @@ class NoteController extends MasterController{
 		//Constructor padre, necesario para cargar funciones del padre
 		parent::__construct();
 	}
+
+	//Listado categorías de notas , estas son reflejadas en la vista "add_note.php"
+	function list_category(){
+		$model=new Notes_category();
+		$result= $model->read();
+		return $result;
+	} 
 }

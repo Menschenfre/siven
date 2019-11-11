@@ -45,7 +45,7 @@ function note_reg(identifier){
   var arregloDeSubCadenas = url.split(separador);
   //obtenemos el string despues del = y le aplicamos trim para eliminar espacios vacios
   var url = arregloDeSubCadenas[1].trim();
-  alert(url);
+  //alert(url);
 
 
   //Metemos los valores obtenidos a un array
@@ -58,13 +58,13 @@ function note_reg(identifier){
           url:   '/View/Administrative/Music/index.php', //archivo que recibe la peticion
           type:  'post', //método de envio
           beforeSend: function () {
-              alert("Enviando data...");
+              //alert("Enviando data...");
           },
           //response es lo primero que se retorna en el controller
           success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){
-                  alert("Llega la data");
+                  alert("Registrada");
               }else{
                 alert("No llega la data");
                 alert(response);

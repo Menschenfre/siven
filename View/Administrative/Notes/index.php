@@ -31,20 +31,19 @@ switch ($identifier){
 	//Se recibe el array con la data de la vista
 	$id = $_POST['note_id'];
 
-	//Invocamos la funcion que lista las notas
-	$list_note = $note_control->list();
+	//Invocamos la funcion que lista las notas por id
+	$list_note_by_id = $note_control->list_by_id($id);
 
-	//Obtenemos la fila por la id recibida
-	$call_row = $list_note[$id];
-	//Obtenemos el contenido de la fila
-	$attribute_call_row = $call_row["content"];
-	//Decodificamos el contenido obtenido ya que viene como json
-	$decode_attribute_call_row = json_decode($attribute_call_row, true);
+	foreach ($list_note_by_id as $key) {
+		//Obtenemos la fila por la id recibida
+		$call_row = $key["content"];
+	}
+	$decode_call_row = json_decode($call_row, true);
 	//Codificamos el contenido del json para obtener el contenido de "ops"
-	$encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]);
+	$encode_decode_call_row= json_encode($decode_call_row["ops"]);
 
 	//Mansamos los valores de "ops" hacia el ajax
-	echo $encode_decode_atribbute_call_row; 
+	echo $encode_decode_call_row; 
 	break;
   
 	

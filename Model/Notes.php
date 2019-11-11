@@ -13,7 +13,9 @@ require_once ('Crud.php');
 class Notes extends Crud{
 
 	//Nombre de la tabla
-	public $table= "notes";
+	public $table;
+    //Parámetros de lectura "solo los requeridos" para las funciones leer
+    public $read_parameters;   
 
 	//Atributos
 	private $id;
@@ -37,6 +39,10 @@ class Notes extends Crud{
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;
+
+        //Valores usados en funciones
+        $this->table = "notes";
+        $this->read_parameters = "id,title,content,status,created,modified";
 		
 	}
 
@@ -197,5 +203,6 @@ class Notes extends Crud{
         $this->con->close(); 
         return 1;
         //return $this->content;  
-    }   
+    }
+
 }
