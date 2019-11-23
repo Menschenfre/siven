@@ -22,7 +22,7 @@ class Crud extends Conn{
         //Si está definida la variable read_parameters en la clase (Algunas aún no la tienen, por eso la validación)
         if(isset($this->read_parameters)){
             //Se leen solo los valores definidos en la clase del objeto.
-            $sql="SELECT $this->read_parameters FROM $this->table";
+            $sql="SELECT $this->read_parameters FROM $this->table ORDER BY created ASC";
         }else{
             //Se leen todos los valores de la tabla.
             $sql="SELECT * FROM $this->table";
