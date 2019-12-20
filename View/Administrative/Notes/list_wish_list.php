@@ -1,12 +1,22 @@
-<?php //Obtenemos las url estáticas
-include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
+<?php
+ob_start();
+?>
+<?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
+
+<?php 
+if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
+  header('Location: /login');
+  exit();
+}
+?>
+
 <?php //Llamamos el controlador de producto
 require_once($controller_note); ?>
 <?php $note_control=new NoteController(); 
 //Invocamos la funcion que lista las notas
 $list_note = $note_control->list();
 $call_row = $list_note[7];
-
+ 
 //var_dump($call_row);
 
 $attribute_call_row = $call_row["content"];
@@ -18,32 +28,15 @@ $encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]
 
  
 ?>
-<select id="month_select" class="selectpicker" title="Filtrar por mes" multiple>
-  <option>Enero</option>
-  <option>Febrero</option>
-  <option>Marzo</option> 
-  <option>Abril</option> 
-</select>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" />
 
 <div class="col-lg-6 grid-margin stretch-card">
     <div class="card">
-      <select id="month_select" class="selectpicker" title="Filtrar por mes" multiple>
-  <option>Enero</option>
-  <option>Febrero</option>
-  <option>Marzo</option>  
-  <option>Abril</option> 
-</select>
         <div class="card-body">
-          <select id="month_select" class="selectpicker" title="Filtrar por mes" multiple>
-  <option>Enero</option>
-  <option>Febrero</option>
-  <option>Marzo</option> 
-  <option>Abril</option> 
-</select>
-            <h4 class="card-title">Notas:</h4>
+            <h4 class="card-title">Wish:</h4>
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -195,5 +188,7 @@ $encode_decode_atribbute_call_row= json_encode($decode_attribute_call_row["ops"]
 
 </script>
 
-
+<?php
+ob_end_flush();
+?>
 
