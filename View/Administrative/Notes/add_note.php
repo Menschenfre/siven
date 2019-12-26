@@ -25,11 +25,10 @@ $result = $note_control->list_category();
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect1">Categoría</label>
-        <select class="form-control form-control-lg" id="note_category">
+        <select class="form-control form-control-lg" id="id_category">
           <?php foreach ($result as $key) {?>
             <option value=<?php echo $key["id"]?>><?php echo $key["name"] ?></option>
           <?php }  ?>
-          
         </select>
       </div>
 <style> 
@@ -103,30 +102,22 @@ $result = $note_control->list_category();
 
 <script type="text/javascript">
   
-function note_reg(identifier){
+function note_reg(identifier){ 
 
   //Capturamos las id de los input
   var title = $("#title").val();
+  //Capturamos la categoría
+  var id_category = $("#id_category").val();
   //todo el contenido del texto enriquecido
   var content = quill.getContents();
-
-  //Solo texto
-  //var text = quill.getText(0, 1000);
-  
+  //todo el contenido en formato normal, usado para sección wish
+  var normal_content = quill.getText();
   //Transformamos el contenido en texto plano
   var content= JSON.stringify(content);
 
-  alert(content);
-  //exit();
-  //Metemos los valores obtenidos a un array
-  var note = {"title":title, "content":content};
+  //Metemos los valores obtenidos a un array asociativo
+  var note = {"title":title, "id_category":id_category, "content":content , "normal_content":normal_content};
 
-  
-
-  //alert(JSON.stringify(note, null, 4));
-  //alert(JSON.stringify(content, null, 4));
-  //alert(test);
-  //exit(); 
    
   $.ajax({ 
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente

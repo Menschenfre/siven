@@ -19,8 +19,10 @@ class Notes extends Crud{
 
 	//Atributos
 	private $id;
+    private $id_category;
 	private $title;
 	private $content;
+    private $norm_content;
 	private $status;
 	private $created;
 	private $modified;
@@ -32,10 +34,12 @@ class Notes extends Crud{
 		//Herencia de constructor padre
         parent::__construct();
 
+        $this->id_category = $note["id_category"];
         //Constructor de atributos, recibimos valores de array declarado en el constructor
 		$this->title = $note["title"];
         //real escape, necesario para combinaciones que reconoce mysql, ej: saltos de linea \n
 		$this->content = mysqli_real_escape_string($this->con, $note["content"]);
+        $this->norm_content = mysqli_real_escape_string($this->con, $note["normal_content"]);
 		$this->setStatus($status);
         $this->setCreated($created);
 		$this->modified = $modified;
@@ -87,6 +91,23 @@ class Notes extends Crud{
         return $this;
     }
 
+    public function getId_category()
+    {
+        return $this->id_category;
+    }
+
+    /**
+     * @param mixed $id
+     *
+     * @return self
+     */
+    public function setId_category($id_category)
+    {
+        $this->id_category = $id_category;
+
+        return $this;
+    }
+
     /**
      * @return mixed
      */
@@ -124,6 +145,24 @@ class Notes extends Crud{
     {
         
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getNorm_content()
+    {
+        return $this->norm_content; 
+    }
+
+    /**
+     * @param mixed $norm_content
+     *
+     * @return self
+     */
+    public function setNorm_content($norm_content)
+    {
+        
+        $this->norm_content = $norm_content;
 
         return $this;
     }
@@ -195,7 +234,7 @@ class Notes extends Crud{
 
      //*Función guardar 
     public function create(){
-        $sql="INSERT INTO notes(title,content,status,created) VALUES('$this->title','$this->content','$this->status','$this->created')";
+        $sql="INSERT INTO notes(id_category,title,content,norm_content,status,created) VALUES('$this->id_category','$this->title','$this->content','$this->norm_content','$this->status','$this->created')";
         $resultado=$this->con->prepare($sql);
         $re=$resultado->execute();
 
