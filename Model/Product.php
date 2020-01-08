@@ -296,9 +296,8 @@ class Product extends Crud{
         
     } 
 
-    public function queryDelivery($year){
-
-        $sql= "SELECT * FROM $this->table WHERE created BETWEEN '$year-01-01' AND '$year-12-31'";
+    public function queryDelivery($year, $month){
+        $sql= "WHERE created BETWEEN '$year-$month-01' AND '$year-$month-31'";
         return $sql;
     }
 

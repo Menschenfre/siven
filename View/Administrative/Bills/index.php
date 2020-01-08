@@ -16,7 +16,7 @@ switch ($identifier){
 	echo $result;
 	
 	break;
-
+ 
 	case "list_product":
 	//Requerimos el controlador de producto
 	require_once($controller_product);
@@ -35,6 +35,19 @@ switch ($identifier){
 	//$cars = array("Volvo", "BMW", "Toyota");
 	//echo json_encode($data); 
 	//echo implode(",",$data);
+	break;
+
+	case "month_select":
+	//Requerimos el controlador de producto
+	require_once($controller_product);
+	//Obtenemos el post del ajax
+	$product = $_POST['product'];
+	//Inicializamos el controlador de producto
+	$product_control=new ProductController();
+	$list_product = $product_control->list_product();
+
+	echo json_encode($list_product);
+
 	break;
 	/*Respuesta default*/
 	default:
