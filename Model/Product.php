@@ -296,10 +296,34 @@ class Product extends Crud{
         
     } 
 
-    public function queryDelivery($year, $month){
-        $sql= "WHERE created BETWEEN '$year-$month-01' AND '$year-$month-31'";
+    public function queryDelivery(){
+        $sql= "WHERE created BETWEEN '2020-01-01' AND '2020-01-22'";
         return $sql;
     }
+
+    //Función custome de leer utilizada en los llamados ajax de product
+    public function custome_read(){
+        
+        //Si está definida la variable read_parameters en la clase (Algunas aún no la tienen, por eso la validación)
+        if(isset($this->read_parameters)){
+            //Se leen solo los valores definidos en la clase del objeto.
+            $sql="SELECT $this->read_parameters FROM $this->table WHERE created BETWEEN '2020-01-01' AND '2020-01-22'";
+        }else{
+            //Se leen todos los valores de la tabla.
+            $sql="SELECT * FROM $this->table";
+        }
+        
+        $result=$this->con->query($sql);
+        //Inicializamos un array
+        $list = array();
+
+        //Por cada fila del resultado en la query se guarda dentro de la variable array $list
+        while ($row = mysqli_fetch_array($result))
+        $list[] = $row;
+
+        //Se retorna un arreglo con cada fila en la base de datos
+        return $list;
+    } 
 
 
     

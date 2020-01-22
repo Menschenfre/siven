@@ -1,4 +1,4 @@
-<?php
+<?php 
 //Incluimos la master de URLs estáticas
 include '/home2/sivenati/public_html/View/Includes/url.php';
 //Recibimos el valor del identificador
@@ -44,7 +44,7 @@ switch ($identifier){
 	$product = $_POST['product'];
 	//Inicializamos el controlador de producto
 	$product_control=new ProductController();
-	$list_product = $product_control->list_product();
+	$list_product = $product_control->list_product_custome();
 
 	echo json_encode($list_product);
 

@@ -67,4 +67,11 @@ class ProductController extends MasterController{
 		$result= $model->testQuery();
 		return $result;
 	}
+
+	//Listado de productos custom query, este es usado para el ajax"
+	function list_product_custome(){
+		$model=new Product();
+		$result= $model->custome_read();
+		return $result;
+	}
 }

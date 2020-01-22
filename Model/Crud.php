@@ -38,7 +38,7 @@ class Crud extends Conn{
 
     	//Se retorna un arreglo con cada fila en la base de datos
         return $list;
-    }
+    } 
 
     public function createTEST(){
 
