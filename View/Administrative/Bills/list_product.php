@@ -82,7 +82,7 @@ echo var_dump($total_month); ?>
     var year = $("#year_select").val();
     //alert(year);
     var identifier = "list_product";
-
+ 
     $.ajax({
       //datos que se envian a traves de ajax, primer valor nombre de la variable, segundo valor del input declarado previamente
           data:  {"identifier":identifier}, 
@@ -134,9 +134,10 @@ echo var_dump($total_month); ?>
   $("#month_select").change(function(){
     //Capturamos las id de los input
     var month = $("#month_select").val();
+    alert(month);
     var year = $("#year_select").val();
     //alert(year);
-    var identifier = "month_product";
+    var identifier = "month_select";
 
     //Metemos los valores obtenidos a un array asociativo
     var product_filters = {"month":month, "year":year};
@@ -151,7 +152,9 @@ echo var_dump($total_month); ?>
           },
 
           //response es lo primero que se retorna en el controller
-          success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
+          success:  function (response) { 
+            alert(response);
+          //una vez que el archivo recibe el request lo procesa y lo devuelvea
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){
                 //  alert("Llega la data");
@@ -159,7 +162,7 @@ echo var_dump($total_month); ?>
 
               }else{
 
-              var product_filter_month = JSON.parse(response);
+              var aca2 = JSON.parse(response);
               $('#table_product').dataTable( {
                 "destroy": true,
                 "language": {
@@ -173,7 +176,7 @@ echo var_dump($total_month); ?>
                     "previous":   "Anterior"
                     },
                 },
-                 data: product_filter_month,
+                 data: aca2,
                   columns: [
                       { title: "ID" },
                       { title: "Nombre" },
