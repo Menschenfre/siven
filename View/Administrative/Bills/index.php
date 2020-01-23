@@ -40,11 +40,13 @@ switch ($identifier){
 	case "month_select":
 	//Requerimos el controlador de producto
 	require_once($controller_product);
-	//Obtenemos el post del ajax
-	$product = $_POST['product'];
+	//Obtenemos los filtros definidos en los select
+	$product_filters = $_POST['product_filters'];
+	/*$p= $product_filters["month"];
+	echo $p[0];*/
 	//Inicializamos el controlador de producto
 	$product_control=new ProductController();
-	$list_product = $product_control->list_product_custome();
+	$list_product = $product_control->list_product_custome($product_filters);
 
 	echo json_encode($list_product);
 

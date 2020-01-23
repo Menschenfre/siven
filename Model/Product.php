@@ -302,12 +302,13 @@ class Product extends Crud{
     }
 
     //Función custome de leer utilizada en los llamados ajax de product
-    public function custome_read(){
+    public function custome_read($product_filters){
         
+        $month= $product_filters["month"];
         //Si está definida la variable read_parameters en la clase (Algunas aún no la tienen, por eso la validación)
         if(isset($this->read_parameters)){
             //Se leen solo los valores definidos en la clase del objeto.
-            $sql="SELECT $this->read_parameters FROM $this->table WHERE created BETWEEN '2020-01-01' AND '2020-01-22'";
+            $sql="SELECT $this->read_parameters FROM $this->table WHERE month(created)=$month[0]";
         }else{
             //Se leen todos los valores de la tabla.
             $sql="SELECT * FROM $this->table";

@@ -68,10 +68,10 @@ class ProductController extends MasterController{
 		return $result;
 	}
 
-	//Listado de productos custom query, este es usado para el ajax"
-	function list_product_custome(){
+	//Listado de productos custom query, este es usado para el ajax, recibe los parámetros de select en un array"
+	function list_product_custome($product_filters){
 		$model=new Product();
-		$result= $model->custome_read();
+		$result= $model->custome_read($product_filters);
 		return $result;
 	}
 }
