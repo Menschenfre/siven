@@ -296,23 +296,13 @@ class Product extends Crud{
         
     } 
 
-    public function queryDelivery(){
-        $sql= "WHERE created BETWEEN '2020-01-01' AND '2020-01-22'";
-        return $sql;
-    }
-
-    //Función custome de leer utilizada en los llamados ajax de product
+    //Función custome de leer, utilizada en los llamados AJAX de list_product.php
     public function custome_read($product_filters){
-        
+        //Capturamos los valores entragados por los select
         $month= $product_filters["month"];
-        //Si está definida la variable read_parameters en la clase (Algunas aún no la tienen, por eso la validación)
-        if(isset($this->read_parameters)){
-            //Se leen solo los valores definidos en la clase del objeto.
-            $sql="SELECT $this->read_parameters FROM $this->table WHERE month(created)=$month[0]";
-        }else{
-            //Se leen todos los valores de la tabla.
-            $sql="SELECT * FROM $this->table";
-        }
+        $year= $product_filters["year"];
+
+        $sql="SELECT $this->read_parameters FROM $this->table WHERE month(created)=$month AND year(created)=$year";
         
         $result=$this->con->query($sql);
         //Inicializamos un array
@@ -326,22 +316,18 @@ class Product extends Crud{
         return $list;
     } 
 
-
-    
-    public function testQuery(){
-        //El nombre de la tabla se obtiene de la clase modelo, atributos
-        $sql="SELECT * FROM $this->table";
+    //Función que obtiene el total de precio en los productos seleccionados del filtro
+    public function custome_total($product_filters){
+        
+        $month= $product_filters["month"];
+        $year= $product_filters["year"];
+        
+        $sql="SELECT sum(price) FROM $this->table WHERE month(created)=$month AND year(created)=$year";
         $result=$this->con->query($sql);
-        //Inicializamos un array
-        $list = array();
-
-        //Por cada fila del resultado en la query se guarda dentro de la variable array $list
-        while ($row = mysqli_fetch_row($result))
-        $list[] = $row;
-
-        //Se retorna un arreglo con cada fila en la base de datos
-        return $list;
-    }
+        //obtenemos la fila afectada
+        $total=$result->fetch_row();
+        return $total;
+    } 
  
 }
 

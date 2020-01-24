@@ -27,12 +27,12 @@ $list_list= json_encode($list_product);
 <div class="card">
 <div class="card-body">
     
-<select id="year_select" class="selectpicker" title="Filtrar por año" multiple>
+<select id="year_select" class="selectpicker" title="Filtrar por año">
   <option value="2019">2019</option>
-  <option value="2020">2020</option>
+  <option value="2020" selected>2020</option>
   <option value="2021">2021</option>  
 </select>
-<select id="month_select" class="selectpicker" title="Filtrar por mes" multiple>
+<select id="month_select" class="selectpicker" title="Filtrar por mes">
   <option value="1">Enero</option>
   <option value="2">Febrero</option>
   <option value="3">Marzo</option> 
@@ -57,6 +57,7 @@ $list_list= json_encode($list_product);
 
 <table id="table_product" class="display" style="width:100%">
 </table>
+<label>Total</label>
     
 
 </div>
@@ -134,7 +135,7 @@ echo var_dump($total_month); ?>
   $("#month_select").change(function(){
     //Capturamos las id de los input
     var month = $("#month_select").val();
-    alert(month);
+    //alert(month);
     var year = $("#year_select").val();
     //alert(year);
     var identifier = "month_select";
@@ -153,7 +154,7 @@ echo var_dump($total_month); ?>
 
           //response es lo primero que se retorna en el controller
           success:  function (response) { 
-            alert(response);
+            //alert(response);
           //una vez que el archivo recibe el request lo procesa y lo devuelvea
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){

@@ -54,24 +54,12 @@ class ProductController extends MasterController{
 		$result= $model->monthTotal(2019,6);
 		return $result;
 	}
-	//Integra una query requerida por cada caso (en construcción)
-	function list_for_params(){
-		$model= new Product();
-		$customesql= $model->queryDelivery($year);
-		$result= $model->read($customesql);
-	}
-
-	//Test list
-	function list_test(){
-		$model=new Product();
-		$result= $model->testQuery();
-		return $result;
-	}
-
-	//Listado de productos custom query, este es usado para el ajax, recibe los parámetros de select en un array"
+	
+	//Listado de productos custom query, este es usado para el AJAX, recibe los parámetros de select en un array"
 	function list_product_custome($product_filters){
 		$model=new Product();
 		$result= $model->custome_read($product_filters);
 		return $result;
 	}
+
 }
