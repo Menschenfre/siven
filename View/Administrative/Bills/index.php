@@ -46,12 +46,14 @@ switch ($identifier){
 	$product_control=new ProductController();
 	//Obtenemos la lista de productos desde el controlador
 	$list_product = $product_control->list_product_custome($product_filters);
+	//Obtenemos la suma del total de la lista
+	$total_product = $product_control->total_product_custome($product_filters);
 	//Seguna variable a entregar hacia el ajax
 	$a = "text";
 	//Codificamos la lista de productos a json
 	$encode_list = json_encode($list_product);
 	//Creamos un array para pasar al ajax más de una variable
-	$array_result = array("listado"=>$encode_list, "texto"=>$a);
+	$array_result = array("listado"=>$encode_list, "texto"=>$total_product);
 	//Enviamos al ajax el array transformado a json
 	echo (json_encode($array_result));
 

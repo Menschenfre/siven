@@ -8,7 +8,7 @@ $list_product = $prod_control->list_product();
 $total_product = $prod_control->total_product();
 
 $total_category_product = $prod_control->total_category_product();
-//var_dump($test);
+var_dump($total_category_product);
 
 //Invocamos la función que lista el total por mes
 $total_month = $prod_control->total_month();
@@ -57,7 +57,7 @@ $list_list= json_encode($list_product);
 
 <table id="table_product" class="display" style="width:100%">
 </table>
-<label>Total:</label>
+<label>Total mensual: $</label>
 <a id="total_ajax"></a>
     
 

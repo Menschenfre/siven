@@ -327,7 +327,32 @@ class Product extends Crud{
         //obtenemos la fila afectada
         $total=$result->fetch_row();
         return $total;
-    } 
+    }
+
+    //En construcción
+    public function custome_total_category($product_filters){
+        
+        $month= $product_filters["month"];
+        $year= $product_filters["year"];
+        
+        $sql="SELECT sum(price) FROM $this->table WHERE month(created)=$month AND year(created)=$year";
+        $result=$this->con->query($sql);
+        //Inicializamos un array
+        $list = array();
+
+        while ($row = mysqli_fetch_array($result)){
+            $count++;
+
+            $sql="SELECT products_category.name, IFNULL(SUM(products.price),0) FROM products_category 
+            INNER JOIN $this->table 
+            ON products.id_category = products_category.id 
+            WHERE products_category.id='$count'";
+
+            $total=$this->con->query($sql);
+            $total=$total->fetch_row();
+            $list[] = $total;
+        }
+        return $list;
  
 }
 
