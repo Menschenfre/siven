@@ -42,13 +42,18 @@ switch ($identifier){
 	require_once($controller_product);
 	//Obtenemos los filtros definidos en los select
 	$product_filters = $_POST['product_filters'];
-	/*$p= $product_filters["month"];
-	echo $p[0];*/
 	//Inicializamos el controlador de producto
 	$product_control=new ProductController();
+	//Obtenemos la lista de productos desde el controlador
 	$list_product = $product_control->list_product_custome($product_filters);
-
-	echo json_encode($list_product);
+	//Seguna variable a entregar hacia el ajax
+	$a = "text";
+	//Codificamos la lista de productos a json
+	$encode_list = json_encode($list_product);
+	//Creamos un array para pasar al ajax más de una variable
+	$array_result = array("listado"=>$encode_list, "texto"=>$a);
+	//Enviamos al ajax el array transformado a json
+	echo (json_encode($array_result));
 
 	break;
 	/*Respuesta default*/

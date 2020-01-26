@@ -57,7 +57,8 @@ $list_list= json_encode($list_product);
 
 <table id="table_product" class="display" style="width:100%">
 </table>
-<label>Total</label>
+<label>Total:</label>
+<a id="total_ajax"></a>
     
 
 </div>
@@ -155,6 +156,10 @@ echo var_dump($total_month); ?>
           //response es lo primero que se retorna en el controller
           success:  function (response) { 
             //alert(response);
+            //console.log(response["listado"]);
+            //json =JSON.parse(response);
+            //alert(json["listado"]);
+            //console.log(json["listado"]);
           //una vez que el archivo recibe el request lo procesa y lo devuelvea
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){
@@ -162,8 +167,13 @@ echo var_dump($total_month); ?>
                   //window.location = "/admin";
 
               }else{
-
-              var aca2 = JSON.parse(response);
+              //Se parsea la respuesta  
+              var feel = JSON.parse(response);
+              //obtenemos la variable requerida del json
+              var aca2= feel["listado"];
+              //Se parsea la variable requerida para el datatable
+              var aca2= JSON.parse(aca2);
+              //console.log(aca2);
               $('#table_product').dataTable( {
                 "destroy": true,
                 "language": {
@@ -186,6 +196,13 @@ echo var_dump($total_month); ?>
                   ]
               } );
             }     
+
+            //parseamos la respuesta
+            json =JSON.parse(response);
+            //pasamos la variable a mostrar hacia el html, en este caso el total de los productos del listado
+            $("#total_ajax").text(json["texto"]);
+
+
           }
     });    
   });
