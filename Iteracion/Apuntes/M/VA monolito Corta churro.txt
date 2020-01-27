@@ -1,0 +1,19 @@
+###############################################
+### Revert GIT ###
+###############################################
+
+git checkout rama
+git log --oneline | grep OCXXXXX
+git revert COMMIT
+:q!
+
+En caso de error por solución de merge en historial
+git revert -m 1 COMMIT
+:q!
+
+En caso de error por merge (RAMA | REVERTING)
+git status
+git add (archivos solucionados)
+git revert --continue
+
+git push

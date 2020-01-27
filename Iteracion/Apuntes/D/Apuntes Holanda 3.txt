@@ -1,0 +1,111 @@
+[[Jenkins celulas]]
+
+http://172.16.98.211:8080/job/monitoreo_sp/	    [monitoreo_sp]
+http://172.16.98.112:8080  	 		    [celula-canales-wholesale-web-mvp2]  E   [celula-canales-pComercial-web-mvp2]
+http://172.16.98.110:8080	       		    [celula-canales-wholesale-web-k8s]web   IC   plataformaComercial-k8s
+
+** servicios-integracion (IG) **
+
+
+[[Jenkins jobs utilitarios]]
+
+http://172.16.98.112:8080/job/Utilitarios/
+
+
+
+[[XLrelease]]  
+
+http://172.16.98.228:5516
+
+MS, BFF, IG (OBLIGATORIO IC)
+
+
+base = front-end (con 3 digitos)   ->siempre desplegar al ultimo
+modulos = modulos-front-end 
+
+ms ig bff ((2 digitos) solo en versionComponente del xlrelease
+
+FE = [FE_XXX = TEMPLATE ANGULAR] / [FE_BASE = FE]
+
+----------------------------------------------
+[[WEB]]: celula-canales-wholesale-web-mvp2		
+		TL			SCRUM
+
+cheveris=	Ricardo Razeto	
+aperrados=	Diego gonzalez		
+illuminatis=	Pablo Molina		victor mendez
+aliados=	Matías Henriquez	
+toqui=		jorge meza		carlos san martin
+Super8= 	Jose Candia
+
+[[Comercial]]: celula-canales-pComercial-web-mvp2		
+		
+Fenix=		Jorge PERES ruiz tagle	jairo galeano
+Suvervios=	Darlyn Delgado		rene perez         Darlyn Delgado(desarrolladora)
+
+[[Tubos]] : celula-tubos
+Tubis=          Jose Anabalón
+-----------------------------------------------
+
+
+modulos = estado en excel(publicado OK)
+
+
+
+Si se crea una rama, siempre se crea un job nuevo.
+
+**Cuando pidan un rebase, hay que preguntar a Pancho si termino la certificacion antes de desplegarlo**
+
+
+
+--------------------------------------------------------------------
+[[monitoreo sp]]
+0 descazrgar el archivo json de la celula 
+1 validar sdm cuantos sp son
+2 ir a gitlab
+3 buscar grupo devops
+4 entrar a monitoreo-sp
+5 buscar branch devops-holanda
+4 buscr archivo monitoreo.json 
+5 Editar y pegar el archivo enviado por la celula 
+6 ir a jenkins bci.cl (211)
+7  buscar monitoreo-sp ejecutar monitoreo 
+9 ejecutar build parametros  
+10 colocar el nombre de la rama devops-holanda
+11 descargar el zip que genera
+12 subir al grupo wsp evidencia para que la suba el lqa (con la oc)
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+[[idc]] Inspección de código
+1 buscar en sdm   los componente a inpeccionar
+1.1 Verificar en pim digital http://pilotopimdigital.bci.cl/PIMDigital/cl/bci/intranet/seguridad/logout.jsf
+2 buscar en el bitbuket el nombre de la bd  ($nombre-$bd) (
+canales-WholesaleFFVV)
+3 copiar  ssh del reporte  ($git@bitbucket.org:bancocreditoeinversiones/canales-wholesaleffvv.git)
+4 ir a jenkins 110 utilidades checkingqa (http://172.16.98.110:8080/job/Utilitarios/job/checkingQA/)
+5 build parametro poner nombrecelula-bd-fecha y abajo la ssh del repo y dar ejecutar 
+6 revisar que la ejecuccion termino ok 
+7  http://161.131.140.216:8080/checking/ iniciar sesion U:julio_juri  P:123123
+8 entrar a Pizarra -devops
+8.1 buscar la ejecucion hecha en jenkins y clickear
+
+7 buscar en el repo los componente solicitado e inspeccionar ( buscar los  nombres de los sp y ver si tienen errores, se aceptan 
+errores de documentacion, otros errores se envian a la celula para su corrección)
+ 
+7.1) Si hay errores mandarlos a la celula
+
+8 avisar a vivi si están bien
+------------------------------------------------------------------------
+
+
+Tradicional= IDC, Monitoreo SP, PIM digital
+Nueva arquitectura= Desplegar, prueba de carga
+
+
+http://logscertificacion.bci.cl/2019/Bitacoras/
+lectores
+
+
+wlscertlogs
+

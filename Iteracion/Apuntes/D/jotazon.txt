@@ -1,0 +1,3 @@
+{
+	"rest.secret.key":"36fcb99fc5046c688f2ad13f7a19f24b"
+}

@@ -1,0 +1,41 @@
+
+----------------XL RELEASE------------------
+[Xlrealease nuevo]:
+http://xlrelease.bci.cl
+
+[Componentes en XL] 
+
+bff, ms, fe, ig SIN INTEGRACIÓN
+-No hay módulos ángular, solo fe
+-2 scope todo
+
+-----------------JENKINS-------------------
+
+[JOBs inversiones]
+-http://172.16.98.112:8080/job/bci-releases/job/Inversiones/
+
+[Si no existe el job se crea desde los siguientes templates]
+http://172.16.98.112:8080/job/bci-releases/job/Templates/
+
+
+------------------BITBUCKET-------------------
+
+[Bitbukcet - Pull request]
+Todo se saca de develop menos los "igs que se sacan de master por un error en el pipe"
+
+-------------------------------------------------------------------------------------------
+
+--------------------------------NOTAS HHEEE 19-03-19-----------------------------------------
+-No me pueden pedir otra version de la rama release
+
+----OCs Inversiones----
+
+[81619-Inversiones]
+https://docs.google.com/spreadsheets/d/12y__vyLWfj_iToaGqAO-gLzcvn3zcz06lO8rku6PYKM/edit?ts=5c914e70#gid=0
+
+[81620-Inversiones]
+https://docs.google.com/spreadsheets/d/1_dNnnm2diHObr2HLN5O6hwBloTkzXqAe8H7SBn44bGU/edit?usp=sharing_eip&ts=5c915023
+
+
+
+

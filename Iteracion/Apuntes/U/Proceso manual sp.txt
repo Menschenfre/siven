@@ -1,0 +1,19 @@
+-> Entrar a Máquina Giotto
+(Giotto IV Inte -> usrcompi/compil14)
+(Giotto II Certi -> usrcompi/compil14)
+-> Pasar sp a carpeta máquina (sp->catalogar->Felipe)
+-> Dirigirse a la linea de comando en la máquina
+cd catalogar
+menuX
+
+1 Motor
+2 BD
+3 Felipe/*
+4 Catalogar
+5 Mostrar Resultados
+
+(Revisar si hay error, si hay error de sintaxis revisar formato UNIX en Edit-> Conversor)
+Los sp se compilaln
+No es pasarlos nomas
+FS si es pisar la versión
+Pero sp y vistas se compilan

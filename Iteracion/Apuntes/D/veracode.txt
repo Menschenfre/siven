@@ -1,0 +1,18 @@
+Veracode seguridad:  bff, fe, ms,ig,mobile, monolito(rama de equipo)
+
+Se agrega un stage de veracode al  pipeline en IC y release
+
+
+Veracode sube y analiza en la nube, nunca se debería caer por pipe,
+Se debería demorar una hora en analizar, la subida del pipe es de 5 minutos aprox, se debe validar 
+en la plataforma veracode:
+
+anlysiscenter.veracode.com/auth
+-buscar el componente, estos son distinguibles por hora.
+
+-Centrarse en very high, solo si no tiene una de esta se acepta.
+Descargar reporte, esto lo analiza el ingeniero si está malo, esto por soporte slack.
+
+-Se debe subir el reporte como evidencia en la OC
+
+-veracode no detiene el pipe por que se demora mucha en analizar ( la validacion la debe hacer manual el practitioner)

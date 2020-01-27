@@ -1,0 +1,36 @@
+Diego Gonzalez (aperrados)
+Darlyn Delgado (survivors)
+Jorge Perez (fenix)
+Pablo Salazar (Cheveris)
+Matias Henriquez (Aliados)
+Pablo Molina (Illuminatis)
+Michael Campos  (Toqui)
+Jose Candia (Super8)
+Felipe Maldonado (Tubos)
+
+
++Ricardo +Diego Gonzales+ devops canales
+
+
+IL, JUAN VIVI DEVOPS 
+
+
+
+
+
+
+Estimados,
+
+Se informa que desde el mes de julio se empezarán a correr las pruebas de carga mediante pipeline en IC y QA. Esta será una marcha blanca que durará 2 semanas desde el inicio del mes.
+
+A tener en consideración: 
+
+Para que el pipeline de microservicios pueda ejecutar correctamente las pruebas de Rendimiento en Jenkins IC, el archivo de configuración de las pruebas de Jmeter debe cumplir con las siguientes condiciones:
+
+-Debe ser almacenado dentro de la carpeta “jmeter” en la raíz del repositorio del proyecto.
+-Si dicho archivo tiene dependencia de otro archivo, por ejemplo un csv, éste debe ser almacenado en la misma carpeta “jmeter”.
+-Debe poseer el nombre del proyecto microservicio que lo ejecuta. Por ejemplo: en el caso del microservicio git@bitbucket.org:ejemploPruebas/ms-pruebaRendimiento-neg.git, el nombre del archivo debe ser “ms-pruebaRendimiento-neg.jmx” para que sea reconocido para las pruebas de Rendimiento.
+
+Si estas condiciones no se cumplen, el pipeline reportará la usencia del archivo jmx como advertencia y continuará con la ejecución del Job y los Stages restantes, si es el caso.
+
+Saludos.

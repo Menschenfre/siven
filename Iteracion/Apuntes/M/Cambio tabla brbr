@@ -1,0 +1,36 @@
+
+Pararse en la ruta con la tabla modificada y la maquina de compilación 161.131.140.178
+
+Ruta
+161.131.140.178  
+
+Pass
+web.123
+
+Nodo 1 empresas
+scp -p tokenEmpresas.parametros weblogic@161.131.232.240:/export/weblogic/oracle10.3/wlsplatform/config/certificacion/tablas
+
+
+NODO 2 empresas
+scp -p tokenEmpresas.parametros weblogic@161.131.232.241:/export/weblogic/oracle10.3/wlsplatform/config/certificacion/tablas
+
+
+
+
+
+
+scp -p log4j.properties weblogic@161.131.140.178://home/weblogic/test
+
+
+
+/home/weblogic/test
+
+
+Nodo 1 empresas
+scp -p log4j.properties weblogic@161.131.232.240:/export/weblogic/oracle10.3/wlsplatform/config/certificacion/extras/tablas
+
+
+NODO 2 empresas
+scp -p log4j.properties weblogic@161.131.232.241:/export/weblogic/oracle10.3/wlsplatform/config/certificacion/extras/tablas
+
+/export/weblogic/oracle10.3/wlsplatform/config/certificacion/extras/tablas

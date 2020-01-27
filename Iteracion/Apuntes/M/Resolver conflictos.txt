@@ -1,0 +1,33 @@
+﻿
+Proceso para resolver conflictos al mezclar rama feature contra int y cert
+
+(*) Asegurar actualización rama master, integración y certificación. 
+
+
+
+Git Pull 
+feature-OC102348-spOmniSelSolicitudPro
+
+git status
+Pisar fuentes con conflicto en los directorios
+git status ( ver fuentes en conflicto)
+git add . 
+git commit -m "Se regulariza feature-OC102348-spOmniSelSolicitudPro"
+git push
+
+Ver status pull request en Intergración
+
+
+
+Git Pull 
+git merge --no-ff origin/feature-OC88119-WSConsultaProductosFull -m "Merge rama feature-OC88119 a Certificacion"
+git status
+Pisar fuentes con conflicto en los directorios
+git status ( ver fuentes en conflicto)
+git add . 
+git commit -m "Se resuelve conflicto OC88119 a Certificacion"
+git push
+
+Ver status pull request en Certificación
+
+

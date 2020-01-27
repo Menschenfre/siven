@@ -1,0 +1,55 @@
+-> Validar VB Luis Muñoz
+-> URL: http://161.131.141.240:8010/contracts
+
+*******************************
+*** Contratos ***
+*******************************
+
+Empresa = innovus
+Usr = validacion
+Contraseña = benchmark
+
+-> Ingresar con usuario correspondiente para la creación de contratos
+-> Seleccionar opción “GESTIÓN DE CONTRATOS”
+-> Luego presionar la opción “CONTRATOS” (BCI)
+-> Si desea crear un contrato nuevo haga click en “CREAR CONTRATO” sino hacer una búsqueda del contrato con el
+nombre de este mismo
+-> Rellenar los datos con los que se entregan en el documento latinia adjunto al PIM
+-> Si la creación es correcta aparecerá el siguiente mensaje:
+"El contrato "nombre contrato" se ha creado correctamente"
+-> Luego buscar el CONTRATO CREADO y seleccionar clausula  o propiedades  de acuerdo al documento  de configuración
+
+** Propiedades
+-> Seleccionar las propiedades indicadas en el documento de configuración (">>>")
+-> Luego “EDITAR” y seleccionar la opción requerida. para finalizar presione “GUARDAR”
+
+** Clausulas
+-> Presionar “CREAR CLAUSULA”  y con lo indicado en el documento de configuración proceder
+-> La creación del PUSH y la  opción que seleccionara,  se muestra en el documento como “CANAL DE SALIDA”….
+Luego dar en crear.
+
+
+*******************************
+*** Plantillas ***
+*******************************
+
+Empresa = bci
+Usr= admin
+Contraseña = Latiniabci
+
+-> Ingresar con usuario correspondiente para la creación de plantillas
+-> Seleccionar la opción “GESTION DE PLANTILLA”
+-> En el caso de que sea una plantilla nueva presionar “NUEVA PLANTILLA”
+(se encuentra al final de las plantillas esta opción)  si no buscar para poder configurarla
+-> Completar con los datos indicados en el documento de configuración
+-> Rellenar con los datos entregados y cuando esté completo presionar aceptar
+-> Luego buscar la plantilla creada en la lista y presionar “EDITAR
+-> Completar con los datos indicados en el doc. De configuración” luego de esto seleccionar lo siguiente
+-> Bajar el HTML adjunto al doc. de configuración y copiar para después pegarlo donde dice “CONTENIDO”
+-> Presionar “ACEPTAR”
+
+** Creando Alertas
+** Reglas de alertas (Trama de datos "Trama JEN")
+** Relacion plantilla contrato
+-> Pinchar en la sección específica lo creado y luego presionar la flecha indicada luego guardar
+-> PARA CORROBORAR DAR EN LA LUPA  ASI  VISUALIZAR EL HTM EN EL BROWSER
