@@ -25,7 +25,7 @@ class Crud extends Conn{
             $sql="SELECT $this->read_parameters FROM $this->table ORDER BY created ASC";
         }else{
             //Se leen todos los valores de la tabla.
-            $sql="SELECT * FROM $this->table";
+            $sql="SELECT * FROM $this->table ORDER BY created ASC";
         }
 		
         $result=$this->con->query($sql);

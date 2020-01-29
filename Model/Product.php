@@ -247,6 +247,7 @@ class Product extends Crud{
 
 
     public function categoryTotal(){
+        //Sentencia que funciona solo como contador para recorrer el array por id
         $sql="SELECT * FROM products_category";
         $result=$this->con->query($sql);
         //Inicializamos un array
@@ -355,4 +356,12 @@ class Product extends Crud{
         return $list;
  
 }
+/* 
+QUERY FINAL PARA CONSULTA DE CATEGORIAS POR FECHA INGRESADA
+SELECT products_category.name AS 'Category', IFNULL(SUM(products.price),0) AS 'Total' FROM products_category
+INNER JOIN products
+ON products.id_category = products_category.id
+WHERE month(products.created)=1 AND year(products.created)=2020
+AND products_category.id=5
+*/
 

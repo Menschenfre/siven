@@ -215,6 +215,8 @@ $(document).ready(function(){
   var aca2= <?php echo $list_list; ?>
 
   $('#table_product').dataTable( {
+    //orden por default de la query
+    "order": [],
     "destroy": true,
     "language": {
     "search": "Buscar:",
