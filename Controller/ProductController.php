@@ -69,4 +69,11 @@ class ProductController extends MasterController{
 		return $result;
 	}
 
+	//Listado de categorias y totales custom query, este es usado para el AJAX, recive los parámetros de select en un array"
+	function total_category_custome($product_filters){
+		$model= new Product();
+		$result= $model->custome_total_category($product_filters);
+		return $result;
+	}
+
 }

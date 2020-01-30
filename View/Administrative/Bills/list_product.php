@@ -155,10 +155,13 @@ echo var_dump($total_month); ?>
 
           //response es lo primero que se retorna en el controller
           success:  function (response) { 
-            //alert(response);
+            alert(response);
             //console.log(response["listado"]);
-            //json =JSON.parse(response);
-            //alert(json["listado"]);
+            json =JSON.parse(response);
+            json2= json["total_category"];
+            json3= json2["Comida"];
+            //alert(json["total_category"]);
+            alert(json3);
             //console.log(json["listado"]);
           //una vez que el archivo recibe el request lo procesa y lo devuelvea
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
