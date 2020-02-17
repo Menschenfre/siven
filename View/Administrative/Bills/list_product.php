@@ -159,10 +159,10 @@ echo var_dump($total_month); ?>
             //console.log(response["listado"]);
             json =JSON.parse(response);
             json2= json["total_category"];
-            json3= json2["Comida"];
+            json3= json2[0];
             //alert(json["total_category"]);
             alert(json3);
-            //console.log(json["listado"]);
+            console.log(json3[1]);
           //una vez que el archivo recibe el request lo procesa y lo devuelvea
         //Si el controlador retorna un positivo se devuelve mensaje exitoso 
               if(response==1){
