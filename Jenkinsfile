@@ -5,11 +5,22 @@ pipeline {
     stage ('Main') {
       steps {
         script {
-          def metodo = "${params.METODO}"
+          def metodo = "Sin métodos"
           println metodo
           
-          def pipe = fileLoader.fromGit('helpers/'+metodo, 'git@bitbucket.org:bancocreditoeinversiones/pipelines-jenkins.git', 'master', null, '')
-          pipe.call()
+          def pipe = "Sin pipe"
+          println pipe
+        }
+      }
+    }
+    stage ('Test') {
+      steps {
+        script {
+          def estado = "Pruebas exitosas"
+          println estado
+          
+          def fin = "Finalizado"
+          println fin
         }
       }
     }
