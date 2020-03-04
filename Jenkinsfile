@@ -24,5 +24,15 @@ pipeline {
         }
       }
     }
+      stage ('Valida repo') {
+      steps {
+        script {
+          def pipe = fileLoader.fromGit('helpers/'+metodo, 'https://github.com/Menschenfre/siven.git', 'master', null,'')
+          pipe.call()
+        }
+      }
+    }
   }
 }
+
+
