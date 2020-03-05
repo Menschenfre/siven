@@ -4,6 +4,8 @@
 sudo apt install vim
 -Instalar CURL
 sudo apt install curl
+-Instalar BREW
+sudo apt install linuxbrew-wrapper
 -Dar permisos root a tu usuario por defecto
 sudo vim /etc/sudoers
 Linea a agregar: $usuario    ALL=(ALL=ALL) ALL
@@ -27,7 +29,7 @@ sudo cp minikube /usr/local/bin && rm minikube
 sudo apt-get update \
 && sudo apt-get install -qy docker.io
 
--Iniciar minikube **Importante dejar el driver en none solo para máquinas virtuales**
+-Iniciar minikube **Importante dejar el driver en none, esto solo para máquinas virtuales**
 sudo minikube start --vm-driver=none
 
 **Las configutaciones de kubectl y minikube se alojan en /home/$user, para usarlas con el usuario no root se configura
@@ -55,23 +57,107 @@ minikube service hello-minikube --url
 
 
 
+
+-----Jenkins en un pod (Utilidad?)-----
+
+Guia principal:
+https://sybrenbolandit.nl/2018/11/23/jenkins-on-minikube/
+
+-Descargar configuracion repo minikube
+https://github.com/sybrenbolandit/minikube-jenkins
+
+-Esquema básico del yaml para la creación de un nuevo namespace:
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sybrenbolandit
+
+-Comando a ejecutar tomando el yaml del repo descrito anteriormente para la creación del namespace:
+kubectl create -f jenkins-namespace.yaml  
+
+-Crear el volumen persistente para el namespace, esquema básico del yml:
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jenkins-pv
+  namespace: sybrenbolandit
+spec:
+  storageClassName: jenkins-pv
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /data/jenkins-volume/
+
+-Ejecutamos el siguiente comando, tomando como referencia el yaml anterior del repo:
+kubectl create -f jenkins-volume.yaml    
+
+-Instalamos Helm proceso binario:
+https://helm.sh/docs/intro/install/
+
+-Dentro del repo nos posicionamos en la carpeta helm, iniciamos helm:
+
+helm init
+
+-Agregamos el repo de helm:
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+
+-Actualizamos el repo de helm:
+helm repo update
+
+
+-Siempre dentro de la carpeta helm, configuraremos jenkins con los valores entregados por el yaml, ejecutamos (Se demora en levantar, debe descargar la imagen):
+
+helm install jenkins -f jenkins-values.yaml stable/jenkins --namespace sybrenbolandit --version 0.22.0
+
+-Obtenemos la clave secreta para iniciar jenkins:
+printf $(kubectl get secret --namespace sybrenbolandit jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
+
+
+-Ingresamos al puerto establecido en el yaml "32000":
+http://localhost:32000/login
+
+Usuario: admin
+Clave obtenida anteriormente:
+4P2VbuRjkC
+
+
+
+
 ----Comandos básicos administración kubectl *Tomando como ejemplo el nombre del pod "hello-minikube-797f975945-rf662", este se aloja en el namespace por default *------
 
 *Obtiene el log del pod
 kubectl logs hello-minikube-797f975945-rf662
 
-
 *Obtiene los nodos disponibles, en este caso solo hay uno 
 kubectl get nodes
 
-*Obtiene los pods disponibles dentro del nodo
+*Obtiene los pods disponibles dentro del nodo y namespace "default"
 kubectl get pods
+
+*Obtiene los pods dentro de un determinado namespace
+kubectl get pods --namespace sybrenbolandit
+
+*Obtiene el log del pod dentro de un determinado namespace
+kubectl logs jenkins-56f55488f4-hwkgf --namespace sybrenbolandit
+
+
+*Obtiene los pods de todos los namespace
+kubectl get pods --all-namespaces
+
+*Obtiene los namespace existentes en el nodo
+kubectl get ns
 
 *Borra el servicio
 kubectl delete services hello-minikube
 
 *Borra el deployment
 kubectl delete deployment hello-minikube
+
 
 
 --Comandos básicos minikube--
