@@ -55,7 +55,7 @@ minikube service hello-minikube --url
 
 
 
-----Comandos básicos administración kubectl *Tomando como ejemplo el nombre del pod "hello-minikube-797f975945-rf662" *------
+----Comandos básicos administración kubectl *Tomando como ejemplo el nombre del pod "hello-minikube-797f975945-rf662", este se aloja en el namespace por default *------
 
 *Obtiene el log del pod
 kubectl logs hello-minikube-797f975945-rf662
@@ -64,7 +64,7 @@ kubectl logs hello-minikube-797f975945-rf662
 *Obtiene los nodos disponibles, en este caso solo hay uno 
 kubectl get nodes
 
-*Obtiene los pods dispobles dentro del nodo
+*Obtiene los pods disponibles dentro del nodo
 kubectl get pods
 
 *Borra el servicio
@@ -81,5 +81,8 @@ minikube stop
 
 *Borra el cluster local
 minikube delete
+
+*Activa el dashboard, interfaz visual de minikube
+sudo minikube dashboard
 
 
