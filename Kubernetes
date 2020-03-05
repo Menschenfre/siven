@@ -36,7 +36,7 @@ lo siguiente:
 sudo mv /root/.kube $HOME/.kube
 sudo chown -R $USER $HOME/.kube
 sudo chgrp -R $USER $HOME/.kube
-sudo mv /root/.minikube
+sudo mv /root/.minikube $HOME/.minikube
 sudo chown -R $USER $HOME/.minikube
 sudo chgrp -R $USER $HOME/.minikube
 
@@ -46,6 +46,13 @@ sudo chgrp -R $USER $HOME/.minikube
 
 kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
 
+-Exponemos el deployment para tener acceso en el puerto 8080, esperar que el pod quede running
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+
+-Obtenemos la url del servicio expuesto anteriormente(si no muestra nada volver a ejecutar los comandos de permisos anteriores).
+
+minikube service hello-minikube --url
+
 
 
 ----Comandos básicos administración kubectl *Tomando como ejemplo el nombre del pod "hello-minikube-797f975945-rf662" *------
@@ -53,9 +60,26 @@ kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
 *Obtiene el log del pod
 kubectl logs hello-minikube-797f975945-rf662
 
-kubectl logs hello-minikube-797f975945-rf662
+
+*Obtiene los nodos disponibles, en este caso solo hay uno 
+kubectl get nodes
+
+*Obtiene los pods dispobles dentro del nodo
+kubectl get pods
+
+*Borra el servicio
+kubectl delete services hello-minikube
+
+*Borra el deployment
+kubectl delete deployment hello-minikube
 
 
+--Comandos básicos minikube--
 
-master-virtualbox
+*Detiene el cluster local
+minikube stop
+
+*Borra el cluster local
+minikube delete
+
 
