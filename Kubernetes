@@ -1,0 +1,61 @@
+-Instalar vmware
+-Instalar ubuntu
+-Instalar VIM (editor de texto)
+sudo apt install vim
+-Instalar CURL
+sudo apt install curl
+-Dar permisos root a tu usuario por defecto
+sudo vim /etc/sudoers
+Linea a agregar: $usuario    ALL=(ALL=ALL) ALL
+**Refrescar consola o cerrar**
+
+-Instalar kubernetes usando los paquetes nativos de linux, ejecutar las siguientes lineas:
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+-Instalar minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  && chmod +x minikube
+
+-Disponibilizar comando minikube:
+sudo cp minikube /usr/local/bin && rm minikube
+
+-Instalar Docker:
+sudo apt-get update \
+&& sudo apt-get install -qy docker.io
+
+-Iniciar minikube **Importante dejar el driver en none solo para máquinas virtuales**
+sudo minikube start --vm-driver=none
+
+**Las configutaciones de kubectl y minikube se alojan en /home/$user, para usarlas con el usuario no root se configura
+lo siguiente:
+
+sudo mv /root/.kube $HOME/.kube
+sudo chown -R $USER $HOME/.kube
+sudo chgrp -R $USER $HOME/.kube
+sudo mv /root/.minikube
+sudo chown -R $USER $HOME/.minikube
+sudo chgrp -R $USER $HOME/.minikube
+
+-----------------------------------------------------
+
+-Creando deploy de prueba y levantando pod **HTTP Server de prueba que se expondrá en el puerto 8080**
+
+kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.10
+
+
+
+----Comandos básicos administración kubectl *Tomando como ejemplo el nombre del pod "hello-minikube-797f975945-rf662" *------
+
+*Obtiene el log del pod
+kubectl logs hello-minikube-797f975945-rf662
+
+kubectl logs hello-minikube-797f975945-rf662
+
+
+
+master-virtualbox
+
