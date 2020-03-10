@@ -27,7 +27,7 @@ pipeline {
       stage ('Valida métodos jenkins') {
       steps {
         script {
-          def pipe = fileLoader.fromGit(/Funciones, 'https://mhsa@bitbucket.org/mhsa/jenkins.git', 'master', null,'')
+          def pipe = fileLoader.fromGit('/Funciones', 'https://mhsa@bitbucket.org/mhsa/jenkins.git', 'master', null,'')
           pipe.call()
         }
       }
