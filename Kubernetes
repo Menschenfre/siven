@@ -125,7 +125,16 @@ Usuario: admin
 Clave obtenida anteriormente:
 4P2VbuRjkC
 
+----Instalar Jenkins----
 
+Instalación java
+https://www.digitalocean.com/community/tutorials/como-instalar-java-con-apt-en-ubuntu-18-04-es
+
+JRE:
+sudo apt install default-jre
+
+JDK:
+sudo apt install default-jdk
 
 
 ----Comandos básicos administración kubectl *Tomando como ejemplo el nombre del pod "hello-minikube-797f975945-rf662", este se aloja en el namespace por default *------
@@ -170,5 +179,13 @@ minikube delete
 
 *Activa el dashboard, interfaz visual de minikube
 sudo minikube dashboard
+
+
+
+
+
+
+
+kubeadm join 192.168.100.6:6443 --token 06tl4c.oqn35jzecidg0r0m --discovery-token-ca-cert-hash sha256:c40f5fa0aba6ba311efcdb0e8cb637ae0eb8ce27b7a03d47be6d966142f2204c
 
 
