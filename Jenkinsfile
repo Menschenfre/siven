@@ -24,10 +24,10 @@ pipeline {
         }
       }
     }
-      stage ('Valida repo') {
+      stage ('Valida métodos jenkins') {
       steps {
         script {
-          def pipe = fileLoader.fromGit('helpers/'+metodo, 'https://github.com/Menschenfre/siven.git', 'master', null,'')
+          def pipe = fileLoader.fromGit(/, 'https://mhsa@bitbucket.org/mhsa/jenkins.git', 'master', null,'')
           pipe.call()
         }
       }
