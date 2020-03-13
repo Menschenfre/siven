@@ -167,6 +167,9 @@ kubectl delete services hello-minikube
 *Borra el deployment
 kubectl delete deployment hello-minikube
 
+*Lista todos los services
+kubectl get svc
+
 
 
 --Comandos básicos minikube--
@@ -188,6 +191,11 @@ https://medium.com/fusionqa/how-to-run-jenkins-using-the-root-user-in-linux-cent
 /etc/init.d/jenkins restart
 
 
+------Comandos Docker------
+*Listar imagenes
+sudo docker images
+
+
 
 
 
@@ -204,6 +212,12 @@ https://spring.io/guides/gs/gradle/#initial
 
 ------Deploy ms, seguir ------
 https://www.oreilly.com/content/how-to-manage-docker-containers-in-kubernetes-with-java/
+
+Error push docker a dockerhub:
+https://stackoverflow.com/questions/41984399/denied-requested-access-to-the-resource-is-denied-docker
+
+
+2740b50fb236
 
 
 
