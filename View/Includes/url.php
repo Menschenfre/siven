@@ -1,6 +1,6 @@
 <?php 
 // Base URL 
-$Base_url="/var/www/html";
+$Base_url="";
 $Assets_origen= "/Assets";
 $View_origen= "/View";
 $Model_origen= "/Model";
