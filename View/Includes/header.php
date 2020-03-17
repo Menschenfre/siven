@@ -1,6 +1,6 @@
 <?php session_start(); ?> 
 <?php //Include URL PATH ORIGEN
-include '/home2/sivenati/public_html/View/Includes/url.php' 
+include '/var/www/html/View/Includes/url.php' 
 ?>
 
 <!-- Main head -->
