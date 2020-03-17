@@ -1,5 +1,5 @@
 <?php //Obtenemos las url estáticas
-include '/home2/sivenati/public_html/View/Includes/url.php'; ?>
+include '/var/www/html/View/Includes/url.php'; ?>
 <?php //Llamamos el controlador de producto
 require_once($controller_note); ?>
 <?php $note_control=new NoteController(); 
