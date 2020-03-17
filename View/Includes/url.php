@@ -1,7 +1,7 @@
 <?php 
 // Base URL 
 $Base_url="/var/www/html";
-$Assets_origen= "{$Base_url}/Assets";
+$Assets_origen= "/Assets";
 $View_origen= "/View";
 $Model_origen= "/Model";
 $Controller_origen= "/Controller";
