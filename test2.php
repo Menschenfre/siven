@@ -1,4 +1,5 @@
 <?php 
+echo $_SERVER['DOCUMENT_ROOT'];
 echo "works";
 $table = "music";
 $parameters = "id_user,name,category,url";
