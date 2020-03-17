@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-<?php $page = "Admin";?><?php include '/View/Includes/header.php' ?>
+<?php $page = "Admin";?><?php include '/var/www/html/View/Includes/header.php' ?>
 
 
 
