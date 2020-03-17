@@ -10,8 +10,8 @@ class Conn{
 	//Atributos con sus valores estatáticos.
 	protected $con;
 	private $dbhost="localhost";
-	private $dbuser="sivenati_sickven";
-	private $dbpass="1342993nonoaccessbbbrbrbbb29";
+	private $dbuser="root";
+	private $dbpass="pac666man";
 	private $dbname="sivenati_siven";
 	private $dbcharset ="utf8";
 
