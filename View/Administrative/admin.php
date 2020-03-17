@@ -3,12 +3,7 @@ ob_start();
 ?>
 <?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
 
-<?php 
-if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
-  header('Location: /login');
-  exit();
-}
-?>
+
 
 
   
