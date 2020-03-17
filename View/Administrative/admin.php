@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-<?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
+<?php $page = "Admin";?><?php include '/View/Includes/header.php' ?>
 
 
 
