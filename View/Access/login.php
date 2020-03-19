@@ -1,6 +1,6 @@
 <?php $page = "Login";
 $MAINPATH= $_SERVER['DOCUMENT_ROOT'];?>
-<?php include '$MAINPATH/View/Includes/header.php'; 
+<?php include '' . $MAINPATH . '/View/Includes/header.php'; 
 ?>
   
 <body>
