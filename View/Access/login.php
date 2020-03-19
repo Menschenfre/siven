@@ -1,6 +1,7 @@
-<?php $page = "Login";?>
-<?php include '/home2/sivenati/public_html/View/Includes/header.php'; 
-echo $_SERVER['DOCUMENT_ROOT'];?>
+<?php $page = "Login";
+$MAINPATH= $_SERVER['DOCUMENT_ROOT'];?>
+<?php include '{$MAINPATH}/View/Includes/header.php'; 
+?>
   
 <body>
   <div class="container-scroller">
