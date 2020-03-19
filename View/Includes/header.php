@@ -1,6 +1,7 @@
 <?php session_start(); ?> 
 <?php //Include URL PATH ORIGEN
-include '/var/www/html/View/Includes/url.php' 
+$MAINPATH= $_SERVER['DOCUMENT_ROOT'];
+include '' . $MAINPATH . '/View/Includes/url.php';
 ?>
 
 <!-- Main head -->
