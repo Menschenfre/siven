@@ -3,10 +3,12 @@
 Versión: 1.0
 Fecha última modificación: 17-09-2019
 Comentario: Clase NoteController.php, controlador que contiene las diferentes funciones y validaciones para el módulo de notas.
+Último comentario: Se agrega main path.
 -----------------------------------------------------------------------------------------------------------*/
 
 //Invocamos todas las url útiles
-include '/home2/sivenati/public_html/View/Includes/url.php'; 
+$MAINPATH= $_SERVER['DOCUMENT_ROOT'];
+include '' . $MAINPATH . '/View/Includes/url.php'; 
 //Se carga el controlador padre
 require_once($controller_master);
 //Se carga el modelo correspondiente, este es utilizado por el controlador padre

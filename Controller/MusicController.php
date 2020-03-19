@@ -2,11 +2,13 @@
 /*Controlador de musica---------------------------------------------------------------------------------------
 Versión: 1.0
 Fecha última modificación: 21-09-2019
-Comentario: Clase MusicController.php, controlador que contiene las diferentes funciones y validaciones para el módulo de musica.
+Resumen: Clase MusicController.php, controlador que contiene las diferentes funciones y validaciones para el módulo de musica.
+Último comentario: Se agrega main path.
 -----------------------------------------------------------------------------------------------------------*/
 
 //Invocamos todas las url útiles
-include '/home2/sivenati/public_html/View/Includes/url.php'; 
+$MAINPATH= $_SERVER['DOCUMENT_ROOT'];
+include '' . $MAINPATH . '/View/Includes/url.php'; 
 //Se carga el controlador padre
 require_once($controller_master);
 //Se carga el modelo correspondiente, este es utilizado por el controlador padre

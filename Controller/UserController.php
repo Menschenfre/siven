@@ -1,5 +1,6 @@
 <?php
-include '/home2/sivenati/public_html/View/Includes/url.php'; 
+$MAINPATH= $_SERVER['DOCUMENT_ROOT'];
+include '' . $MAINPATH . '/View/Includes/url.php';  
 
 require_once($model_user);
 

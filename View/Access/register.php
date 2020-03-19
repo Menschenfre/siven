@@ -1,5 +1,6 @@
 <?php $page = "Register";?>
-<?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
+<?php $MAINPATH= $_SERVER['DOCUMENT_ROOT'];
+include '' . $MAINPATH . '/View/Includes/url.php'; ?>
 
 <body>
 <div class="container-scroller">

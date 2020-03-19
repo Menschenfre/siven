@@ -3,10 +3,12 @@
 Versión: 1.0
 Fecha última modificación: 17-09-2019
 Comentario: Clase ProductController.php, controlador que invoca las diversas funciones del modelo de producto.
+Último comentario: Se agrega main path.
 -----------------------------------------------------------------------------------------------------------*/
 
 //Invocación de urls útiles
-include '/home2/sivenati/public_html/View/Includes/url.php'; 
+$MAINPATH= $_SERVER['DOCUMENT_ROOT'];
+include '' . $MAINPATH . '/View/Includes/url.php';  
 
 //Se carga el controlador padre, que contiene las funciones útiles para todos los controladores
 require_once($controller_master);

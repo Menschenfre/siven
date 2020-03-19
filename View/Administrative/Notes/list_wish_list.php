@@ -1,7 +1,8 @@
 <?php
 ob_start();
 ?>
-<?php $page = "Admin";?><?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
+<?php $page = "Admin";?><?php $MAINPATH= $_SERVER['DOCUMENT_ROOT'];
+include '' . $MAINPATH . '/View/Includes/url.php'; ?>
 
 <?php 
 if($_SESSION["user"] == NULL || $_SESSION["user"]!= 'siven'){
