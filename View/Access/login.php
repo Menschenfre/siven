@@ -1,6 +1,7 @@
 <?php $page = "Login";?>
-<?php include '/home2/sivenati/public_html/View/Includes/header.php' ?>
- 
+<?php include '/home2/sivenati/public_html/View/Includes/header.php' 
+echo $_SERVER['DOCUMENT_ROOT'];?>
+  
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
