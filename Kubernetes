@@ -170,6 +170,9 @@ kubectl delete deployment hello-minikube
 *Lista todos los services
 kubectl get svc
 
+*reiniciar pod
+kubectl -n ic delete pod/shopfront-hpn2c
+
 
 
 --Comandos básicos minikube--
@@ -195,6 +198,9 @@ https://medium.com/fusionqa/how-to-run-jenkins-using-the-root-user-in-linux-cent
 *Listar imagenes
 sudo docker images
 
+*Borrar imagenes
+sudo docker rmi sieven/ms-shop-neg:develop
+
 
 
 
@@ -215,6 +221,72 @@ https://www.oreilly.com/content/how-to-manage-docker-containers-in-kubernetes-wi
 
 Error push docker a dockerhub:
 https://stackoverflow.com/questions/41984399/denied-requested-access-to-the-resource-is-denied-docker
+
+
+------GIT ------
+*Remover ultimo commit
+git reset --hard HEAD^
+
+
+
+---Registry con docker, kubernetes(minikube)
+https://hasura.io/blog/sharing-a-local-registry-for-minikube-37c7240d0615/
+
+https://docs.docker.com/registry/deploying/
+
+https://blog.irontec.com/montando-un-docker-registry-como-dios-manda/
+
+https://docs.docker.com/registry/
+
+
+sudo docker tag sieven/ms-shop-neg:develop localhost:5000/ms-shop-neg-develop
+
+sudo docker push localhost:5000/ms-shop-neg-develop
+
+http://localhost:5000/v2/_catalog
+*Tags registry
+http://localhost:5000/v2/ms-shop-neg/tags/list
+
+*Detener registry
+docker container stop registry
+
+*Levantar registry con ruta especifica
+sudo docker run -d -p 5000:5000 --restart=always --name registry -v /mnt/registry:/var/lib/registry registry:2
+
+---REGISTRY NOTES----
+curl -v --silent -H "Accept: application/vnd.docker.distribution.manifest.v2+json" -X GET http://localhost:5000/v2/ms-shop-neg/manifests/master 2>&1 | grep Docker-Content-Digest | awk '{print ($3)}'
+
+
+
+
+curl -v --silent -H "Accept: application/vnd.docker.distribution.manifest.v2+json" -X DELETE http://localhost:5000/v2/ms-shop-neg/manifests/sha256:5b1669470b3c5f78c1fe8c10f6b2145e678e1081fd11dde2e146e15a0ac5a29d
+
+
+
+sudo docker run -d -p 5000:5000 --restart=always --name registry -v /mnt/registry:/var/lib/registry registry:2
+
+
+
+
+
+---WORDPRESS ON KUBERNETES---
+https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/
+
+
+
+---PHP----
+
+sudo docker build -t sieven/laravel-kubernetes-demo:develop .
+sudo docker run -ti   -p 9090:80   -e APP_KEY=base64:cUPmwHx4LXa4Z25HhzFiWCf7TlQmSqnt98pnuiHmzgY=  sieven/php-normal:master
+
+
+https://www.cloudbooklet.com/kubernetes-basic-php-application-with-nginx-on-google-cloud/
+https://learnk8s.io/blog/kubernetes-deploy-laravel-the-easy-way
+https://github.com/mochizukikotaro/k8s-php-apache-mysql
+http://blog.adnansiddiqi.me/getting-started-with-docker/
+http://blog.adnansiddiqi.me/create-your-first-php-mysql-application-in-docker/
+https://medium.com/faun/deploy-your-first-scaleable-php-mysql-web-application-in-kubernetes-33ed7ab66595
+
 
 
 2740b50fb236
