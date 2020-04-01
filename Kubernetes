@@ -313,7 +313,15 @@ https://www.serverlab.ca/category/tutorials/containers/
 --PHP my admin on kubernetes--
 https://www.serverlab.ca/tutorials/containers/kubernetes/deploy-phpmyadmin-to-kubernetes-to-manage-mysql-pods/
 
+--volumen persistente
+https://www.serverlab.ca/tutorials/containers/kubernetes/how-to-run-wordpress-and-mysql-5-7-on-kubernetes/
+
 
 kubeadm join 192.168.100.6:6443 --token 06tl4c.oqn35jzecidg0r0m --discovery-token-ca-cert-hash sha256:c40f5fa0aba6ba311efcdb0e8cb637ae0eb8ce27b7a03d47be6d966142f2204c
 
+--------MINIKUBE--------
+*Ver imagenes docker dentro de la maquina
+minikube ssh
 
+*Info
+https://stackoverflow.com/questions/52983049/why-does-docker-ps-not-show-my-minikubes-docker-containers
