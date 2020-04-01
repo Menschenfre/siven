@@ -304,7 +304,14 @@ https://www.alibabacloud.com/blog/routing-applications-in-kubernetes-with-nginx-
 2740b50fb236
 
 
+---MYSQL ON KUBERNETES---
 
+https://www.serverlab.ca/tutorials/containers/kubernetes/how-to-deploy-mysql-server-5-7-to-kubernetes/
+**Altos tutoriales de todo**
+https://www.serverlab.ca/category/tutorials/containers/
+
+--PHP my admin on kubernetes--
+https://www.serverlab.ca/tutorials/containers/kubernetes/deploy-phpmyadmin-to-kubernetes-to-manage-mysql-pods/
 
 
 kubeadm join 192.168.100.6:6443 --token 06tl4c.oqn35jzecidg0r0m --discovery-token-ca-cert-hash sha256:c40f5fa0aba6ba311efcdb0e8cb637ae0eb8ce27b7a03d47be6d966142f2204c
