@@ -1,0 +1,103 @@
+/*Campo login*/
+.siven-login {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	box-shadow: none;
+	border: 4px solid rgba(0, 0, 0, 0.1);
+	height: 44px;
+	font-size: 18px;
+	font-weight: 300;
+	width: 100%;
+	border-radius: 5px !important;
+	
+}
+
+
+.siven-login-content {
+  background-color: #EAEAEA;
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.siven-btn {
+    background: #777777a8;
+    color: #fff;
+    font-size: 14px !important;
+    text-transform: none !important;
+    border-radius: 5px !important;
+}
+
+/*Menú background imagen*/
+#fh5co-aside {
+	background-image: url("../../images/evilryu-c2.png") !important;
+    background-size: cover !important;
+    background-color: rgba(210, 210, 210, 0.9) !important;
+    
+
+}
+
+
+/*Enlaces a color */
+
+.color-rojito {
+  color: #b50606 !important;  
+}
+
+
+/*Imagen Inicio*/
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*menos bordes de la pantalla de admin */
+
+.page-body-wrapper:not(.auth-page) {
+  padding-top: 35px !important; 
+}
+
+/*Menos bordes del avatar menú lateral*/ 
+.sidebar .nav .nav-item.nav-profile .nav-link {
+    padding: 36px 35px;
+} 
+
+/* Menos margen en el cuerpo de los formularios */
+.card .card-body {
+    padding: 1rem 1rem !important; 
+} 
+/* Menos margen en el cuerpo del cuerpo de los formularios*/
+.content-wrapper {
+    padding: 1.5rem 0.5rem !important;
+}
+
+/*Cambio en top menú, color*/
+.navbar.default-layout {
+    background: linear-gradient(120deg, #111, #1a3f98) !important;
+}
+
+
+/*Desaparece la caja del top menú izquierda*/
+.navbar.default-layout .navbar-brand-wrapper {
+    height: 0px !important;
+}
+
+
+/*Ancho top menú*/
+.navbar.default-layout .navbar-menu-wrapper {
+    height: 43px !important;
+}
+
+/*Posición pop up top menú*/
+.nav .nav-item.dropdown .navbar-dropdown, .navbar-nav .nav-item.dropdown .navbar-dropdown {
+    top: calc(43px - 6px) !important;  
+}
+
+/*Posición pop up mobil menú lateral */
+.sidebar-offcanvas {
+    top: 43px !important;
+}

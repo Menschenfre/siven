@@ -1,0 +1,28 @@
+{
+	"usuarios": [{
+			"id": "1",
+			"user": "sivenatic",
+			"pass": "vacio",
+			"activo": true
+		},
+		{
+			"id": "2",
+			"user": "free",
+			"pass": "free",
+			"activo": false
+		},
+		{
+			"id": "3",
+			"user": "exjalar",
+			"pass": "exjalar",
+			"activo": false
+		},
+		{
+			"id": "7",
+			"user": "Mugen",
+			"pass": "release",
+			"activo": false
+		}
+
+	]
+}
