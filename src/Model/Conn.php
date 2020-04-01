@@ -9,7 +9,7 @@ por la clase "Crud.php".
 class Conn{
 	//Atributos con sus valores estatáticos.
 	protected $con;
-	private $dbhost="192.168.39.67:0";
+	private $dbhost="10.108.214.85:80";
 	private $dbuser="root";
 	private $dbpass="my-super-secret-password";
 	private $dbname="sivenati_siven";
