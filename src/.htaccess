@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteRule ^story$ View/story.php [L]
+RewriteRule ^admin$ View/Administrative/admin.php [L]
+RewriteRule ^login$ View/Access/login.php [L]
+RewriteRule ^wish$ View/Administrative/Notes/list_wish_list.php [L]
