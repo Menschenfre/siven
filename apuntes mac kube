@@ -1,0 +1,21 @@
+Levantar la dashboard para exponer ip:
+kubectl proxy --address='0.0.0.0' --disable-filter=true
+
+
+matar proceso si es que:
+sudo lsof -i :8082
+kill -9 
+
+
+/var/www/html/
+
+docker run -v /home/master/Escritorio/wiki/LocalSettings.php:/var/www/html/ -d 81deeb8e31f2
+
+
+
+local machine:
+
+ssh master@192.168.1.54
+
+
+ssh-keygen -R 192.168.39.67

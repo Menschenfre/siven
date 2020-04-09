@@ -238,6 +238,9 @@ https://stackoverflow.com/questions/41984399/denied-requested-access-to-the-reso
 *Remover ultimo commit
 git reset --hard HEAD^
 
+*Pushear force
+git push origin HEAD --force
+
 
 
 ---Registry con docker, kubernetes(minikube)
@@ -325,3 +328,68 @@ minikube ssh
 
 *Info
 https://stackoverflow.com/questions/52983049/why-does-docker-ps-not-show-my-minikubes-docker-containers
+
+--------PORT-FORWADING------
+
+https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
+*
+kubectl port-forward svc/phpmyadmin-service-5-7 8081:80 --namespace ic &
+
+kubectl port-forward --address 0.0.0.0 --pod-running-timeout=5m0s svc/myblog-wordpress-service 8082:80 --namespace ic & 
+kubectl port-forward --address 0.0.0.0 --pod-running-timeout=5m0s svc/phpmyadmin-service-5-7 8081:80 --namespace ic & 
+
+kubectl proxy --address='0.0.0.0' --disable-filter=true &s
+
+
+
+-----BLOG CON VARIOS TEMAS-----
+https://www.returngis.net/2019/04/acceder-a-tus-aplicaciones-en-kubernetes-a-traves-de-ingress/
+
+
+----Check ports-----
+
+https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
+
+
+
+---- COmmands ----
+
+docker scp -r 75121a07a0d2:/var/www/html/images filipebrandao@filipecebr.dyndns.org:/Users/filipebrandao/Desktop
+
+
+
+
+ssh -i ${PATH_SSH_MINIKUBE} docker@${IP_MINIKUBE}
+
+
+traspaso de archivos desde el contenedor
+kubectl cp ic/wiki-deployment-master-66b6c8b646-5z2p8:/var/www/html/images /Users/filipebrandao/Desktop
+
+obtener nombre del pod
+kubectl get pods -l app=wiki-master -o custom-columns=:metadata.name --namespace ic
+
+
+
+
+
+
+
+-------------- SOlución vim sudo
+Open two ssh sessions to the target server.
+In the first session, get the PID of bash by running:
+
+echo $$
+
+In the second session, start the authentication agent with:
+
+pkttyagent --process (pid from step 2)
+
+Back in the first session, run:
+
+pkexec visudo
+
+In the second session, you will get the password prompt. visudo will start in the first session.
+
+
+-----Ejecutar comando dentro de contenedor-----
+docker exec -it 7ef7990e1103 bash -c "echo 'max_allowed_packet = 512M' >> /etc/mysql/mysql.conf.d/mysqld.cnf"

@@ -1,0 +1,11 @@
+-Se automatiza limpiado de contenedores
+-Se reestructura lógica groovy para pipelines
+-Se agrega validación por tipo de proyecto
+-Se agrega image pull policy and rolling update
+-Se automatiza un 100% build y deploy de la wiki DevOps
+-Se agrega info a la DevOps WIKI
+-Se inicia curso de Java 8
+
+
+
+-Pendiente crear backup mysql db
