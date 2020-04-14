@@ -1,4 +1,0 @@
- redis:
-   server: rediscachecrt001.redis.cache.windows.net
--  port: 6380
-+  port: 6379

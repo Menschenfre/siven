@@ -1,2 +1,0 @@
-cuenta azure (instalar cliente azure, pedir permisos de admin para la instalación)
-ibm cliente instalar(pedir usuario por sdm) (crear cuenta y vincularla) (https://idaas.iam.ibm.com/idaas/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser&Target=https%3A%2F%2Fwww.ibm.com%2Fibm%2Fclientreference%2Fes%2Fes%2F)

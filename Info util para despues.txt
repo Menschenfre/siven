@@ -1,1 +1,0 @@
-https://quilljs.com/docs/quickstart/ (Info para texto enriquecido)

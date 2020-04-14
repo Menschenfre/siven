@@ -1,1 +1,0 @@
-http://172.16.98.112:8080/job/bci-releases/job/celula-canales-wholesale-web-mvp2/job/servicios-microservicios/job/S34_ms-movimientoscuenta-neg_2-0-0/6/console
