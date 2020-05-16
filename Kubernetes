@@ -35,7 +35,13 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 -Disponibilizar comando minikube:
 sudo cp minikube /usr/local/bin && rm minikube
 
--Iniciar minikube **Importante dejar el driver en none, esto solo para máquinas virtuales (Si no, usar --vm-driver=docker**
+-Instalar driver 
+sudo apt install qemu-kvm libvirt-bin
+-Agrgar usuario al driver
+sudo adduser $USER libvirt
+
+
+-Iniciar minikube **Importante dejar el driver en none, esto solo para máquinas virtuales (Si no, usar --vm-driver=kvm2**
 minikube start --vm-driver=none
 -----------------------------------------------------
 
@@ -318,6 +324,7 @@ https://www.serverlab.ca/tutorials/containers/kubernetes/deploy-phpmyadmin-to-ku
 
 --volumen persistente
 https://www.serverlab.ca/tutorials/containers/kubernetes/how-to-run-wordpress-and-mysql-5-7-on-kubernetes/
+echo "super-secret-mysql-password" | base64
 
 
 kubeadm join 192.168.100.6:6443 --token 06tl4c.oqn35jzecidg0r0m --discovery-token-ca-cert-hash sha256:c40f5fa0aba6ba311efcdb0e8cb637ae0eb8ce27b7a03d47be6d966142f2204c
@@ -338,7 +345,7 @@ kubectl port-forward svc/phpmyadmin-service-5-7 8081:80 --namespace ic &
 kubectl port-forward --address 0.0.0.0 --pod-running-timeout=5m0s svc/myblog-wordpress-service 8082:80 --namespace ic & 
 kubectl port-forward --address 0.0.0.0 --pod-running-timeout=5m0s svc/phpmyadmin-service-5-7 8081:80 --namespace ic & 
 
-kubectl proxy --address='0.0.0.0' --disable-filter=true &s
+kubectl proxy --address='0.0.0.0' --disable-filter=true &
 
 
 
@@ -368,6 +375,9 @@ kubectl cp ic/wiki-deployment-master-66b6c8b646-5z2p8:/var/www/html/images /User
 obtener nombre del pod
 kubectl get pods -l app=wiki-master -o custom-columns=:metadata.name --namespace ic
 
+matar proceso si es que:
+sudo lsof -i :8082
+kill -9 
 
 
 
@@ -393,3 +403,7 @@ In the second session, you will get the password prompt. visudo will start in th
 
 -----Ejecutar comando dentro de contenedor-----
 docker exec -it 7ef7990e1103 bash -c "echo 'max_allowed_packet = 512M' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
+
+
+--PIPE RANCHER
+https://hub.docker.com/r/rancher/rancher
