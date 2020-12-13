@@ -1,0 +1,100 @@
+
+Nginx info:
+https://www.youtube.com/watch?v=_LQv96MdtCk&ab_channel=PeladoNerd
+
+Soap:
+https://www.youtube.com/watch?v=HkNfoC3cq5k&ab_channel=HTMLRules
+
+SSH TO JENKINS:
+https://linuxtechlab.com/how-to-easily-add-ssh-credentials-on-jenkins-server/#:~:text=Jenkins%20can%20make%20ssh%20connection,between%20Jenkins%20server%20%26%20remote%20server.
+
+---------------------------Gitlab registry--------------------------------
+-Instalar Docker:
+sudo apt-get update \
+&& sudo apt-get install -qy docker.io
+
+-Login registry:
+sudo docker login registry.gitlab.com
+
+-Agregando repositorio de gitlab:
+curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+
+-Instalando runner por defecto
+export GITLAB_RUNNER_DISABLE_SKEL=true; sudo -E apt-get install gitlab-runner
+
+-Registrando runner
+sudo gitlab-runner register
+info: https://docs.gitlab.com/runner/register/
+      https://gitlab.com/siven1/option/-/settings/ci_cd
+----------------------------------------------------------------------------
+
+-Descargar imagen del registry de gitlab:
+ docker pull registry.gitlab.com/siven1/option:master-b116c25d     
+ 
+
+-------------------------Montar Jenkins Linux------------------------------
+
+-Actualizar packetes:
+sudo apt update
+
+-Comprobar versión de java, si no existe seguir con los pasos:
+java -version
+
+-Instalar default JRE
+sudo apt install default-jre
+ 
+-Instalar default JDK
+sudo apt install default-jdk
+
+Agregamos la llave de jenkins:
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+
+Agregamos la siguiente linea a /etc/apt/sources.list:
+deb https://pkg.jenkins.io/debian binary/
+
+Ejecutamos:
+sudo apt-get update
+sudo apt-get install jenkins
+ 
+Una vez instalado, agregar puerto 8080 al cortafuegos de GCP 
+
+----Configurando jenkins-----
+http://34.69.180.88:8080/
+user: option
+Pass: opgcp3540
+ 
+---------Med360-------------
+Conectarse al cluster
+gcloud container clusters get-credentials med360-app-cluster --zone us-central1-a --project med360-207318
+
+
+----Conectando ssh jenkins a VM Erudi desarrollo----
+Está en un servidor en GTD no administrado por Option
+
+Ip privada: 10.180.134.130:22(ingreso ssh privado)
+Ip pública: 179.50.16.137:4322(ingreso ssh público)
+Usuario: root
+Contraseña: C4p453Pm15p4*
+ssh root@179.50.16.137 -p 4322
+
+-Ruta erudi ssh
+/root/.ssh
+
+-----Conectando ssh jenkins a VM Erudi producción----
+ssh master@35.202.225.184
+
+--Paso 1 
+Primero se debe crear la llave ssh dentro del servidor de jenkins, esto se debe realizar con el usuario que va a usar jenkins por defecto.
+En este caso:
+-su jenkins (cambiar pass por defecto con sudo passwd jenkins)
+-ssh-keygen (por defecto se guarda en /var/lib/jenkins/.ssh/id_rsa)(VA sin palabra clave)
+-Copiar contenido de .ssh/id_rsa.pub
+
+--Paso 2
+Segundo se debe ingresar al servidor remoto al cual se quiere conectar con jenkins y ubicar el archivo authorized_keys.
+Dentro de ese archivo se debe pegar el contenido del archivo id_rsa.pub generado.
+
+-Se debe otorgar permisos dentro del servidor remoto para(importante):
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+ 
