@@ -97,4 +97,37 @@ Dentro de ese archivo se debe pegar el contenido del archivo id_rsa.pub generado
 -Se debe otorgar permisos dentro del servidor remoto para(importante):
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
- 
+
+--Paso 3 configurar jenkins
+
+Importante tener instalado el plugin "Publish over SSH"
+
+Campos a completar jenkins SSH Key:
+Passphrase: vacío
+PAth to key : ej: /var/lib/jenkins/.ssh/id_rsa
+key: todo el contenido del archivo id_rsa
+
+Campos a completar SSH Server:
+
+Name: ej: master@35.202.225.184
+Hostname: 35.202.225.184
+Username: master
+
+Fuente: 
+https://stackoverflow.com/questions/56537762/jenkins-publish-over-ssh-shows-error-jenkins-plugins-publish-over-bappublishere
+------------------------------------------------------------
+
+
+
+----Conectar gitlab a jenkins----
+
+--Creating a personal access token
+Access Token: wnx5wy3_5kwy4hZP_Nev (actual en gitlab)
+fuente: https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
+
+--SSH Key jenkins-gitlab (Documentar pasos)
+https://gist.github.com/Plasmoxy/0069f6eac31e44209691bc79a5c725ae
+
+
+--Error primera vez por ssh-- (Solucion ejecutar el comando una vez directo a la maquina antes)
+https://stackoverflow.com/questions/15174194/jenkins-host-key-verification-failed
